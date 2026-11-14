@@ -1,10 +1,21 @@
-# Formula of Everything — V6
+# Formula of Everything — V7
 
-A local-first personal engineering laboratory with 15 functional discipline studios.
+A local-first personal engineering laboratory and cross-disciplinary research workspace, built as a self-contained static website.
 
-## V6: 15 interactive department studios
+## V7 architecture
 
-Each approved discipline now has a focused calculator, explicit model, input validation, saved local calculation history, and visible assumptions/limitations:
+V7 develops the all-first foundation across all 15 approved disciplines. It adds a unified research-record layer for research questions, project proposals, design notes, experiments, calculations, prototypes and findings. Each record identifies a lead discipline and can reference related disciplines, preserving objectives, methods, observations/results, assumptions and limitations.
+
+### Public software + private and shareable research
+
+- The website source is public and forkable in this repository.
+- Personal records are stored locally in the current browser using localStorage by default; they are not automatically uploaded or synchronized.
+- New records default to **Private**. Users can deliberately mark selected records **Public**.
+- The Research Exchange exports only records explicitly marked Public into a portable JSON package and can import compatible public packages.
+- Import adds records locally; it does not publish them to a server.
+- There is no account system, hosted database, automatic cloud sync, paid API or automatic publication in this version. A future hosted collaboration service would require explicit consent, authentication, moderation, access controls, security and backup policies.
+
+## The 15 discipline studios
 
 1. Advanced Mathematics & Calculus — quadratic equation solver.
 2. Physics & Quantum Mechanics — ideal projectile motion.
@@ -22,14 +33,16 @@ Each approved discipline now has a focused calculator, explicit model, input val
 14. Psychology & Cognitive Science — reaction-time descriptive statistics.
 15. Everyday Practical Formulas — recipe quantity scaling.
 
-## Existing laboratory retained
+## Laboratory capabilities retained
 
-The website continues to include the project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, equation solver, dimensional analysis and unit intelligence, dark mode, and JSON backup/restore. V6 backups include department calculation history and accept V2–V6 backup schemas.
+Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, department calculators, saved local histories, dark mode, and JSON backup/restore. V7 backups include research records and accept earlier V2–V6 backup schemas.
 
-## Use and privacy
+## Publish with GitHub Pages
 
-The website is self-contained at the repository root and requires no build step, server, API key, or paid service. Enable GitHub Pages from branch main and folder /(root) to publish it. Personal laboratory records remain in the browser's localStorage; they are not uploaded to GitHub, but are not encrypted. Export regular backups.
+The application is a self-contained `index.html` and requires no build step, server, API key or paid service. In repository Settings → Pages, select deploy from branch `main` and folder `/(root)`.
 
-## Scientific limitations
+## Privacy, scientific quality and safety
 
-The department studios are functional educational starting tools, not comprehensive professional suites or certified engineering software. Each model has assumptions and limitations. Dimensional or arithmetic consistency does not prove physical validity. Medical, structural, electrical, chemical, environmental and other safety-critical decisions require applicable standards, independent verification, testing and qualified professional review.
+Browser storage is not encrypted and may be lost if browser data is cleared or the device/profile is lost. Export backups regularly. Public research packages may contain sensitive information if authors include it; inspect them before sharing.
+
+The department studios are educational starting tools, not comprehensive professional suites or certified engineering software. Dimensional consistency and arithmetic correctness do not establish that a model is physically appropriate. State assumptions and validity limits. Medical, structural, electrical, chemical, environmental and other safety-critical decisions require applicable standards, independent verification, testing and qualified professional review.
