@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A dedicated Formula of Everything department workspace with an interactive educational calculator, plain-language explanation and research links.">
+<title>Department | Formula of Everything</title>
+<link rel="stylesheet" href="department.css">
+<script defer src="department-data.js"></script><script defer src="department.js"></script>
+</head>
+<body data-department="robotics">
+<header class="top"><div class="topin"><a class="brand" href="../index.html">ƒ FORMULA OF EVERYTHING</a><nav class="nav"><a href="../index.html">Laboratory home</a><a href="../index.html#guided-journeys">Build journeys</a><a href="../index.html#library">Formula library</a></nav></div></header>
+<main class="wrap">
+<div class="crumb"><a href="../index.html">Laboratory</a> / <span id="departmentBreadcrumb">Department</span></div>
+<section class="hero"><div class="eyebrow">DEDICATED DISCIPLINE WORKSPACE</div><h1 id="pageTitle">Department</h1><p id="pageDesc">A focused workspace for learning, modeling and practical research.</p><div class="chips"><span class="chip">INTERACTIVE TOOL</span><span class="chip">PLAIN-LANGUAGE LEARNING</span><span class="chip">LOCAL CALCULATION HISTORY</span></div></section>
+<div class="grid">
+<div>
+<section class="card"><div class="eyebrow">01 / UNDERSTAND</div><h2>What this department helps you do</h2><p id="pageWhat"></p><h3>Explain it simply</h3><p id="pageELI5" class="muted"></p></section>
+<section class="card"><div class="eyebrow">02 / CALCULATE</div><h2 id="pageTool">Department tool</h2><div class="equation" id="pageEquation"></div><p class="muted">Enter values with the units shown. The calculator uses the model and assumptions described below.</p><form id="inputFields" class="fieldgrid"></form><div class="actions"><button class="btn primary" type="button" id="calculate">Calculate result</button><button class="btn" type="button" id="saveCalculation" disabled>Save result</button><button class="btn" type="button" id="clearInputs">Reset inputs</button></div><div id="calcResult" class="result" aria-live="polite">Your result will appear here.</div></section>
+<section class="card"><div class="eyebrow">03 / YOUR WORK</div><h2>Saved calculations</h2><p class="muted">Saved in this browser on this device. These records are included in the laboratory's general JSON backup.</p><div id="historyList" class="history"></div></section>
+</div>
+<aside>
+<section class="card"><div class="eyebrow">MODEL BOUNDARIES</div><h2>Assumptions and limitations</h2><p id="pageNote" class="note"></p><p class="muted">A correct calculation does not prove that the model is suitable for a real design. Check units, assumptions, measurement quality and validity range.</p></section>
+<section class="card"><div class="eyebrow">CONTINUE YOUR WORK</div><h2>Connected laboratory areas</h2><div class="actions"><a class="btn primary" href="../index.html#library">Explore formulas</a><a class="btn" href="../index.html#guided-journeys">Build journeys</a><a class="btn" href="../index.html#research-exchange">Research workspace</a></div></section>
+<section class="card"><div class="eyebrow">ALL DISCIPLINES</div><h2>Department directory</h2><div id="deptDirectory" class="linkcards"></div></section>
+<section class="card"><div class="actions"><a class="btn" id="prevDept" href="#">Previous department</a><a class="btn" id="nextDept" href="#">Next department</a></div></section>
+</aside>
+</div>
+<footer class="footer">Formula of Everything · Local-first educational laboratory · Browser data is not encrypted · Independently verify critical work.</footer>
+</main>
+</body></html>
