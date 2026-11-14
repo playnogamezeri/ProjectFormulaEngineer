@@ -59,7 +59,7 @@ Records default to Private and are stored in this browser. Users can deliberatel
 
 ## Laboratory capabilities
 
-Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V7 backups include research records and accept earlier V2–V6 backup schemas. Guided journey progress is stored separately in browser storage and is not currently included in the general JSON backup.
+Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V8 backups include research records and guided journey progress, and accept earlier V2–V7 backup schemas. V8 backups include guided journey progress and accept earlier V2–V7 backup schemas.
 
 ## GitHub Pages
 
