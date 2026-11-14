@@ -1,40 +1,29 @@
-# Formula of Everything
+# Formula of Everything — V5
 
-A public, local-first personal engineering laboratory.
+A local-first personal engineering laboratory for learning, calculating, recording experiments and developing inventions.
 
-## V4 — Equation Solving Engine
+## V5: Dimensional Analysis & Unit Intelligence
+- Unit converter expanded across length, area, volume, mass, time, speed, acceleration, force, energy, power, pressure, density, voltage, current, resistance, frequency and absolute temperature.
+- Explicit SI scale factors for supported units; absolute temperature conversion includes offsets.
+- SI base-dimension signatures for seven SI base dimensions (length, mass, time, electric current, thermodynamic temperature, amount of substance and luminous intensity).
+- Dimensional consistency audit for all 12 curated equation models carried forward from V4.
+- Equation audit displays left/right dimension signatures and the dimensions assigned to each variable.
+- V5 JSON backup schema retains V2/V3/V4 compatibility and includes all existing laboratory records.
 
-The root `index.html` is a self-contained, GitHub Pages-ready V4 web entry point. It includes a curated equation solver with 12 models and 38 explicit rearrangements:
+## Existing features retained
+- 15 knowledge disciplines, formula library, supported calculators and practical project guides.
+- Personal project register, research notebook, invention idea inbox, calculation bench and experiment log.
+- Curated equation solving engine with explicit rearrangements, unit-aware inputs and saved solution history.
+- Browser-local storage, JSON backup/restore, dark mode and responsive layout.
 
-- Average speed and acceleration
-- Newton's second law and weight
-- Kinetic and gravitational potential energy
-- Average power
-- Ohm's law
-- Density and average pressure
-- Sensible heat transfer
-- Frequency and period
+## Run locally or publish with GitHub Pages
+Open `index.html` in a modern browser. No build step, package installation, API key or server is required. To publish, place `index.html`, `styles.css`, `app.js` and this README in the repository root and configure GitHub Pages to deploy from the `main` branch and `/(root)`.
 
-Choose the equation, select the unknown, enter the known values, and view the rearranged relationship and calculation steps. This lightweight public page runs in the visitor's browser and does not send or persist entered values.
-
-## Publish as a GitHub Pages website
-
-1. Open the repository's **Settings**.
-2. Select **Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select branch **main** and folder **/(root)**, then save.
-5. Wait for GitHub Pages to publish the site. The repository's Pages panel will show the published address.
-
-The website entry point is `index.html`; it includes its CSS and JavaScript, so no build process is required.
-
-## Earlier source package
-
-The repository retains the V3 archive, `formula_of_everything_v3.zip`. The more complete V4 development package is available as a separate downloadable source ZIP from the project conversation; this root Pages entry point is a compact, self-contained V4 equation-solving edition.
+## Data and privacy
+Projects, notes, ideas, calculations, experiments and equation history are stored in the current browser profile using localStorage. This prototype does not send these records to a server. Browser storage is not encrypted and is accessible to someone with access to the same browser profile. Browser cleanup, profile reset or device loss can erase records. Export regular JSON backups and store them securely. Public source code does not make each user's browser-local lab records public.
 
 ## Scientific and engineering limits
+The equation solver is curated, not a general-purpose symbolic algebra system. The dimensional checker validates the dimensions encoded for the listed models; it does not prove physical correctness, derivation, model suitability, input accuracy or operating-range validity. Unit conversions do not establish measurement traceability. Critical electrical, structural, pressure, chemical, medical and life-safety designs require applicable standards, independent verification, testing and qualified professional review.
 
-This is a curated solver, not a general symbolic algebra system or certified engineering tool. Dimensional consistency cannot prove that a model is appropriate. Review assumptions, units, signs, significant figures and validity ranges. Critical designs require applicable standards, independent verification, testing and qualified professional review.
-
-## Privacy
-
-This page performs calculations locally in the visitor's browser. It does not collect or upload entered values.
+## Scope
+This is an evolving personal engineering laboratory, not a complete scientific database or certified engineering tool. Coverage across all 15 disciplines remains a development roadmap.
