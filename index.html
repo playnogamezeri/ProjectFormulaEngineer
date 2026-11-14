@@ -625,15 +625,15 @@ refreshDimensionUnits();renderDimensionCatalog();
 // V5 backup format retains compatibility with V2, V3 and V4.
 const exportBackupButton=$("#exportBackup");
 exportBackupButton.addEventListener("click",()=>{
- const backup={application:"Formula of Everything",schemaVersion:7,exportedAt:new Date().toISOString(),lab:loadLab(),ideas:loadIdeas(),theme:localStorage.getItem("foe-theme")||"light",calculations:readRecords(BENCH_KEY),experiments:readRecords(EXPERIMENT_KEY),equationSolutions:eqHistory(),departmentHistory:JSON.parse(localStorage.getItem("foe-department-history-v6")||"[]"),researchRecords:JSON.parse(localStorage.getItem("foe-v7-research-records")||"[]")};
+ const backup={application:"Formula of Everything",schemaVersion:8,exportedAt:new Date().toISOString(),lab:loadLab(),ideas:loadIdeas(),theme:localStorage.getItem("foe-theme")||"light",calculations:readRecords(BENCH_KEY),experiments:readRecords(EXPERIMENT_KEY),equationSolutions:eqHistory(),departmentHistory:JSON.parse(localStorage.getItem("foe-department-history-v6")||"[]"),researchRecords:JSON.parse(localStorage.getItem("foe-v7-research-records")||"[]"),journeyProgress:JSON.parse(localStorage.getItem("foe-v8-journey-progress")||"{}")};
  const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
- a.href=url;a.download=`formula-of-everything-v7-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
+ a.href=url;a.download=`formula-of-everything-v8-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
 });
 $("#importBackup").addEventListener("change",async e=>{
  const file=e.target.files[0];if(!file)return;
  try{
   const d=JSON.parse(await file.text());
-  if(d.application!=="Formula of Everything"||![2,3,4,5,6,7].includes(d.schemaVersion)||!d.lab||!Array.isArray(d.lab.projects)||!Array.isArray(d.lab.notes)||!Array.isArray(d.ideas))throw Error("Unsupported backup file.");
+  if(d.application!=="Formula of Everything"||![2,3,4,5,6,7,8].includes(d.schemaVersion)||!d.lab||!Array.isArray(d.lab.projects)||!Array.isArray(d.lab.notes)||!Array.isArray(d.ideas))throw Error("Unsupported backup file.");
   if(!confirm("Replace this browser's lab records with the selected backup? Export your current work first if needed."))return;
   localStorage.setItem(LAB_KEY,JSON.stringify(d.lab));saveIdeas(d.ideas);
   localStorage.setItem(BENCH_KEY,JSON.stringify(Array.isArray(d.calculations)?d.calculations:[]));
@@ -641,6 +641,7 @@ $("#importBackup").addEventListener("change",async e=>{
   localStorage.setItem(EQUATION_HISTORY_KEY,JSON.stringify(Array.isArray(d.equationSolutions)?d.equationSolutions:[]));
   localStorage.setItem("foe-department-history-v6",JSON.stringify(Array.isArray(d.departmentHistory)?d.departmentHistory:[]));
   localStorage.setItem("foe-v7-research-records",JSON.stringify(Array.isArray(d.researchRecords)?d.researchRecords:[]));
+   localStorage.setItem("foe-v8-journey-progress",JSON.stringify(d.journeyProgress&&typeof d.journeyProgress==="object"&&!Array.isArray(d.journeyProgress)?d.journeyProgress:{}));
   if(window.FormulaOfEverythingV7)window.FormulaOfEverythingV7.refresh();
   if(d.theme==="dark"||d.theme==="light"){localStorage.setItem("foe-theme",d.theme);document.body.classList.toggle("dark",d.theme==="dark");}
   renderIdeas();renderLab();renderBenchHistory();renderExperiments();renderEquationHistory();alert("Backup imported successfully.");
