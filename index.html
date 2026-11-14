@@ -1,40 +1,588 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Formula of Everything — a local-first engineering equation laboratory.">
-<meta name="theme-color" content="#101827"><title>Formula of Everything · V4</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<meta name="description" content="A local-first personal engineering laboratory for equations, research, calculations, experiments and invention planning.">
+<title>Formula of Everything — Personal Engineering Laboratory</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1220;--panel:#121e30;--line:#2b3a50;--ink:#edf4ff;--muted:#9eb0c7;--accent:#7dd3fc;--good:#86efac}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% 0,#172d47,var(--bg) 55%);color:var(--ink);font:16px/1.55 system-ui,sans-serif}.wrap{max-width:1050px;margin:auto;padding:32px 18px 60px}header{padding:28px 0 20px}small,.muted{color:var(--muted)}.eyebrow{color:var(--accent);font-size:12px;letter-spacing:.15em;font-weight:700}h1{font-size:clamp(2.2rem,7vw,4rem);line-height:1.05;margin:10px 0}h1 span{color:var(--accent)}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:20px}.card{background:color-mix(in srgb,var(--panel) 92%,transparent);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 50px #0003}.equation{font:600 clamp(1.3rem,4vw,2rem) ui-monospace,monospace;text-align:center;padding:18px;background:#091321;border:1px solid var(--line);border-radius:12px;margin:16px 0}label{display:block;font-size:13px;font-weight:650;margin:12px 0 6px}select,input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:#091321;color:var(--ink);font:inherit}button{padding:12px 16px;border:0;border-radius:10px;background:var(--accent);color:#082032;font-weight:750;cursor:pointer;margin:12px 8px 0 0}button.secondary{background:#263a52;color:var(--ink)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 12px}.result{margin-top:16px;padding:16px;border-radius:12px;background:#0a1a27;border:1px solid #28506a;font:650 1.35rem ui-monospace,monospace;overflow-wrap:anywhere}.result.error{border-color:#b45353;color:#fecaca}.steps{color:var(--muted);font-size:14px}.steps li{margin:6px 0}.pill{display:inline-block;border:1px solid var(--line);padding:4px 9px;border-radius:30px;color:var(--muted);font-size:12px;margin:3px}footer{margin-top:20px;color:var(--muted);font-size:13px}@media(max-width:760px){.grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}}
-</style></head>
-<body><div class="wrap">
-<header><div class="eyebrow">FORMULA OF EVERYTHING · VERSION 4</div><h1>Understand the world.<br><span>Build what you imagine.</span></h1><p class="muted">A local-first mathematical and engineering equation bench. Choose a relationship, select the unknown, and work through the solution.</p><span class="pill">12 equation models</span><span class="pill">38 explicit rearrangements</span><span class="pill">No account or server required</span></header>
-<div class="grid">
-<section class="card"><div class="eyebrow">EQUATION WORKBENCH</div><label for="model">Equation model</label><select id="model"></select><div class="equation" id="formula"></div><label for="target">Solve for</label><select id="target"></select><div id="fields" class="fields"></div><button id="solve">Solve equation</button><button class="secondary" id="reset">Reset values</button><div id="result" class="result" aria-live="polite">Your result will appear here.</div><div id="steps" class="steps"></div></section>
-<aside class="card"><div class="eyebrow">MODEL NOTES</div><h2 id="name">Choose a model</h2><p id="description" class="muted">Each model has an explicit rearrangement for its supported unknowns.</p><h3>Scientific limits</h3><p class="muted">This is a curated solver, not a general symbolic algebra system. Dimensional consistency does not prove that a physical model is suitable. Check assumptions, signs, units, significant figures and boundary conditions.</p><h3>Privacy</h3><p class="muted">This page performs calculations in your browser. It does not send entered values to a server or save them between visits.</p></aside></div>
-<footer>Formula of Everything · V4 public web entry point · Engineering-critical results require independent verification and applicable standards.</footer>
-</div>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#f5f7fb;--surface:#fff;--ink:#152033;--muted:#68758a;--line:#e2e8f0;--accent:#2563eb;--accent2:#12a6a0;--soft:#eaf1ff;--shadow:0 12px 35px #16233a0d}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.55}.topbar{height:72px;position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,22px)}.brand{display:flex;align-items:center;gap:10px;font:600 13px 'Space Grotesk';letter-spacing:.07em;color:var(--ink);text-decoration:none}.brand b{font-weight:700}.brand-mark{width:32px;height:32px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font:24px Georgia}.topbar nav{display:flex;gap:26px}.topbar nav a{font-size:13px;color:var(--muted);text-decoration:none}.topbar nav a:hover{color:var(--accent)}button,input,select,textarea{font:inherit}.theme-btn{border:1px solid var(--line);background:var(--surface);border-radius:9px;width:38px;height:38px;cursor:pointer;color:var(--ink)}main{max-width:1220px;margin:auto;padding:0 28px}.hero{padding:88px 0 52px;max-width:900px}.eyebrow{font:500 10px 'DM Mono';letter-spacing:.14em;color:var(--accent);text-transform:uppercase}.hero h1{font:600 clamp(42px,7vw,76px)/1.04 'Space Grotesk';letter-spacing:-.055em;margin:20px 0}.hero h1 span{color:var(--accent)}.hero>p{font-size:18px;color:var(--muted);max-width:680px}.hero-actions{display:flex;gap:12px;margin:28px 0 42px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;padding:12px 18px;border-radius:9px;text-decoration:none;font-weight:600;font-size:13px;border:1px solid transparent;cursor:pointer}.primary{background:var(--accent);color:white}.primary:hover{background:#174fc5}.secondary{background:var(--surface);border-color:var(--line);color:var(--ink)}.hero-stats{display:flex;gap:45px}.hero-stats div{display:grid}.hero-stats strong{font:600 25px 'Space Grotesk'}.hero-stats span{font-size:12px;color:var(--muted)}.notice{border:1px solid #cbdcff;background:#edf3ff;padding:15px 18px;border-radius:10px;font-size:13px;color:#344767;margin:12px 0 26px}.section{padding:66px 0}.tinted{background:linear-gradient(120deg,#edf2fa,#f7f9fc);box-shadow:0 0 0 100vmax #edf2fa;clip-path:inset(0 -100vmax)}.section-heading{display:flex;justify-content:space-between;align-items:start;margin-bottom:26px}.section-heading h2{font:600 36px 'Space Grotesk';letter-spacing:-.04em;margin:8px 0}.section-heading p{margin:0;color:var(--muted)}.section-number{font:500 12px 'DM Mono';color:#a1aec0}.toolbar{display:grid;grid-template-columns:1fr 190px 190px;gap:10px;margin-bottom:18px}.searchbox{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);padding:0 13px;border-radius:9px}.searchbox span{font-size:24px;color:var(--muted)}.searchbox input{border:0;outline:0;width:100%;padding:13px 0;background:transparent}.toolbar select,.tool-card input,.tool-card select,.planner input,.planner textarea{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:11px;color:var(--ink);width:100%}.library-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:18px;align-items:start}.formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.formula-card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:17px;text-align:left;cursor:pointer;min-height:142px;transition:.18s;box-shadow:var(--shadow);color:var(--ink)}.formula-card:hover,.formula-card.active{border-color:var(--accent);transform:translateY(-2px)}.card-top{display:flex;justify-content:space-between;gap:8px}.tag{font:10px 'DM Mono';text-transform:uppercase;color:var(--accent);background:var(--soft);padding:4px 7px;border-radius:5px}.formula-card h3{font:600 15px 'Space Grotesk';margin:13px 0 5px}.equation{font:500 17px 'DM Mono';color:var(--accent);margin:8px 0}.formula-card p{font-size:12px;color:var(--muted);margin:0}.detail-panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;position:sticky;top:90px;box-shadow:var(--shadow);min-height:310px}.empty-state{text-align:center;padding:42px 10px;color:var(--muted)}.empty-state span{font:42px Georgia;color:var(--accent)}.empty-state h3{color:var(--ink)}.detail-panel h3{font:600 21px 'Space Grotesk';margin:8px 0}.detail-panel .equation{font-size:22px;padding:12px;background:var(--soft);border-radius:8px}.detail-panel p{font-size:13px;color:var(--muted)}.detail-panel h4{font-size:12px;margin:18px 0 7px}.var-list{display:grid;gap:6px}.var-row{display:flex;justify-content:space-between;gap:10px;font-size:12px;border-bottom:1px solid var(--line);padding:5px 0}.var-row code{color:var(--accent);font-weight:600}.calc-form{display:grid;gap:9px;margin-top:12px}.calc-field{display:grid;grid-template-columns:1fr 110px;gap:8px;align-items:center;font-size:12px;color:var(--muted)}.calc-field input{width:100%;padding:9px;border:1px solid var(--line);border-radius:7px}.result-box{margin-top:12px;background:#e9f8f4;border:1px solid #c3e9df;padding:12px;border-radius:8px}.result-box strong{display:block;font:600 23px 'Space Grotesk';color:#087d68}.result-box small{color:#39786d}.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.project-card,.tool-card,.learn-card,.planner,.reference-note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}.project-card h3,.tool-card h3,.learn-card h3{font:600 17px 'Space Grotesk';margin:9px 0}.project-card p,.learn-card p{font-size:13px;color:var(--muted)}.project-card details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}.project-card summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--accent)}.project-card li{font-size:12px;color:var(--muted);margin:7px 0}.project-formula{font:13px 'DM Mono';background:var(--soft);padding:9px;border-radius:7px}.planner{margin-top:18px;display:grid;grid-template-columns:1fr 1.2fr;gap:24px}.planner h3{font:600 22px 'Space Grotesk';margin:8px 0}.planner p{font-size:13px;color:var(--muted)}.planner form{display:grid;gap:10px}.planner label,.tool-card label{font-size:12px;font-weight:600;display:grid;gap:5px}.saved-ideas{grid-column:1/-1;border-top:1px solid var(--line);padding-top:12px}.saved-ideas h4{margin:0 0 10px}.idea-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.idea-item{border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12px}.idea-item button{float:right;border:0;background:none;color:#c44;cursor:pointer}.converter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tool-card{display:grid;gap:11px}.tool-card output{display:block;background:var(--soft);color:var(--accent);padding:12px;border-radius:8px;font:600 17px 'DM Mono';overflow-wrap:anywhere}.learning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.learn-card>span{font:500 11px 'DM Mono';color:var(--accent)}.learn-card h3{margin:8px 0}.reference-note{margin-top:14px}.reference-note p{font-size:13px;color:var(--muted)}footer{padding:36px max(5vw,22px);border-top:1px solid var(--line);background:var(--surface);text-align:center}footer .brand{justify-content:center}footer p,footer small{color:var(--muted);font-size:12px}.no-results{grid-column:1/-1;padding:30px;text-align:center;color:var(--muted);background:var(--surface);border-radius:10px}
+body.dark{--bg:#0e1522;--surface:#151f30;--ink:#e8eef8;--muted:#9baac0;--line:#29374b;--soft:#1d3150;--shadow:0 12px 35px #0002}.dark .topbar{background:#111b2beF}.dark .notice{background:#182944;border-color:#29466d;color:#cbd9ef}.dark .tinted{background:linear-gradient(120deg,#121d2d,#172235);box-shadow:0 0 0 100vmax #121d2d}.dark .result-box{background:#12352f;border-color:#245e53}.dark .result-box strong{color:#66d6ba}.dark footer{background:var(--surface)}
+@media(max-width:900px){.library-layout{grid-template-columns:1fr}.detail-panel{position:static}.converter-grid{grid-template-columns:repeat(2,1fr)}.topbar nav{gap:13px}}@media(max-width:620px){main{padding:0 17px}.topbar{padding:0 16px;height:62px}.topbar nav{display:none}.hero{padding:60px 0 38px}.hero>p{font-size:15px}.hero-stats{gap:20px}.toolbar{grid-template-columns:1fr 1fr}.searchbox{grid-column:1/-1}.formula-grid,.project-grid,.learning-grid,.converter-grid{grid-template-columns:1fr}.planner{grid-template-columns:1fr}.idea-list{grid-template-columns:1fr}.section{padding:48px 0}.section-heading h2{font-size:30px}}
+
+/* Version 2 — private laboratory workspace */
+.lab-toolbar{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.lab-toolbar h3{font:600 18px 'Space Grotesk';margin:9px 0 4px}.lab-toolbar p,.muted-copy{font-size:12px;color:var(--muted);margin:0}
+.backup-actions{display:flex;gap:8px;flex-wrap:wrap}.file-button{position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.dashboard-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.dash-stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:15px}.dash-stat strong{display:block;font:600 25px 'Space Grotesk'}.dash-stat span{font-size:11px;color:var(--muted)}
+.lab-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.lab-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;min-width:0}
+.lab-card h3{font:600 20px 'Space Grotesk';margin:8px 0 16px}.lab-form{display:grid;gap:10px}.lab-form label{display:grid;gap:5px;font-size:12px;font-weight:600}.lab-form input,.lab-form textarea,.lab-form select,.record-actions select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.record-list{display:grid;gap:8px;margin-top:16px}.record-item{border:1px solid var(--line);border-radius:9px;padding:12px;min-width:0}.record-head{display:flex;justify-content:space-between;align-items:start;gap:10px}.record-head b{font-size:13px}.record-item small{display:block;color:var(--muted);font-size:10px;margin:5px 0}.record-item p{font-size:12px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.record-actions{display:flex;align-items:center;gap:10px;margin-top:8px}.record-actions select{max-width:180px;padding:6px;font-size:11px}.text-action{border:0;background:none;color:#c14b4b;font-size:11px;cursor:pointer}.note-preview{max-height:100px;overflow:hidden}
+.discipline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.discipline-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}.discipline-index{font:11px 'DM Mono';color:var(--accent)}.discipline-card h3{font:600 14px 'Space Grotesk';margin:8px 0}.discipline-card p{font-size:11px;color:var(--muted);margin:0}
+@media(max-width:850px){.lab-grid{grid-template-columns:1fr}.discipline-grid{grid-template-columns:repeat(2,1fr)}.lab-toolbar{align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.dashboard-stats{grid-template-columns:repeat(2,1fr)}.discipline-grid{grid-template-columns:1fr}.backup-actions{width:100%}.backup-actions>*{flex:1}.lab-card{padding:15px}}
+
+/* V3 engineering bench and experiment log */
+.bench-layout,.experiment-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:start}
+.bench-calculator{display:grid;gap:12px}
+.bench-calculator label,.bench-fields label{display:grid;gap:6px;font-size:12px;font-weight:600}
+.bench-calculator select,.bench-fields input,.experiment-layout input,.experiment-layout textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.bench-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.bench-result{display:block;border:1px solid var(--line);border-radius:10px;padding:15px;background:var(--bg);font:600 20px 'Space Grotesk';overflow-wrap:anywhere}
+.bench-result small{display:block;font:11px inherit;color:var(--muted);margin-top:6px}
+.bench-result.error{border-color:#c14b4b;color:#c14b4b}
+.bench-history-item{border:1px solid var(--line);border-radius:9px;padding:11px}
+.bench-history-item b{font-size:12px}.bench-history-item p{font-size:12px;margin:6px 0;color:var(--muted)}
+.experiment-layout .lab-form{display:grid;gap:10px}
+.experiment-layout .lab-form label{display:grid;gap:5px;font-size:12px;font-weight:600}
+.experiment-layout .tool-card{min-width:0}
+@media(max-width:760px){.bench-layout,.experiment-layout{grid-template-columns:1fr}}
+@media(max-width:520px){.bench-fields{grid-template-columns:1fr}}
+
+/* V4 equation solver */
+.equation-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+.equation-workbench{display:grid;gap:12px}
+.equation-workbench>label{display:grid;gap:6px;font-size:12px;font-weight:600}
+.equation-workbench select,.equation-inputs input,.equation-inputs select{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.equation-display{padding:18px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font:600 22px 'Space Grotesk';text-align:center}
+.equation-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.equation-input-row{display:grid;grid-template-columns:minmax(0,1fr) 105px;gap:7px;align-items:end}
+.equation-input-row label{display:grid;gap:5px;font-size:12px;font-weight:600;min-width:0}
+.equation-input-row small{color:var(--muted);font-size:10px;font-weight:400}
+.equation-input-row .unit-select{min-width:0}
+.equation-actions{display:flex;gap:8px;flex-wrap:wrap}
+.equation-result{display:block;padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font:600 21px 'Space Grotesk';overflow-wrap:anywhere}
+.equation-result.error{border-color:#c14b4b;color:#c14b4b}
+.equation-result small{display:block;font:12px inherit;color:var(--muted);margin-top:5px}
+.equation-steps{font-size:13px;line-height:1.65;color:var(--muted)}
+.equation-steps ol{padding-left:20px}.equation-steps li{margin:5px 0}
+.reference-note.compact{margin-top:12px;padding:12px}
+.reference-note.compact p{margin-bottom:0}
+@media(max-width:760px){.equation-layout{grid-template-columns:1fr}}
+@media(max-width:520px){.equation-inputs{grid-template-columns:1fr}.equation-input-row{grid-template-columns:minmax(0,1fr) 105px}}
+
+/* V5 dimensional analysis and unit intelligence */
+.unit-intelligence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}.unit-convert-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.dimension-signature{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);font-family:ui-monospace,monospace;font-size:.92rem;overflow-wrap:anywhere}.unit-catalog-panel{margin-top:22px}.compact-heading{margin-bottom:12px}.dimension-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.dimension-card{padding:14px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}.dimension-card b{display:block;margin-bottom:5px}.dimension-card code{color:var(--accent);font-size:.9rem}.dimension-card small{display:block;color:var(--muted);margin-top:5px}.equation-result.success{border-color:#24845c;background:rgba(36,132,92,.08)}.equation-result.warning{border-color:#b87920;background:rgba(184,121,32,.08)}
+@media(max-width:760px){.unit-intelligence-grid{grid-template-columns:1fr}.dimension-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.unit-convert-row{grid-template-columns:1fr}.dimension-catalog{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Formula of Everything home"><span class="brand-mark">ƒ</span><span>FORMULA <b>OF EVERYTHING</b></span></a>
+  <nav><a href="#workspace">My Lab</a><a href="#disciplines">Disciplines</a><a href="#library">Formulas</a><a href="#workshop">Workshop</a><a href="#engineering-bench">Calculations</a><a href="#equation-engine">Equation Solver</a><a href="#unit-intelligence">Unit Intelligence</a></nav>
+  <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme">◐</button>
+</header>
+<main>
+<section class="hero">
+  <div class="eyebrow">VERSION 5 · LOCAL-FIRST · PERSONAL ENGINEERING LABORATORY</div>
+  <h1>Understand the world.<br><span>Build what you imagine.</span></h1>
+  <p>Your private space to investigate scientific principles, calculate, record experiments, develop engineering projects and turn ideas into working prototypes.</p>
+  <div class="hero-actions"><a class="btn primary" href="#workspace">Open my laboratory</a><a class="btn secondary" href="#library">Explore formulas</a></div>
+  <div class="hero-stats"><div><strong id="formulaCount">0</strong><span>starter formulas</span></div><div><strong>15</strong><span>knowledge disciplines</span></div><div><strong>Local</strong><span>browser-based storage</span></div></div>
+</section>
+<section class="notice"><b>Private laboratory mode:</b> Your projects, notes and experiments are stored in this browser on this device. This starter build does not upload your research to a server. Export regular backups; browser storage is not encrypted and can be cleared by device or browser maintenance. Critical designs require independent verification.</section>
+
+<section id="workspace" class="section">
+  <div class="section-heading"><div><div class="eyebrow">00 / YOUR PRIVATE WORKSPACE</div><h2>Laboratory dashboard</h2><p>Keep your active engineering work, research notes and experiment records together.</p></div><span class="section-number">00</span></div>
+  <div class="lab-toolbar">
+    <div><span class="tag">LOCAL STORAGE</span><h3>Your work stays in this browser</h3><p>Nothing is synchronized or published. Use the backup controls to move your records safely between devices.</p></div>
+    <div class="backup-actions"><button class="btn secondary" id="exportBackup">Export laboratory backup</button><label class="btn secondary file-button">Import backup<input type="file" id="importBackup" accept="application/json"></label></div>
+  </div>
+  <div class="dashboard-stats" id="dashboardStats"></div>
+  <div class="lab-grid">
+    <article class="lab-card"><div class="eyebrow">PROJECT REGISTER</div><h3>Create an engineering project</h3>
+      <form id="projectForm" class="lab-form">
+        <label>Project title<input id="projectTitle" required maxlength="120" placeholder="e.g. Modular solar charging station"></label>
+        <label>Discipline<select id="projectDiscipline"></select></label>
+        <label>Stage<select id="projectStage"><option>Idea</option><option>Research</option><option>Design</option><option>Prototype</option><option>Testing</option><option>Completed</option><option>Paused</option></select></label>
+        <label>Objective and constraints<textarea id="projectObjective" rows="3" maxlength="1800" placeholder="What should it do? What constraints, budget, materials or safety limits apply?"></textarea></label>
+        <button class="btn primary" type="submit">Add to project register</button>
+      </form>
+      <div id="projectRegister" class="record-list"></div>
+    </article>
+    <article class="lab-card"><div class="eyebrow">RESEARCH NOTEBOOK</div><h3>Record a finding or calculation</h3>
+      <form id="noteForm" class="lab-form">
+        <label>Note title<input id="noteTitle" required maxlength="120" placeholder="e.g. Motor torque research"></label>
+        <label>Related discipline<select id="noteDiscipline"></select></label>
+        <label>Research note<textarea id="noteBody" rows="5" required maxlength="5000" placeholder="Record sources, equations, assumptions, observations, results and unanswered questions."></textarea></label>
+        <button class="btn primary" type="submit">Save research note</button>
+      </form>
+      <div id="noteRegister" class="record-list"></div>
+    </article>
+  </div>
+</section>
+
+<section id="disciplines" class="section tinted">
+  <div class="section-heading"><div><div class="eyebrow">FOUNDATION / KNOWLEDGE MAP</div><h2>15 knowledge disciplines</h2><p>The laboratory's approved scientific and engineering domains.</p></div><span class="section-number">15</span></div>
+  <div id="disciplineGrid" class="discipline-grid"></div>
+</section>
+
+<section id="library" class="section">
+  <div class="section-heading"><div><div class="eyebrow">01 / DISCOVER</div><h2>Formula library</h2><p>Starter collection. The 15-discipline map is the expansion framework; not every discipline is populated with formulas yet.</p></div><span class="section-number">01</span></div>
+  <div class="toolbar">
+    <label class="searchbox"><span>⌕</span><input id="searchInput" type="search" placeholder="Search formulas, topics or applications…" aria-label="Search formulas"></label>
+    <select id="categoryFilter" aria-label="Filter by discipline"><option value="All">All disciplines</option></select>
+    <select id="topicFilter" aria-label="Filter by topic"><option value="All">All topics</option></select>
+  </div>
+  <div class="library-layout"><div id="formulaGrid" class="formula-grid" aria-live="polite"></div><aside class="detail-panel" id="formulaDetail"><div class="empty-state"><span>∑</span><h3>Choose a formula</h3><p>Select any card to see its variables, assumptions, example and calculator.</p></div></aside></div>
+</section>
+
+<section id="workshop" class="section tinted">
+  <div class="section-heading"><div><div class="eyebrow">02 / APPLY</div><h2>Engineering workshop</h2><p>Turn a question into a practical plan. Start with safe, understandable projects.</p></div><span class="section-number">02</span></div>
+  <div id="projectGrid" class="project-grid"></div>
+  <div class="planner">
+    <div><div class="eyebrow">IDEA INBOX</div><h3>Capture an invention idea</h3><p>Quickly collect ideas here, then promote promising concepts into a tracked engineering project above.</p></div>
+    <form id="ideaForm"><label>Project name<input id="ideaName" required maxlength="100" placeholder="e.g. A compact solar-powered fan"></label><label>What should it do?<textarea id="ideaDescription" rows="3" maxlength="1000" placeholder="Describe the problem, desired result, constraints and what you already know."></textarea></label><button class="btn primary" type="submit">Save idea</button></form>
+    <div class="saved-ideas"><h4>Saved ideas</h4><div id="ideaList" class="idea-list"></div></div>
+  </div>
+</section>
+
+<section id="converters" class="section">
+  <div class="section-heading"><div><div class="eyebrow">03 / MEASURE</div><h2>Unit converters</h2><p>Convert common units without leaving the workshop.</p></div><span class="section-number">03</span></div>
+  <div class="converter-grid">
+    <div class="tool-card"><h3>Length</h3><label>Value<input id="lengthValue" type="number" value="1" step="any"></label><label>From<select id="lengthFrom"><option value="m">meters (m)</option><option value="km">kilometers (km)</option><option value="cm">centimeters (cm)</option><option value="mm">millimeters (mm)</option><option value="ft">feet (ft)</option><option value="in">inches (in)</option></select></label><label>To<select id="lengthTo"><option value="ft">feet (ft)</option><option value="m">meters (m)</option><option value="km">kilometers (km)</option><option value="cm">centimeters (cm)</option><option value="mm">millimeters (mm)</option><option value="in">inches (in)</option></select></label><output id="lengthResult">3.28084 ft</output></div>
+    <div class="tool-card"><h3>Mass</h3><label>Value<input id="massValue" type="number" value="1" step="any"></label><label>From<select id="massFrom"><option value="kg">kilograms (kg)</option><option value="g">grams (g)</option><option value="lb">pounds (lb)</option><option value="oz">ounces (oz)</option></select></label><label>To<select id="massTo"><option value="lb">pounds (lb)</option><option value="kg">kilograms (kg)</option><option value="g">grams (g)</option><option value="oz">ounces (oz)</option></select></label><output id="massResult">2.20462 lb</output></div>
+    <div class="tool-card"><h3>Temperature</h3><label>Value<input id="tempValue" type="number" value="20" step="any"></label><label>From<select id="tempFrom"><option value="C">Celsius (°C)</option><option value="F">Fahrenheit (°F)</option><option value="K">Kelvin (K)</option></select></label><label>To<select id="tempTo"><option value="F">Fahrenheit (°F)</option><option value="C">Celsius (°C)</option><option value="K">Kelvin (K)</option></select></label><output id="tempResult">68 °F</output></div>
+    <div class="tool-card"><h3>Energy</h3><label>Value<input id="energyValue" type="number" value="1" step="any"></label><label>From<select id="energyFrom"><option value="Wh">watt-hours (Wh)</option><option value="kWh">kilowatt-hours (kWh)</option><option value="J">joules (J)</option><option value="kJ">kilojoules (kJ)</option></select></label><label>To<select id="energyTo"><option value="J">joules (J)</option><option value="Wh">watt-hours (Wh)</option><option value="kWh">kilowatt-hours (kWh)</option><option value="kJ">kilojoules (kJ)</option></select></label><output id="energyResult">3600 J</output></div>
+  </div>
+</section>
+
+<section id="learning" class="section tinted">
+  <div class="section-heading"><div><div class="eyebrow">04 / UNDERSTAND</div><h2>How to work with formulas</h2><p>A reliable method for moving from an equation to a real-world answer.</p></div><span class="section-number">04</span></div>
+  <div class="learning-grid">
+    <article class="learn-card"><span>01</span><h3>Define the question</h3><p>Be precise about what you want to know, design or predict. Define the system and its boundaries.</p></article>
+    <article class="learn-card"><span>02</span><h3>List known values</h3><p>Record measurements, units, sources and uncertainty. Never mix units without converting them.</p></article>
+    <article class="learn-card"><span>03</span><h3>Choose a model</h3><p>Select a formula whose assumptions match the situation. A familiar equation is not automatically appropriate.</p></article>
+    <article class="learn-card"><span>04</span><h3>Rearrange and calculate</h3><p>Solve for the unknown, substitute values with units, and keep sensible significant figures.</p></article>
+    <article class="learn-card"><span>05</span><h3>Check the result</h3><p>Check dimensions, magnitude, limiting cases and whether the answer makes physical sense.</p></article>
+    <article class="learn-card"><span>06</span><h3>Test safely</h3><p>Compare with measurements or a trusted reference. Use protective measures and expert review where needed.</p></article>
+  </div>
+  <div class="reference-note"><h3>What kind of formula am I looking at?</h3><p><b>Definition:</b> establishes how a quantity is defined. <b>Law:</b> describes a well-supported relationship within a stated domain. <b>Empirical model:</b> fitted to observations. <b>Approximation:</b> simplifies a more complete model. <b>Theoretical equation:</b> follows from a framework and may have a limited or unsettled domain of application.</p></div>
+</section>
+
+<section id="engineering-bench" class="section">
+  <div class="section-heading"><div><div class="eyebrow">05 / ENGINEER</div><h2>Engineering calculation bench</h2><p>Reusable first-pass calculations for common mechanical, electrical, thermal and fluid questions.</p></div><span class="section-number">05</span></div>
+  <div class="bench-layout">
+    <article class="tool-card bench-calculator">
+      <label>Calculation model<select id="benchModel">
+        <option value="stress">Normal stress · σ = F / A</option>
+        <option value="torque">Torque · τ = F × r</option>
+        <option value="series">Series resistance · Rₜ = ΣR</option>
+        <option value="parallel">Parallel resistance · 1/Rₜ = Σ(1/R)</option>
+        <option value="thermal">Sensible heat · Q = m c ΔT</option>
+        <option value="hydrostatic">Hydrostatic pressure · p = ρ g h</option>
+        <option value="runtime">Ideal battery runtime · t = E / P</option>
+        <option value="gear">Gear speed · n₂ = n₁ × T₁ / T₂</option>
+      </select></label>
+      <div id="benchFields" class="bench-fields"></div>
+      <button class="btn primary" id="runBench">Calculate result</button>
+      <output id="benchResult" class="bench-result" aria-live="polite">Choose a model and enter values.</output>
+      <p class="muted-copy" id="benchCaveat">First-pass estimate only. Review the assumptions before using a result in a real design.</p>
+      <button class="btn secondary" id="saveBench" disabled>Save calculation to lab</button>
+    </article>
+    <aside class="tool-card">
+      <div class="eyebrow">CALCULATION HISTORY</div><h3>Saved engineering results</h3>
+      <div id="benchHistory" class="record-list"><p class="muted-copy">No saved calculations yet.</p></div>
+    </aside>
+  </div>
+  <div class="reference-note"><h3>Engineering integrity check</h3><p>These tools do not select materials, safety factors, code requirements or design limits for you. Confirm input units, boundary conditions, load cases and model validity. Electrical, structural, pressure-containing, chemical and life-safety designs need applicable standards and independent qualified review. The ideal battery estimate ignores losses, discharge limits, temperature and aging.</p></div>
+</section>
+<section id="experiment-log" class="section tinted">
+  <div class="section-heading"><div><div class="eyebrow">06 / TEST & LEARN</div><h2>Experiment log</h2><p>Capture a hypothesis, method, observation and measured result in a repeatable format.</p></div><span class="section-number">06</span></div>
+  <div class="experiment-layout">
+    <form id="experimentForm" class="tool-card lab-form">
+      <label>Experiment title<input id="experimentTitle" required maxlength="120" placeholder="e.g. Small DC motor no-load test"></label>
+      <label>Hypothesis<textarea id="experimentHypothesis" rows="2" maxlength="1000" placeholder="What do you expect, and why?"></textarea></label>
+      <label>Method and conditions<textarea id="experimentMethod" rows="3" maxlength="2000" placeholder="Equipment, procedure, environmental conditions and safety controls."></textarea></label>
+      <label>Observation / result<textarea id="experimentResult" rows="3" required maxlength="2000" placeholder="Record what happened, including unexpected behavior."></textarea></label>
+      <label>Measured value (optional)<input id="experimentValue" type="number" step="any" placeholder="e.g. 1.42"></label>
+      <label>Unit (optional)<input id="experimentUnit" maxlength="24" placeholder="e.g. A, V, °C, mm"></label>
+      <button class="btn primary" type="submit">Save experiment record</button>
+    </form>
+    <div class="tool-card"><div class="eyebrow">LAB NOTEBOOK</div><h3>Recorded experiments</h3><div id="experimentList" class="record-list"><p class="muted-copy">No experiment records yet.</p></div></div>
+  </div>
+</section>
+
+
+<section id="equation-engine" class="section">
+  <div class="section-heading"><div><div class="eyebrow">07 / MATHEMATICAL CORE</div><h2>Equation solving engine</h2><p>Choose a supported relationship, select the unknown, enter known values and inspect the solution path.</p></div><span class="section-number">07</span></div>
+  <div class="equation-layout">
+    <article class="tool-card equation-workbench">
+      <label>Equation model<select id="equationModel"></select></label>
+      <div class="equation-display" id="equationDisplay">Select an equation model.</div>
+      <label>Unknown to solve for<select id="equationTarget"></select></label>
+      <div id="equationInputs" class="equation-inputs"></div>
+      <div class="equation-actions"><button class="btn primary" id="solveEquation">Solve equation</button><button class="btn secondary" id="saveEquation" disabled>Save result</button></div>
+      <output id="equationResult" class="equation-result" aria-live="polite">Your result will appear here.</output>
+      <div id="equationSteps" class="equation-steps"></div>
+    </article>
+    <aside class="tool-card">
+      <div class="eyebrow">MODEL NOTES</div><h3 id="equationModelName">Equation guide</h3>
+      <p id="equationDescription" class="muted-copy">Select a model to see its assumptions and limits.</p>
+      <div class="reference-note compact"><b>Unit checking</b><p id="equationUnitNote">Input units are converted to the model's SI base units before calculation. Incompatible units are not offered for a variable.</p></div>
+      <div class="eyebrow" style="margin-top:18px">SAVED SOLUTIONS</div><div id="equationHistory" class="record-list"><p class="muted-copy">No saved equation solutions yet.</p></div>
+    </aside>
+  </div>
+  <div class="reference-note"><h3>What this engine does — and does not do</h3><p>V4 uses a curated set of explicit algebraic relationships and known rearrangements. It is not a general-purpose symbolic algebra system and does not infer arbitrary equations. Dimensional checks catch unit-category mismatches; they cannot prove that a physical model is appropriate. Review signs, assumptions, significant figures and boundary conditions before relying on a result.</p></div>
+</section>
+
+
+<section id="unit-intelligence" class="section tinted">
+  <div class="section-heading"><div><div class="eyebrow">08 / DIMENSIONAL ANALYSIS</div><h2>Dimensional analysis & unit intelligence</h2><p>Convert supported physical units, inspect SI dimensions, and test the dimensional consistency of the laboratory's curated equations.</p></div><span class="section-number">08</span></div>
+  <div class="unit-intelligence-grid">
+    <article class="tool-card">
+      <div class="eyebrow">QUANTITY CONVERTER</div><h3>Convert physical quantities</h3>
+      <label>Quantity<select id="dimensionQuantity"></select></label>
+      <div class="unit-convert-row"><label>Value<input id="dimensionValue" type="number" step="any" value="1"></label><label>From unit<select id="dimensionFrom"></select></label></div>
+      <label>Convert to<select id="dimensionTo"></select></label>
+      <output id="dimensionResult" class="equation-result" aria-live="polite">1 m = 1 m</output>
+      <div class="dimension-signature" id="dimensionSignature"></div>
+      <p class="muted-copy">Conversions use explicit scale factors and, for temperature, offsets. Temperature intervals are different from absolute temperatures.</p>
+    </article>
+    <article class="tool-card">
+      <div class="eyebrow">EQUATION VALIDATOR</div><h3>Check dimensional consistency</h3>
+      <label>Curated equation<select id="dimensionEquation"></select></label>
+      <div id="dimensionEquationDisplay" class="equation-display">Choose an equation.</div>
+      <button class="btn primary" id="checkDimensions">Run dimensional check</button>
+      <output id="dimensionCheckResult" class="equation-result" aria-live="polite">Choose an equation and run the check.</output>
+      <div id="dimensionCheckDetails" class="equation-steps"></div>
+      <p class="muted-copy">This validates the dimensions represented by the model metadata. It cannot establish that the equation is physically appropriate, correctly derived, or valid under your operating conditions.</p>
+    </article>
+  </div>
+  <div class="unit-catalog-panel"><div class="section-heading compact-heading"><div><div class="eyebrow">REFERENCE</div><h3>Supported quantity dimensions</h3><p>SI base-dimension signatures used by this version.</p></div></div><div id="dimensionCatalog" class="dimension-catalog"></div></div>
+  <div class="reference-note"><h3>Dimensional analysis is a filter, not a proof</h3><p>A dimensionally consistent equation can still be scientifically wrong, incomplete, or used outside its validity range. This tool does not infer unknown equations, perform symbolic derivations, or replace standards-based engineering review. Unit labels and conversions are only as reliable as the selected quantity and input.</p></div>
+</section>
+
+</main>
+<footer><div class="brand"><span class="brand-mark">ƒ</span><span>FORMULA <b>OF EVERYTHING</b></span></div><p>A private laboratory for careful inquiry, honest testing and practical invention.</p><small>Local-first prototype · Browser storage is not encrypted · Verify critical calculations independently</small></footer>
 <script>
-const models=[
-{id:"speed",name:"Average speed",eq:"v = d / t",desc:"Average scalar speed equals distance divided by elapsed time.",vars:[["v","Speed","m/s",10],["d","Distance","m",100],["t","Time","s",10]],solve:{v:x=>x.d/x.t,d:x=>x.v*x.t,t:x=>x.d/x.v},forms:{v:"v = d / t",d:"d = v × t",t:"t = d / v"},valid:x=>x.t>0},
-{id:"accel",name:"Average acceleration",eq:"a = (v − u) / t",desc:"Change in velocity divided by elapsed time.",vars:[["a","Acceleration","m/s²",5],["v","Final velocity","m/s",20],["u","Initial velocity","m/s",5],["t","Time","s",3]],solve:{a:x=>(x.v-x.u)/x.t,v:x=>x.a*x.t+x.u,u:x=>x.v-x.a*x.t,t:x=>(x.v-x.u)/x.a},forms:{a:"a = (v − u) / t",v:"v = a × t + u",u:"u = v − a × t",t:"t = (v − u) / a"},valid:x=>x.t>0},
-{id:"force",name:"Newton's second law",eq:"F = m × a",desc:"Net force equals mass times acceleration in an inertial reference frame.",vars:[["F","Net force","N",20],["m","Mass","kg",10],["a","Acceleration","m/s²",2]],solve:{F:x=>x.m*x.a,m:x=>x.F/x.a,a:x=>x.F/x.m},forms:{F:"F = m × a",m:"m = F / a",a:"a = F / m"}},
-{id:"weight",name:"Weight near Earth's surface",eq:"W = m × g",desc:"Gravitational force using local gravitational acceleration; default g = 9.80665 m/s².",vars:[["W","Weight","N",686.4655],["m","Mass","kg",70],["g","Gravitational acceleration","m/s²",9.80665]],solve:{W:x=>x.m*x.g,m:x=>x.W/x.g,g:x=>x.W/x.m},forms:{W:"W = m × g",m:"m = W / g",g:"g = W / m"},valid:x=>x.m>0&&x.g>0},
-{id:"kinetic",name:"Kinetic energy",eq:"E = ½ m v²",desc:"Translational kinetic energy relative to the selected inertial reference frame.",vars:[["E","Kinetic energy","J",40],["m","Mass","kg",5],["v","Speed","m/s",4]],solve:{E:x=>.5*x.m*x.v*x.v,m:x=>2*x.E/(x.v*x.v),v:x=>Math.sqrt(2*x.E/x.m)},forms:{E:"E = ½ m v²",m:"m = 2E / v²",v:"v = √(2E / m)"},valid:x=>x.m>0&&x.E>=0},
-{id:"potential",name:"Gravitational potential energy change",eq:"ΔE = m × g × h",desc:"Near a uniform gravitational field; h is signed height change from a reference level.",vars:[["E","Energy change","J",490.3325],["m","Mass","kg",5],["g","Gravitational acceleration","m/s²",9.80665],["h","Height change","m",10]],solve:{E:x=>x.m*x.g*x.h,m:x=>x.E/(x.g*x.h),g:x=>x.E/(x.m*x.h),h:x=>x.E/(x.m*x.g)},forms:{E:"ΔE = m × g × h",m:"m = ΔE / (g × h)",g:"g = ΔE / (m × h)",h:"h = ΔE / (m × g)"},valid:x=>x.m>0&&x.g>0},
-{id:"power",name:"Average power",eq:"P = E / t",desc:"Energy transferred or work done per unit time over the chosen interval.",vars:[["P","Power","W",100],["E","Energy","J",1000],["t","Time","s",10]],solve:{P:x=>x.E/x.t,E:x=>x.P*x.t,t:x=>x.E/x.P},forms:{P:"P = E / t",E:"E = P × t",t:"t = E / P"},valid:x=>x.t>0},
-{id:"ohm",name:"Ohm's law",eq:"V = I × R",desc:"Applies to ohmic components under operating conditions where resistance is meaningful and approximately constant.",vars:[["V","Voltage","V",12],["I","Current","A",2],["R","Resistance","Ω",6]],solve:{V:x=>x.I*x.R,I:x=>x.V/x.R,R:x=>x.V/x.I},forms:{V:"V = I × R",I:"I = V / R",R:"R = V / I"}},
-{id:"density",name:"Mass density",eq:"ρ = m / V",desc:"Average mass per volume for the same material sample.",vars:[["ρ","Density","kg/m³",1000],["m","Mass","kg",1],["V","Volume","m³",.001]],solve:{ρ:x=>x.m/x.V,m:x=>x.ρ*x.V,V:x=>x.m/x.ρ},forms:{ρ:"ρ = m / V",m:"m = ρ × V",V:"V = m / ρ"},valid:x=>x.V>0},
-{id:"pressure",name:"Average pressure",eq:"p = F / A",desc:"Normal force distributed over area; does not describe local peak stress.",vars:[["p","Pressure","Pa",100000],["F","Normal force","N",1000],["A","Area","m²",.01]],solve:{p:x=>x.F/x.A,F:x=>x.p*x.A,A:x=>x.F/x.p},forms:{p:"p = F / A",F:"F = p × A",A:"A = F / p"},valid:x=>x.A>0},
-{id:"heat",name:"Sensible heat transfer",eq:"Q = m × c × ΔT",desc:"Approximation with constant specific heat capacity; excludes phase changes and heat losses.",vars:[["Q","Heat","J",41860],["m","Mass","kg",1],["c","Specific heat","J/(kg·K)",4186],["ΔT","Temperature change","K",10]],solve:{Q:x=>x.m*x.c*x["ΔT"],m:x=>x.Q/(x.c*x["ΔT"]),c:x=>x.Q/(x.m*x["ΔT"]),"ΔT":x=>x.Q/(x.m*x.c)},forms:{Q:"Q = m × c × ΔT",m:"m = Q / (c × ΔT)",c:"c = Q / (m × ΔT)","ΔT":"ΔT = Q / (m × c)"},valid:x=>x.m>0&&x.c>0},
-{id:"frequency",name:"Frequency and period",eq:"f = 1 / T",desc:"For a periodic process, frequency is the reciprocal of its positive period.",vars:[["f","Frequency","Hz",2],["T","Period","s",.5]],solve:{f:x=>1/x.T,T:x=>1/x.f},forms:{f:"f = 1 / T",T:"T = 1 / f"},valid:x=>x.T>0}
+const FORMULAS = [{"id": "speed", "name": "Average Speed", "category": "Physics", "topic": "Motion", "equation": "v = d / t", "description": "Average distance traveled per unit of time.", "variables": [["v", "Average speed", "m/s"], ["d", "Distance", "m"], ["t", "Elapsed time", "s"]], "inputs": [{"key": "d", "label": "Distance", "unit": "m", "default": 100}, {"key": "t", "label": "Time", "unit": "s", "default": 10}], "compute": "d/t", "example": "A vehicle travels 100 m in 10 s: its average speed is 10 m/s.", "uses": "Estimate travel speed, conveyor speed, walking pace, or machine movement.", "limits": "Average speed does not describe changes in speed or direction."}, {"id": "acceleration", "name": "Average Acceleration", "category": "Physics", "topic": "Motion", "equation": "a = (v − u) / t", "description": "Change in velocity divided by elapsed time.", "variables": [["a", "Acceleration", "m/s²"], ["v", "Final velocity", "m/s"], ["u", "Initial velocity", "m/s"], ["t", "Elapsed time", "s"]], "inputs": [{"key": "v", "label": "Final velocity", "unit": "m/s", "default": 20}, {"key": "u", "label": "Initial velocity", "unit": "m/s", "default": 5}, {"key": "t", "label": "Time", "unit": "s", "default": 3}], "compute": "(v-u)/t", "example": "Velocity rises from 5 to 20 m/s in 3 s: acceleration is 5 m/s².", "uses": "Analyze vehicle acceleration, moving machinery, and motion experiments.", "limits": "This gives average acceleration; instantaneous acceleration may vary."}, {"id": "force", "name": "Newton's Second Law", "category": "Physics", "topic": "Mechanics", "equation": "F = m × a", "description": "Net force equals mass multiplied by acceleration.", "variables": [["F", "Net force", "N"], ["m", "Mass", "kg"], ["a", "Acceleration", "m/s²"]], "inputs": [{"key": "m", "label": "Mass", "unit": "kg", "default": 10}, {"key": "a", "label": "Acceleration", "unit": "m/s²", "default": 2}], "compute": "m*a", "example": "A 10 kg object accelerating at 2 m/s² has a net force of 20 N.", "uses": "Estimate forces for carts, lifts, mechanisms and motion systems.", "limits": "Use net force and account for friction and other forces. Classical mechanics is an approximation at relativistic or quantum scales."}, {"id": "weight", "name": "Weight Near Earth's Surface", "category": "Physics", "topic": "Mechanics", "equation": "W = m × g", "description": "Gravitational force on a mass near Earth's surface.", "variables": [["W", "Weight", "N"], ["m", "Mass", "kg"], ["g", "Gravitational acceleration", "m/s²"]], "inputs": [{"key": "m", "label": "Mass", "unit": "kg", "default": 70}, {"key": "g", "label": "Gravitational acceleration", "unit": "m/s²", "default": 9.80665}], "compute": "m*g", "example": "A 70 kg mass weighs about 686.5 N near Earth's surface.", "uses": "Estimate supported loads and gravitational force.", "limits": "Local gravitational acceleration varies slightly by location and altitude."}, {"id": "kinetic", "name": "Kinetic Energy", "category": "Physics", "topic": "Energy", "equation": "KE = ½ m v²", "description": "Energy associated with an object's motion.", "variables": [["KE", "Kinetic energy", "J"], ["m", "Mass", "kg"], ["v", "Speed", "m/s"]], "inputs": [{"key": "m", "label": "Mass", "unit": "kg", "default": 5}, {"key": "v", "label": "Speed", "unit": "m/s", "default": 4}], "compute": "0.5*m*v*v", "example": "A 5 kg object moving at 4 m/s has 40 J of kinetic energy.", "uses": "Estimate moving-object energy, flywheel energy and impact scenarios.", "limits": "Classical expression; at speeds close to light speed use relativistic energy."}, {"id": "potential", "name": "Gravitational Potential Energy", "category": "Physics", "topic": "Energy", "equation": "PE = m g h", "description": "Change in gravitational potential energy near Earth's surface.", "variables": [["PE", "Potential energy", "J"], ["m", "Mass", "kg"], ["g", "Gravitational acceleration", "m/s²"], ["h", "Height change", "m"]], "inputs": [{"key": "m", "label": "Mass", "unit": "kg", "default": 2}, {"key": "g", "label": "Gravitational acceleration", "unit": "m/s²", "default": 9.80665}, {"key": "h", "label": "Height", "unit": "m", "default": 3}], "compute": "m*g*h", "example": "Lifting 2 kg by 3 m stores about 58.8 J of gravitational potential energy.", "uses": "Estimate lifting energy, elevated storage and simple mechanical systems.", "limits": "Assumes nearly constant gravitational acceleration over the height considered."}, {"id": "power", "name": "Mechanical Power", "category": "Physics", "topic": "Energy", "equation": "P = W / t", "description": "Rate at which work is done or energy is transferred.", "variables": [["P", "Power", "W"], ["W", "Work or energy transferred", "J"], ["t", "Time", "s"]], "inputs": [{"key": "W", "label": "Work / energy", "unit": "J", "default": 600}, {"key": "t", "label": "Time", "unit": "s", "default": 20}], "compute": "W/t", "example": "600 J transferred in 20 s corresponds to 30 W.", "uses": "Compare motors, lifting systems and energy-transfer rates.", "limits": "This is average power over the stated time interval."}, {"id": "ohm", "name": "Ohm's Law", "category": "Electrical", "topic": "Circuits", "equation": "V = I × R", "description": "Voltage across an ohmic component equals current times resistance.", "variables": [["V", "Voltage", "V"], ["I", "Current", "A"], ["R", "Resistance", "Ω"]], "inputs": [{"key": "I", "label": "Current", "unit": "A", "default": 2}, {"key": "R", "label": "Resistance", "unit": "Ω", "default": 6}], "compute": "I*R", "example": "2 A through 6 Ω produces a 12 V drop.", "uses": "Analyze basic resistive circuits and choose component values.", "limits": "Applies to ohmic behavior under the relevant operating conditions; many components are nonlinear."}, {"id": "electric-power", "name": "Electrical Power", "category": "Electrical", "topic": "Circuits", "equation": "P = V × I", "description": "Electrical power for a DC circuit or an appropriate instantaneous relationship.", "variables": [["P", "Power", "W"], ["V", "Voltage", "V"], ["I", "Current", "A"]], "inputs": [{"key": "V", "label": "Voltage", "unit": "V", "default": 12}, {"key": "I", "label": "Current", "unit": "A", "default": 2}], "compute": "V*I", "example": "A 12 V device drawing 2 A uses 24 W of electrical power.", "uses": "Estimate device power, supply requirements and energy consumption.", "limits": "For AC, real power generally requires power factor and waveform considerations."}, {"id": "energy-electric", "name": "Electrical Energy (DC)", "category": "Electrical", "topic": "Energy", "equation": "E = P × t", "description": "Energy transferred at constant power over time.", "variables": [["E", "Energy", "J"], ["P", "Power", "W"], ["t", "Time", "s"]], "inputs": [{"key": "P", "label": "Power", "unit": "W", "default": 60}, {"key": "t", "label": "Time", "unit": "s", "default": 3600}], "compute": "P*t", "example": "A 60 W lamp operating for one hour uses 216,000 J, or 0.06 kWh.", "uses": "Estimate battery runtime and electricity use.", "limits": "Assumes constant power. Battery runtime also depends on usable capacity, losses, temperature and discharge limits."}, {"id": "density", "name": "Density", "category": "Chemistry", "topic": "Materials", "equation": "ρ = m / V", "description": "Mass per unit volume.", "variables": [["ρ", "Density", "kg/m³"], ["m", "Mass", "kg"], ["V", "Volume", "m³"]], "inputs": [{"key": "m", "label": "Mass", "unit": "kg", "default": 2}, {"key": "V", "label": "Volume", "unit": "m³", "default": 0.001}], "compute": "m/V", "example": "2 kg occupying 0.001 m³ has a density of 2000 kg/m³.", "uses": "Identify materials, estimate mass from dimensions and compare fluids.", "limits": "Density changes with temperature, pressure and material composition."}, {"id": "concentration", "name": "Mass Concentration", "category": "Chemistry", "topic": "Solutions", "equation": "c = m / V", "description": "Mass of solute per volume of solution.", "variables": [["c", "Mass concentration", "g/L"], ["m", "Solute mass", "g"], ["V", "Solution volume", "L"]], "inputs": [{"key": "m", "label": "Solute mass", "unit": "g", "default": 5}, {"key": "V", "label": "Solution volume", "unit": "L", "default": 2}], "compute": "m/V", "example": "5 g dissolved to make 2 L of solution gives 2.5 g/L.", "uses": "Prepare non-hazardous solutions and interpret concentration labels.", "limits": "Use final solution volume, not simply the volume of solvent added."}, {"id": "moles", "name": "Amount of Substance", "category": "Chemistry", "topic": "Stoichiometry", "equation": "n = m / M", "description": "Amount in moles equals sample mass divided by molar mass.", "variables": [["n", "Amount of substance", "mol"], ["m", "Sample mass", "g"], ["M", "Molar mass", "g/mol"]], "inputs": [{"key": "m", "label": "Sample mass", "unit": "g", "default": 18}, {"key": "M", "label": "Molar mass", "unit": "g/mol", "default": 18.015}], "compute": "m/M", "example": "18 g of water is approximately 1.00 mol.", "uses": "Convert measured mass into moles for chemical calculations.", "limits": "Requires the correct molar mass and a sufficiently pure, known substance."}, {"id": "power-law", "name": "Exponential Growth", "category": "Mathematics", "topic": "Functions", "equation": "A(t) = A₀ e^(kt)", "description": "Continuous exponential growth or decay model.", "variables": [["A(t)", "Amount at time t", "same as A₀"], ["A₀", "Initial amount", "units of amount"], ["k", "Growth rate constant", "1/time"], ["t", "Elapsed time", "time"]], "inputs": [{"key": "A0", "label": "Initial amount", "unit": "units", "default": 100}, {"key": "k", "label": "Rate constant", "unit": "1/time", "default": 0.05}, {"key": "t", "label": "Elapsed time", "unit": "time", "default": 10}], "compute": "A0*Math.exp(k*t)", "example": "Starting at 100 with k = 0.05 per year for 10 years gives about 164.9.", "uses": "Model idealized population growth, compound processes and decay (negative k).", "limits": "Assumes a constant rate; real systems face constraints and changing conditions."}, {"id": "interest", "name": "Compound Interest", "category": "Economics", "topic": "Finance", "equation": "A = P(1 + r/n)^(nt)", "description": "Future value with a fixed nominal annual rate compounded n times per year.", "variables": [["A", "Future value", "currency"], ["P", "Principal", "currency"], ["r", "Annual nominal rate", "decimal"], ["n", "Compounding periods per year", "1/year"], ["t", "Time", "years"]], "inputs": [{"key": "P", "label": "Principal", "unit": "currency", "default": 1000}, {"key": "r", "label": "Annual rate (decimal)", "unit": "decimal", "default": 0.05}, {"key": "n", "label": "Compounds per year", "unit": "periods/year", "default": 12}, {"key": "t", "label": "Years", "unit": "years", "default": 5}], "compute": "P*Math.pow(1+r/n,n*t)", "example": "$1,000 at 5% nominal annual interest compounded monthly for 5 years grows to about $1,283.36 before taxes and fees.", "uses": "Explore savings growth and compare compounding assumptions.", "limits": "Not a guarantee of investment returns. Fees, taxes, changing rates and inflation matter."}, {"id": "area-rect", "name": "Rectangle Area", "category": "Mathematics", "topic": "Geometry", "equation": "A = l × w", "description": "Area of a rectangle.", "variables": [["A", "Area", "m²"], ["l", "Length", "m"], ["w", "Width", "m"]], "inputs": [{"key": "l", "label": "Length", "unit": "m", "default": 5}, {"key": "w", "label": "Width", "unit": "m", "default": 3}], "compute": "l*w", "example": "A 5 m by 3 m floor has an area of 15 m².", "uses": "Estimate flooring, wall panels, garden beds and sheet materials.", "limits": "Assumes a flat rectangle with perpendicular sides."}, {"id": "volume-box", "name": "Rectangular Prism Volume", "category": "Mathematics", "topic": "Geometry", "equation": "V = l × w × h", "description": "Volume of a rectangular prism.", "variables": [["V", "Volume", "m³"], ["l", "Length", "m"], ["w", "Width", "m"], ["h", "Height", "m"]], "inputs": [{"key": "l", "label": "Length", "unit": "m", "default": 2}, {"key": "w", "label": "Width", "unit": "m", "default": 1.5}, {"key": "h", "label": "Height", "unit": "m", "default": 1}], "compute": "l*w*h", "example": "A box 2 m × 1.5 m × 1 m holds 3 m³.", "uses": "Estimate storage capacity, concrete volume and tank dimensions.", "limits": "Assumes a solid rectangular shape and consistent internal dimensions."}, {"id": "circle-area", "name": "Circle Area", "category": "Mathematics", "topic": "Geometry", "equation": "A = πr²", "description": "Area enclosed by a circle.", "variables": [["A", "Area", "m²"], ["r", "Radius", "m"]], "inputs": [{"key": "r", "label": "Radius", "unit": "m", "default": 1}], "compute": "Math.PI*r*r", "example": "A circle with radius 1 m has area about 3.142 m².", "uses": "Calculate circular plates, garden beds, pipes' cross-sections and disks.", "limits": "Assumes a perfect circle; pipe flow area uses internal radius."}, {"id": "pressure", "name": "Pressure", "category": "Engineering", "topic": "Fluids", "equation": "p = F / A", "description": "Normal force distributed over an area.", "variables": [["p", "Pressure", "Pa"], ["F", "Normal force", "N"], ["A", "Area", "m²"]], "inputs": [{"key": "F", "label": "Force", "unit": "N", "default": 1000}, {"key": "A", "label": "Area", "unit": "m²", "default": 0.05}], "compute": "F/A", "example": "1000 N over 0.05 m² produces 20,000 Pa.", "uses": "Understand contact pressure and basic fluid-system concepts.", "limits": "Use the force component normal to the surface; local stress may not be uniform."}, {"id": "efficiency", "name": "Efficiency", "category": "Engineering", "topic": "Systems", "equation": "η = (useful output / input) × 100%", "description": "Ratio of useful output to total input, expressed as a percentage.", "variables": [["η", "Efficiency", "%"], ["output", "Useful output energy or power", "same unit as input"], ["input", "Input energy or power", "same unit as output"]], "inputs": [{"key": "output", "label": "Useful output", "unit": "W", "default": 80}, {"key": "input", "label": "Input", "unit": "W", "default": 100}], "compute": "(output/input)*100", "example": "80 W useful output from 100 W input is 80% efficient.", "uses": "Compare motors, power supplies, appliances and processes.", "limits": "Define the system boundary and compare the same type of quantity over the same interval."}, {"id": "frequency", "name": "Frequency and Period", "category": "Electrical", "topic": "Signals", "equation": "f = 1 / T", "description": "Frequency is the number of cycles per second; period is time per cycle.", "variables": [["f", "Frequency", "Hz"], ["T", "Period", "s"]], "inputs": [{"key": "T", "label": "Period", "unit": "s", "default": 0.02}], "compute": "1/T", "example": "A 0.02 s period corresponds to 50 Hz.", "uses": "Analyze rotating systems, oscillations and periodic signals.", "limits": "Assumes a periodic signal with a well-defined period."}, {"id": "spring", "name": "Hooke's Law", "category": "Engineering", "topic": "Mechanics", "equation": "F = kx", "description": "Restoring force magnitude is proportional to displacement for an ideal linear spring.", "variables": [["F", "Force magnitude", "N"], ["k", "Spring constant", "N/m"], ["x", "Displacement", "m"]], "inputs": [{"key": "k", "label": "Spring constant", "unit": "N/m", "default": 200}, {"key": "x", "label": "Displacement", "unit": "m", "default": 0.05}], "compute": "k*x", "example": "A 200 N/m spring displaced 0.05 m has a restoring force magnitude of 10 N.", "uses": "Estimate spring forces and simple suspension behavior.", "limits": "Only within the spring's approximately linear elastic range; direction opposes displacement."}, {"id": "water-flow", "name": "Volumetric Flow Rate", "category": "Engineering", "topic": "Fluids", "equation": "Q = V / t", "description": "Volume of fluid passing a point per unit time.", "variables": [["Q", "Volumetric flow rate", "m³/s"], ["V", "Volume", "m³"], ["t", "Time", "s"]], "inputs": [{"key": "V", "label": "Volume", "unit": "m³", "default": 0.1}, {"key": "t", "label": "Time", "unit": "s", "default": 20}], "compute": "V/t", "example": "0.1 m³ collected in 20 s gives 0.005 m³/s.", "uses": "Measure water delivery, pump output and simple filling systems.", "limits": "This is an average rate; flow may vary over time."}, {"id": "probability", "name": "Basic Probability", "category": "Mathematics", "topic": "Statistics", "equation": "P(A) = favorable outcomes / total equally likely outcomes", "description": "Probability for a finite set of equally likely outcomes.", "variables": [["P(A)", "Probability", "0 to 1"], ["f", "Favorable outcomes", "count"], ["N", "Total outcomes", "count"]], "inputs": [{"key": "f", "label": "Favorable outcomes", "unit": "count", "default": 1}, {"key": "N", "label": "Total equally likely outcomes", "unit": "count", "default": 6}], "compute": "f/N", "example": "One favorable face on a fair six-sided die has probability 1/6.", "uses": "Reason about simple chance events and risk scenarios.", "limits": "Requires equally likely outcomes; real-world events may need data and statistical models."}];
+const PROJECTS = [{"name": "Estimate a battery's ideal runtime", "level": "Beginner", "disciplines": "Electrical · Energy", "goal": "Estimate how long a device can run from a battery using energy capacity and power demand.", "steps": ["Find the battery's rated capacity in watt-hours (Wh), or convert amp-hours (Ah) to Wh using nominal voltage.", "Estimate the device's average power draw in watts (W).", "Calculate ideal runtime: hours = usable battery energy (Wh) ÷ load power (W).", "Reduce the estimate for conversion losses, temperature, aging and the battery manufacturer's discharge limits."], "formula": "runtime (h) ≈ usable energy (Wh) / load power (W)", "safety": "Use a battery and power supply designed for the device. Do not bypass protection circuits or exceed voltage/current ratings."}, {"name": "Size a rectangular garden bed", "level": "Beginner", "disciplines": "Mathematics · Everyday design", "goal": "Calculate surface area and approximate soil volume for a simple rectangular bed.", "steps": ["Measure the inside length and width in meters.", "Choose the soil depth in meters.", "Area = length × width.", "Soil volume = length × width × depth.", "Add a modest allowance for settling and uneven ground; avoid overfilling drainage paths."], "formula": "Area = L × W; Volume = L × W × depth", "safety": "Check the location for buried utilities before digging."}, {"name": "Estimate a small DC load's power", "level": "Beginner", "disciplines": "Electrical · Electronics", "goal": "Estimate electrical power from measured DC voltage and current.", "steps": ["Read the device or supply voltage rating.", "Use a suitable meter or reliable device specification to obtain current.", "Calculate P = V × I for a DC load.", "Check that the supply, wires, connectors and protection are rated for the load.", "Account for startup current and heat where relevant."], "formula": "P = V × I", "safety": "Mains electricity can kill. This project is for low-voltage, current-limited DC systems; do not probe exposed mains wiring."}, {"name": "Plan a water collection tank", "level": "Intermediate", "disciplines": "Engineering · Geometry", "goal": "Estimate the capacity of a rectangular storage tank from its internal dimensions.", "steps": ["Measure internal length, width and usable water depth.", "Convert all dimensions to the same unit.", "Calculate volume = length × width × depth.", "Convert cubic meters to liters by multiplying by 1000.", "Check structural support, overflow, access, water quality and local requirements."], "formula": "V (L) = L (m) × W (m) × H (m) × 1000", "safety": "A full tank is heavy. Have supports and installations assessed for the actual load; stored water must be protected from contamination."}, {"name": "Compare a simple machine's efficiency", "level": "Beginner", "disciplines": "Physics · Engineering", "goal": "Compare useful output power with input power.", "steps": ["Measure or obtain input power under a defined operating condition.", "Measure useful output power at the same time and operating point.", "Calculate efficiency = output ÷ input × 100%.", "Repeat measurements and record uncertainty.", "Investigate losses such as heat, friction, sound and electrical resistance."], "formula": "η = Pout / Pin × 100%", "safety": "Keep clear of moving parts and hot surfaces; use properly guarded equipment."}];
+const $ = s => document.querySelector(s);
+const fmt = n => Number.isFinite(n) ? new Intl.NumberFormat(undefined,{maximumSignificantDigits:7}).format(n) : "Check inputs";
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let activeId = null;
+$("#formulaCount").textContent = FORMULAS.length;
+const categories = [...new Set(FORMULAS.map(f=>f.category))].sort();
+categories.forEach(c=>$("#categoryFilter").insertAdjacentHTML("beforeend",`<option>${esc(c)}</option>`));
+const topics = [...new Set(FORMULAS.map(f=>f.topic))].sort();
+topics.forEach(t=>$("#topicFilter").insertAdjacentHTML("beforeend",`<option>${esc(t)}</option>`));
+function renderFormulas(){
+ const q=$("#searchInput").value.toLowerCase().trim(), cat=$("#categoryFilter").value, topic=$("#topicFilter").value;
+ const found=FORMULAS.filter(f=>(cat==="All"||f.category===cat)&&(topic==="All"||f.topic===topic)&&[f.name,f.category,f.topic,f.equation,f.description,f.uses].join(" ").toLowerCase().includes(q));
+ $("#formulaGrid").innerHTML=found.length?found.map(f=>`<button class="formula-card ${activeId===f.id?'active':''}" data-id="${f.id}"><div class="card-top"><span class="tag">${esc(f.category)}</span><span class="tag">${esc(f.topic)}</span></div><h3>${esc(f.name)}</h3><div class="equation">${esc(f.equation)}</div><p>${esc(f.description)}</p></button>`).join(""):`<div class="no-results">No formulas match that search. Try a broader term or clear a filter.</div>`;
+ document.querySelectorAll(".formula-card").forEach(b=>b.addEventListener("click",()=>showDetail(b.dataset.id)));
+}
+function showDetail(id){
+ const f=FORMULAS.find(x=>x.id===id); if(!f)return; activeId=id; renderFormulas();
+ $("#formulaDetail").innerHTML=`<span class="tag">${esc(f.category)} / ${esc(f.topic)}</span><h3>${esc(f.name)}</h3><div class="equation">${esc(f.equation)}</div><p>${esc(f.description)}</p><h4>VARIABLES & UNITS</h4><div class="var-list">${f.variables.map(v=>`<div class="var-row"><span><code>${esc(v[0])}</code> — ${esc(v[1])}</span><span>${esc(v[2])}</span></div>`).join("")}</div><h4>TRY THE CALCULATOR</h4><form class="calc-form" id="calcForm">${f.inputs.map(i=>`<label class="calc-field"><span>${esc(i.label)} (${esc(i.unit)})</span><input type="number" step="any" name="${esc(i.key)}" value="${i.default}" required></label>`).join("")}<button class="btn primary" type="submit">Calculate result</button></form><div id="calcResult" aria-live="polite"></div><h4>WORKED EXAMPLE</h4><p>${esc(f.example)}</p><h4>PRACTICAL USES</h4><p>${esc(f.uses)}</p><h4>ASSUMPTIONS & LIMITATIONS</h4><p>${esc(f.limits)}</p>`;
+ $("#calcForm").addEventListener("submit",e=>{e.preventDefault();const data=Object.fromEntries(new FormData(e.currentTarget).entries());const vals={};for(const [k,v] of Object.entries(data)){const n=Number(v);if(!Number.isFinite(n)){return;}vals[k]=n;}try{const result=Function(...Object.keys(vals),`"use strict"; return (${f.compute});`)(...Object.values(vals));if(!Number.isFinite(result))throw Error("Invalid result");$("#calcResult").innerHTML=`<div class="result-box"><small>CALCULATED RESULT</small><strong>${fmt(result)}</strong><small>Use the stated units and assumptions. This result is an estimate within the model's domain.</small></div>`;}catch(err){$("#calcResult").innerHTML=`<p role="alert">Unable to calculate. Check the values and try again.</p>`;}});
+}
+$("#searchInput").addEventListener("input",renderFormulas);$("#categoryFilter").addEventListener("change",renderFormulas);$("#topicFilter").addEventListener("change",renderFormulas);
+function renderProjects(){$("#projectGrid").innerHTML=PROJECTS.map((p,i)=>`<article class="project-card"><span class="tag">${esc(p.level)} · ${esc(p.disciplines)}</span><h3>${esc(p.name)}</h3><p>${esc(p.goal)}</p><div class="project-formula">${esc(p.formula)}</div><details><summary>Open project instructions</summary><ol>${p.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol><p><b>Safety:</b> ${esc(p.safety)}</p></details></article>`).join("");}
+const STORAGE_KEY="foe-project-ideas-v1";
+function loadIdeas(){try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]")}catch{return []}}
+function saveIdeas(items){localStorage.setItem(STORAGE_KEY,JSON.stringify(items))}
+function renderIdeas(){const ideas=loadIdeas();$("#ideaList").innerHTML=ideas.length?ideas.map((x,i)=>`<div class="idea-item"><button data-delete="${i}" aria-label="Delete ${esc(x.name)}">×</button><b>${esc(x.name)}</b><div>${esc(x.description||"No description yet.")}</div></div>`).join(""):"<p>No saved ideas yet. Add your first project above.</p>";document.querySelectorAll("[data-delete]").forEach(b=>b.addEventListener("click",()=>{const a=loadIdeas();a.splice(Number(b.dataset.delete),1);saveIdeas(a);renderIdeas()}));if(typeof renderLab==="function")renderLab();}
+$("#ideaForm").addEventListener("submit",e=>{e.preventDefault();const name=$("#ideaName").value.trim(),description=$("#ideaDescription").value.trim();if(!name)return;const ideas=loadIdeas();ideas.unshift({name,description,created:new Date().toISOString()});saveIdeas(ideas);e.target.reset();renderIdeas();});
+const unitData={length:{m:1,km:1000,cm:.01,mm:.001,ft:.3048,in:.0254},mass:{kg:1,g:.001,lb:.45359237,oz:.028349523125},energy:{J:1,kJ:1000,Wh:3600,kWh:3600000}};
+function convert(kind){const v=Number($(`#${kind}Value`).value),from=$(`#${kind}From`).value,to=$(`#${kind}To`).value;let result;if(!Number.isFinite(v)){result="Enter a valid number";}else if(kind==="temp"){let c=from==="C"?v:from==="F"?(v-32)*5/9:v-273.15;result=to==="C"?c:to==="F"?c*9/5+32:c+273.15;}else{result=v*unitData[kind][from]/unitData[kind][to];}const symbols={m:"m",km:"km",cm:"cm",mm:"mm",ft:"ft",in:"in",kg:"kg",g:"g",lb:"lb",oz:"oz",J:"J",kJ:"kJ",Wh:"Wh",kWh:"kWh",C:"°C",F:"°F",K:"K"}; $(`#${kind}Result`).textContent=typeof result==="number"?`${fmt(result)} ${symbols[to]}`:result;}
+["length","mass","energy","temp"].forEach(k=>["Value","From","To"].forEach(s=>$(`#${k}${s}`).addEventListener("input",()=>convert(k))));
+$("#themeToggle").addEventListener("click",()=>{document.body.classList.toggle("dark");localStorage.setItem("foe-theme",document.body.classList.contains("dark")?"dark":"light")});
+if(localStorage.getItem("foe-theme")==="dark")document.body.classList.add("dark");
+
+// ===== Private laboratory workspace (Version 2) =====
+const DISCIPLINES = [
+  ["Advanced Mathematics & Calculus","Mathematical foundations, calculus, algebra, optimization and numerical methods."],
+  ["Physics & Quantum Mechanics","Classical mechanics, thermodynamics, waves, electromagnetism and quantum theory."],
+  ["Chemistry & Material Science","Chemical principles, reactions, material properties and material selection."],
+  ["Biology & Genetics","Living systems, genetics, cellular processes and biological models."],
+  ["Human Anatomy & Physiology","Human body systems, biomechanics and physiological principles."],
+  ["Electrical & Electronics Engineering","Circuits, power, signals, components, control and electronic systems."],
+  ["Mechanical Engineering","Mechanisms, forces, motion, fluids, heat transfer and machine design."],
+  ["Civil Engineering & Architecture","Structures, buildings, infrastructure, surveying and the built environment."],
+  ["Computer Science & Artificial Intelligence","Algorithms, software, data, computation and intelligent systems."],
+  ["Robotics & Automation","Sensors, actuators, kinematics, control systems and autonomous machines."],
+  ["Economics & Business","Cost models, optimization, finance, operations and decision analysis."],
+  ["Astronomy & Space Engineering","Orbital mechanics, spacecraft systems, propulsion and observational astronomy."],
+  ["Agriculture & Environmental Science","Soil, crops, ecosystems, water, climate and environmental systems."],
+  ["Psychology & Cognitive Science","Learning, perception, behavior, cognition and human-centered design."],
+  ["Everyday Practical Formulas","Household, cooking, personal projects, measurement and daily problem-solving."]
 ];
-const $=s=>document.querySelector(s),model=()=>models.find(m=>m.id===$("#model").value),fmt=n=>new Intl.NumberFormat(undefined,{maximumSignificantDigits:8}).format(n);
-$("#model").innerHTML=models.map(m=>'<option value="'+m.id+'">'+m.name+' · '+m.eq+'</option>').join("");
-function draw(){const m=model(),old=$("#target").value;$("#formula").textContent=m.eq;$("#name").textContent=m.name;$("#description").textContent=m.desc;$("#target").innerHTML=m.vars.map(v=>'<option value="'+v[0]+'">'+v[1]+' ('+v[0]+')</option>').join("");$("#target").value=m.solve[old]?old:Object.keys(m.solve)[0];drawFields()}
-function drawFields(){const m=model(),t=$("#target").value;$("#fields").innerHTML=m.vars.filter(v=>v[0]!==t).map(v=>'<label>'+v[1]+' ('+v[2]+')<input id="v-'+m.vars.indexOf(v)+'" type="number" step="any" value="'+v[3]+'"></label>').join("");$("#result").classList.remove("error");$("#result").textContent="Enter known values and solve.";$("#steps").innerHTML=""}
-$("#model").addEventListener("change",draw);$("#target").addEventListener("change",drawFields);
-$("#solve").addEventListener("click",()=>{const m=model(),t=$("#target").value,x={},known=[];for(const v of m.vars){if(v[0]===t)continue;const raw=$("#v-"+m.vars.indexOf(v)).value,n=Number(raw);if(raw.trim()===""||!Number.isFinite(n)){fail("Enter a valid number for "+v[1]+".");return}x[v[0]]=n;known.push(v[0]+" = "+fmt(n)+" "+v[2])}let y;try{y=m.solve[t](x)}catch{fail("Could not evaluate this rearrangement.");return}if(!Number.isFinite(y)||(m.valid&&!m.valid({...x,[t]:y}))){fail("No valid finite solution. Check the input values and model domain.");return}const v=m.vars.find(z=>z[0]===t),f=m.forms[t];$("#result").classList.remove("error");$("#result").textContent=t+" = "+fmt(y)+" "+v[2];$("#steps").innerHTML="<h3>Solution steps</h3><ol><li>Choose the rearrangement: "+f+".</li><li>Known values: "+known.join("; ")+".</li><li>Substitute the known values and evaluate.</li><li>Result: "+t+" = "+fmt(y)+" "+v[2]+".</li></ol>"});
-function fail(s){$("#result").classList.add("error");$("#result").textContent=s;$("#steps").innerHTML=""}
-$("#reset").addEventListener("click",drawFields);draw();
-</script></body></html>
+const LAB_KEY = "foe-private-lab-v2";
+const emptyLab = {projects:[],notes:[]};
+function loadLab(){
+  try { const x=JSON.parse(localStorage.getItem(LAB_KEY)||"null"); return x && Array.isArray(x.projects) && Array.isArray(x.notes) ? x : structuredClone(emptyLab); }
+  catch { return structuredClone(emptyLab); }
+}
+function saveLab(data){ localStorage.setItem(LAB_KEY,JSON.stringify(data)); renderLab(); }
+function fillDisciplineSelects(){
+  ["#projectDiscipline","#noteDiscipline"].forEach(sel=>{
+    $(sel).innerHTML=DISCIPLINES.map(d=>`<option value="${esc(d[0])}">${esc(d[0])}</option>`).join("");
+  });
+}
+function renderDisciplines(){
+  $("#disciplineGrid").innerHTML=DISCIPLINES.map((d,i)=>`<article class="discipline-card"><span class="discipline-index">${String(i+1).padStart(2,"0")}</span><h3>${esc(d[0])}</h3><p>${esc(d[1])}</p></article>`).join("");
+}
+function renderLab(){
+  const data=loadLab();
+  $("#dashboardStats").innerHTML=[
+    ["Projects",data.projects.length],["Research notes",data.notes.length],
+    ["Ideas",loadIdeas().length],["Formula records",FORMULAS.length]
+  ].map(x=>`<div class="dash-stat"><strong>${x[1]}</strong><span>${esc(x[0])}</span></div>`).join("");
+  $("#projectRegister").innerHTML=data.projects.length?data.projects.map(p=>`
+    <article class="record-item"><div class="record-head"><b>${esc(p.title)}</b><span class="tag">${esc(p.stage)}</span></div>
+    <small>${esc(p.discipline)} · ${new Date(p.updated).toLocaleDateString()}</small><p>${esc(p.objective||"No objective recorded.")}</p>
+    <div class="record-actions"><select data-stage="${esc(p.id)}" aria-label="Change project stage">${["Idea","Research","Design","Prototype","Testing","Completed","Paused"].map(s=>`<option ${p.stage===s?"selected":""}>${s}</option>`).join("")}</select><button class="text-action" data-delete-project="${esc(p.id)}">Delete</button></div></article>`).join(""):"<p class='muted-copy'>No tracked projects yet. Add your first project above.</p>";
+  $("#noteRegister").innerHTML=data.notes.length?data.notes.map(n=>`
+    <article class="record-item"><div class="record-head"><b>${esc(n.title)}</b><button class="text-action" data-delete-note="${esc(n.id)}">Delete</button></div>
+    <small>${esc(n.discipline)} · ${new Date(n.updated).toLocaleDateString()}</small><p class="note-preview">${esc(n.body)}</p></article>`).join(""):"<p class='muted-copy'>Your research notebook is empty. Record your first finding above.</p>";
+  document.querySelectorAll("[data-stage]").forEach(el=>el.addEventListener("change",()=>{
+    const d=loadLab(),p=d.projects.find(x=>x.id===el.dataset.stage);if(p){p.stage=el.value;p.updated=new Date().toISOString();saveLab(d);}
+  }));
+  document.querySelectorAll("[data-delete-project]").forEach(el=>el.addEventListener("click",()=>{
+    if(!confirm("Delete this project record?"))return;const d=loadLab();d.projects=d.projects.filter(x=>x.id!==el.dataset.deleteProject);saveLab(d);
+  }));
+  document.querySelectorAll("[data-delete-note]").forEach(el=>el.addEventListener("click",()=>{
+    if(!confirm("Delete this research note?"))return;const d=loadLab();d.notes=d.notes.filter(x=>x.id!==el.dataset.deleteNote);saveLab(d);
+  }));
+}
+$("#projectForm").addEventListener("submit",e=>{
+  e.preventDefault();const d=loadLab(),now=new Date().toISOString();
+  d.projects.unshift({id:crypto.randomUUID(),title:$("#projectTitle").value.trim(),discipline:$("#projectDiscipline").value,stage:$("#projectStage").value,objective:$("#projectObjective").value.trim(),created:now,updated:now});
+  e.target.reset();saveLab(d);
+});
+$("#noteForm").addEventListener("submit",e=>{
+  e.preventDefault();const d=loadLab(),now=new Date().toISOString();
+  d.notes.unshift({id:crypto.randomUUID(),title:$("#noteTitle").value.trim(),discipline:$("#noteDiscipline").value,body:$("#noteBody").value.trim(),created:now,updated:now});
+  e.target.reset();saveLab(d);
+});
+fillDisciplineSelects();renderDisciplines();renderLab();
+
+renderFormulas();renderProjects();renderIdeas();["length","mass","energy","temp"].forEach(convert);
+
+// V3 engineering calculation bench and experiment log.
+const BENCH_KEY="foe-v3-calculations", EXPERIMENT_KEY="foe-v3-experiments";
+const BENCH_MODELS={
+ stress:{name:"Normal stress",equation:"σ = F / A",unit:"Pa",fields:[["force","Applied force","N",1000],["area","Cross-sectional area","m²",0.001]],calc:v=>v.force/v.area,caveat:"Average axial stress estimate. Does not calculate stress concentrations, buckling, fatigue or allowable strength."},
+ torque:{name:"Torque",equation:"τ = F × r",unit:"N·m",fields:[["force","Perpendicular force","N",20],["radius","Moment arm","m",0.15]],calc:v=>v.force*v.radius,caveat:"Assumes the force is perpendicular to the moment arm. Otherwise use τ = rF sin(θ)."},
+ series:{name:"Series resistance",equation:"Rₜ = R₁ + R₂ + R₃",unit:"Ω",fields:[["r1","Resistor 1","Ω",100],["r2","Resistor 2","Ω",220],["r3","Resistor 3","Ω",330]],calc:v=>v.r1+v.r2+v.r3,caveat:"Ideal lumped resistors. Check power ratings, tolerances and circuit conditions."},
+ parallel:{name:"Parallel resistance",equation:"1/Rₜ = 1/R₁ + 1/R₂ + 1/R₃",unit:"Ω",fields:[["r1","Resistor 1","Ω",100],["r2","Resistor 2","Ω",220],["r3","Resistor 3","Ω",330]],calc:v=>1/(1/v.r1+1/v.r2+1/v.r3),valid:v=>v.r1>0&&v.r2>0&&v.r3>0,caveat:"All resistance values must be positive. Real components have tolerances and power limits."},
+ thermal:{name:"Sensible heat",equation:"Q = m c ΔT",unit:"J",fields:[["mass","Mass","kg",1],["specificHeat","Specific heat capacity","J/(kg·K)",4186],["deltaT","Temperature change","K",10]],calc:v=>v.mass*v.specificHeat*v.deltaT,caveat:"Assumes constant specific heat and no phase change. Heat losses and system boundaries are not included."},
+ hydrostatic:{name:"Hydrostatic pressure",equation:"p = ρ g h",unit:"Pa (gauge)",fields:[["density","Fluid density","kg/m³",1000],["gravity","Gravitational acceleration","m/s²",9.80665],["depth","Depth below surface","m",2]],calc:v=>v.density*v.gravity*v.depth,caveat:"Static fluid, approximately constant density and gravity. This is gauge pressure; add atmospheric pressure for absolute pressure."},
+ runtime:{name:"Ideal battery runtime",equation:"t = E / P",unit:"h",fields:[["capacity","Nominal energy capacity","Wh",100],["power","Average load power","W",20]],calc:v=>v.capacity/v.power,valid:v=>v.capacity>=0&&v.power>0,caveat:"Ideal upper-bound estimate only. Actual runtime is lower due to conversion losses, usable-capacity limits, temperature, aging and load profile."},
+ gear:{name:"Ideal gear speed ratio",equation:"n₂ = n₁ × T₁ / T₂",unit:"rpm",fields:[["inputSpeed","Input speed","rpm",1200],["teeth1","Driver gear teeth","teeth",20],["teeth2","Driven gear teeth","teeth",60]],calc:v=>v.inputSpeed*v.teeth1/v.teeth2,valid:v=>v.teeth1>0&&v.teeth2>0,caveat:"Ideal external gear pair; output direction reverses. Real speed and torque are affected by losses, compliance and load."}
+};
+let lastBenchResult=null;
+function readRecords(key){try{const x=JSON.parse(localStorage.getItem(key)||"[]");return Array.isArray(x)?x:[]}catch{return []}}
+function renderBenchFields(){
+ const model=BENCH_MODELS[$("#benchModel").value];
+ $("#benchFields").innerHTML=model.fields.map(([key,label,unit,value])=>`<label>${esc(label)} (${esc(unit)})<input type="number" step="any" id="bench-${key}" value="${value}"></label>`).join("");
+ $("#benchResult").textContent=`${model.equation} · output in ${model.unit}`;
+ $("#benchCaveat").textContent=model.caveat;$("#saveBench").disabled=true;lastBenchResult=null;
+}
+function runBench(){
+ const model=BENCH_MODELS[$("#benchModel").value],v={};
+ for(const [key,label] of model.fields){const raw=$(`#bench-${key}`).value;v[key]=Number(raw);if(raw.trim()===""||!Number.isFinite(v[key]))return showBenchError(`Enter a valid number for ${label.toLowerCase()}.`);}
+ if(model.valid&&!model.valid(v))return showBenchError("Inputs are outside the valid range for this model.");
+ let result;try{result=model.calc(v)}catch{return showBenchError("The calculation could not be completed.")}
+ if(!Number.isFinite(result))return showBenchError("The result is undefined or outside the calculator's numeric range.");
+ const pretty=new Intl.NumberFormat(undefined,{maximumSignificantDigits:7}).format(result);
+ $("#benchResult").classList.remove("error");$("#benchResult").innerHTML=`${esc(pretty)} ${esc(model.unit)}<small>${esc(model.equation)} · ${esc(model.name)}</small>`;
+ lastBenchResult={model:$("#benchModel").value,name:model.name,equation:model.equation,unit:model.unit,result,inputs:v,created:new Date().toISOString()};
+ $("#saveBench").disabled=false;
+}
+function showBenchError(message){$("#benchResult").classList.add("error");$("#benchResult").textContent=message;$("#saveBench").disabled=true;lastBenchResult=null;}
+function renderBenchHistory(){
+ const rows=readRecords(BENCH_KEY);
+ $("#benchHistory").innerHTML=rows.length?rows.map((r,i)=>`<article class="bench-history-item"><b>${esc(r.name)}</b><p>${esc(r.equation)} = ${esc(new Intl.NumberFormat(undefined,{maximumSignificantDigits:7}).format(r.result))} ${esc(r.unit)}</p><small>${new Date(r.created).toLocaleString()}</small> <button class="text-action" data-delete-bench="${i}">Delete</button></article>`).join(""):"<p class='muted-copy'>No saved calculations yet.</p>";
+ document.querySelectorAll("[data-delete-bench]").forEach(b=>b.addEventListener("click",()=>{const a=readRecords(BENCH_KEY);a.splice(Number(b.dataset.deleteBench),1);localStorage.setItem(BENCH_KEY,JSON.stringify(a));renderBenchHistory()}));
+}
+$("#benchModel").addEventListener("change",renderBenchFields);
+$("#runBench").addEventListener("click",runBench);
+$("#saveBench").addEventListener("click",()=>{if(!lastBenchResult)return;const a=readRecords(BENCH_KEY);a.unshift(lastBenchResult);localStorage.setItem(BENCH_KEY,JSON.stringify(a));renderBenchHistory();$("#saveBench").disabled=true;});
+$("#experimentForm").addEventListener("submit",e=>{
+ e.preventDefault();const a=readRecords(EXPERIMENT_KEY);
+ a.unshift({title:$("#experimentTitle").value.trim(),hypothesis:$("#experimentHypothesis").value.trim(),method:$("#experimentMethod").value.trim(),result:$("#experimentResult").value.trim(),value:$("#experimentValue").value,unit:$("#experimentUnit").value.trim(),created:new Date().toISOString()});
+ localStorage.setItem(EXPERIMENT_KEY,JSON.stringify(a));e.target.reset();renderExperiments();
+});
+function renderExperiments(){
+ const a=readRecords(EXPERIMENT_KEY);
+ $("#experimentList").innerHTML=a.length?a.map((r,i)=>`<article class="record-item"><div class="record-head"><b>${esc(r.title)}</b><button class="text-action" data-delete-experiment="${i}">Delete</button></div><small>${new Date(r.created).toLocaleString()}</small>${r.hypothesis?`<p><b>Hypothesis:</b> ${esc(r.hypothesis)}</p>`:""}${r.method?`<p><b>Method:</b> ${esc(r.method)}</p>`:""}<p><b>Observation:</b> ${esc(r.result)}</p>${r.value!==""?`<p><b>Measurement:</b> ${esc(r.value)} ${esc(r.unit)}</p>`:""}</article>`).join(""):"<p class='muted-copy'>No experiment records yet.</p>";
+ document.querySelectorAll("[data-delete-experiment]").forEach(b=>b.addEventListener("click",()=>{const x=readRecords(EXPERIMENT_KEY);x.splice(Number(b.dataset.deleteExperiment),1);localStorage.setItem(EXPERIMENT_KEY,JSON.stringify(x));renderExperiments()}));
+}
+renderBenchFields();renderBenchHistory();renderExperiments();
+
+// V4 curated equation solver. All calculations are explicit functions; no eval or user-supplied code.
+const EQUATION_HISTORY_KEY="foe-v4-equation-history";
+const EQUATION_UNITS={
+ m:{dim:"length",factor:1},km:{dim:"length",factor:1000},cm:{dim:"length",factor:.01},
+ s:{dim:"time",factor:1},min:{dim:"time",factor:60},h:{dim:"time",factor:3600},
+ "m/s":{dim:"speed",factor:1},"km/h":{dim:"speed",factor:1/3.6},
+ "m/s²":{dim:"acceleration",factor:1},
+ kg:{dim:"mass",factor:1},g:{dim:"mass",factor:.001},
+ N:{dim:"force",factor:1},
+ J:{dim:"energy",factor:1},kJ:{dim:"energy",factor:1000},Wh:{dim:"energy",factor:3600},
+ W:{dim:"power",factor:1},kW:{dim:"power",factor:1000},
+ V:{dim:"voltage",factor:1},A:{dim:"current",factor:1},mA:{dim:"current",factor:.001},
+ "Ω":{dim:"resistance",factor:1},"kΩ":{dim:"resistance",factor:1000},
+ "kg/m³":{dim:"density",factor:1},"g/cm³":{dim:"density",factor:1000},
+ "m³":{dim:"volume",factor:1},L:{dim:"volume",factor:.001},
+ Pa:{dim:"pressure",factor:1},kPa:{dim:"pressure",factor:1000},bar:{dim:"pressure",factor:100000},
+ "m²":{dim:"area",factor:1},"cm²":{dim:"area",factor:.0001},
+ "J/(kg·K)":{dim:"specificHeat",factor:1},K:{dim:"temperatureDifference",factor:1},
+ Hz:{dim:"frequency",factor:1},kHz:{dim:"frequency",factor:1000}
+};
+const qv=(key,label,si,dim,def,units=[si])=>({key,label,si,dim,def,units});
+const EQUATION_MODELS=[
+ {id:"speed",name:"Average speed",equation:"v = d / t",description:"Average speed is distance divided by elapsed time. This scalar relationship does not preserve direction and does not describe changing instantaneous speed.",vars:[qv("v","Average speed","m/s","speed",10,["m/s","km/h"]),qv("d","Distance","m","length",100,["m","km","cm"]),qv("t","Elapsed time","s","time",10,["s","min","h"])],target:"v",solve:{v:x=>x.d/x.t,d:x=>x.v*x.t,t:x=>x.d/x.v},rearrange:{v:"v = d / t",d:"d = v × t",t:"t = d / v"},valid:x=>x.t>0},
+ {id:"acceleration",name:"Average acceleration",equation:"a = (v − u) / t",description:"Average acceleration is the change in velocity divided by elapsed time. Use consistent signed velocities along one axis.",vars:[qv("a","Acceleration","m/s²","acceleration",5),qv("v","Final velocity","m/s","speed",20,["m/s","km/h"]),qv("u","Initial velocity","m/s","speed",5,["m/s","km/h"]),qv("t","Elapsed time","s","time",3,["s","min"])],target:"a",solve:{a:x=>(x.v-x.u)/x.t,v:x=>x.a*x.t+x.u,u:x=>x.v-x.a*x.t,t:x=>(x.v-x.u)/x.a},rearrange:{a:"a = (v − u) / t",v:"v = a × t + u",u:"u = v − a × t",t:"t = (v − u) / a"},valid:x=>x.t>0},
+ {id:"newton",name:"Newton's second law",equation:"F = m × a",description:"Net force equals mass times acceleration in an inertial reference frame. Use net force, not just one of several unbalanced forces.",vars:[qv("F","Net force","N","force",20),qv("m","Mass","kg","mass",10,["kg","g"]),qv("a","Acceleration","m/s²","acceleration",2)],target:"F",solve:{F:x=>x.m*x.a,m:x=>x.F/x.a,a:x=>x.F/x.m},rearrange:{F:"F = m × a",m:"m = F / a",a:"a = F / m"},valid:x=>x.m>0},
+ {id:"weight",name:"Weight near Earth's surface",equation:"W = m × g",description:"Weight is gravitational force. The default g is 9.80665 m/s², but local gravitational acceleration varies with location and altitude.",vars:[qv("W","Weight","N","force",686.4655),qv("m","Mass","kg","mass",70,["kg","g"]),qv("g","Gravitational acceleration","m/s²","acceleration",9.80665)],target:"W",solve:{W:x=>x.m*x.g,m:x=>x.W/x.g,g:x=>x.W/x.m},rearrange:{W:"W = m × g",m:"m = W / g",g:"g = W / m"},valid:x=>x.m>0&&x.g>0},
+ {id:"kinetic",name:"Kinetic energy",equation:"Eₖ = ½ m v²",description:"Translational kinetic energy for an object of mass m moving at speed v relative to the chosen inertial frame. Rotational energy is not included.",vars:[qv("E","Kinetic energy","J","energy",40,["J","kJ","Wh"]),qv("m","Mass","kg","mass",5,["kg","g"]),qv("v","Speed","m/s","speed",4,["m/s","km/h"])],target:"E",solve:{E:x=>.5*x.m*x.v*x.v,m:x=>2*x.E/(x.v*x.v),v:x=>Math.sqrt(2*x.E/x.m)},rearrange:{E:"Eₖ = ½ m v²",m:"m = 2Eₖ / v²",v:"v = √(2Eₖ / m)"},valid:x=>x.m>0&&x.E>=0},
+ {id:"potential",name:"Gravitational potential energy change",equation:"ΔEₚ = m × g × h",description:"Near a uniform gravitational field, the change in gravitational potential energy is mgh relative to a chosen reference height. Sign depends on the direction of height change.",vars:[qv("E","Potential energy change","J","energy",490.3325,["J","kJ","Wh"]),qv("m","Mass","kg","mass",5,["kg","g"]),qv("g","Gravitational acceleration","m/s²","acceleration",9.80665),qv("h","Height change","m","length",10,["m","cm"])],target:"E",solve:{E:x=>x.m*x.g*x.h,m:x=>x.E/(x.g*x.h),g:x=>x.E/(x.m*x.h),h:x=>x.E/(x.m*x.g)},rearrange:{E:"ΔEₚ = m × g × h",m:"m = ΔEₚ / (g × h)",g:"g = ΔEₚ / (m × h)",h:"h = ΔEₚ / (m × g)"},valid:x=>x.m>0&&x.g>0},
+ {id:"power",name:"Average power",equation:"P = E / t",description:"Average power is energy transferred or work done per unit time. The model assumes the energy and time refer to the same process and interval.",vars:[qv("P","Average power","W","power",100),qv("E","Energy transferred","J","energy",1000,["J","kJ","Wh"]),qv("t","Elapsed time","s","time",10,["s","min","h"])],target:"P",solve:{P:x=>x.E/x.t,E:x=>x.P*x.t,t:x=>x.E/x.P},rearrange:{P:"P = E / t",E:"E = P × t",t:"t = E / P"},valid:x=>x.t>0},
+ {id:"ohm",name:"Ohm's law",equation:"V = I × R",description:"For an ohmic component under the relevant operating conditions, voltage equals current times resistance. Many components are nonlinear or temperature-dependent.",vars:[qv("V","Voltage","V","voltage",12),qv("I","Current","A","current",2,["A","mA"]),qv("R","Resistance","Ω","resistance",6,["Ω","kΩ"])],target:"V",solve:{V:x=>x.I*x.R,I:x=>x.V/x.R,R:x=>x.V/x.I},rearrange:{V:"V = I × R",I:"I = V / R",R:"R = V / I"}},
+ {id:"density",name:"Mass density",equation:"ρ = m / V",description:"Density is mass divided by volume. This average value assumes the selected mass and volume describe the same material sample.",vars:[qv("rho","Density","kg/m³","density",1000,["kg/m³","g/cm³"]),qv("m","Mass","kg","mass",1,["kg","g"]),qv("V","Volume","m³","volume",.001,["m³","L"])],target:"rho",solve:{rho:x=>x.m/x.V,m:x=>x.rho*x.V,V:x=>x.m/x.rho},rearrange:{rho:"ρ = m / V",m:"m = ρ × V",V:"V = m / ρ"},valid:x=>x.V>0},
+ {id:"pressure",name:"Average pressure",equation:"p = F / A",description:"Average pressure is normal force distributed over area. It does not describe local peak stress or nonuniform pressure distributions.",vars:[qv("p","Average pressure","Pa","pressure",100000,["Pa","kPa","bar"]),qv("F","Normal force","N","force",1000),qv("A","Area","m²","area",.01,["m²","cm²"])],target:"p",solve:{p:x=>x.F/x.A,F:x=>x.p*x.A,A:x=>x.F/x.p},rearrange:{p:"p = F / A",F:"F = p × A",A:"A = F / p"},valid:x=>x.A>0},
+ {id:"thermal",name:"Sensible heat transfer",equation:"Q = m × c × ΔT",description:"Estimates sensible heat for a temperature change with approximately constant specific heat capacity. It excludes phase changes and heat losses.",vars:[qv("Q","Heat transferred","J","energy",41860,["J","kJ","Wh"]),qv("m","Mass","kg","mass",1,["kg","g"]),qv("c","Specific heat capacity","J/(kg·K)","specificHeat",4186),qv("dT","Temperature change","K","temperatureDifference",10)],target:"Q",solve:{Q:x=>x.m*x.c*x.dT,m:x=>x.Q/(x.c*x.dT),c:x=>x.Q/(x.m*x.dT),dT:x=>x.Q/(x.m*x.c)},rearrange:{Q:"Q = m × c × ΔT",m:"m = Q / (c × ΔT)",c:"c = Q / (m × ΔT)",dT:"ΔT = Q / (m × c)"},valid:x=>x.m>0&&x.c>0},
+ {id:"frequency",name:"Frequency and period",equation:"f = 1 / T",description:"For a periodic process, frequency is the reciprocal of its period. The period must be positive.",vars:[qv("f","Frequency","Hz","frequency",2,["Hz","kHz"]),qv("T","Period","s","time",.5,["s","ms" /* unsupported unit deliberately omitted below */])],target:"f",solve:{f:x=>1/x.T,T:x=>1/x.f},rearrange:{f:"f = 1 / T",T:"T = 1 / f"},valid:x=>x.T>0&&x.f>0}
+];
+// Milliseconds are represented through seconds in this model to keep conversions explicit.
+EQUATION_MODELS.find(x=>x.id==="frequency").vars[1].units=["s","min"];
+function eqModel(){return EQUATION_MODELS.find(x=>x.id===$("#equationModel").value)||EQUATION_MODELS[0]}
+function fmtEq(n){return new Intl.NumberFormat(undefined,{maximumSignificantDigits:8}).format(n)}
+function eqHistory(){try{const x=JSON.parse(localStorage.getItem(EQUATION_HISTORY_KEY)||"[]");return Array.isArray(x)?x:[]}catch{return []}}
+let lastEquationSolution=null;
+function renderEquationInputs(){
+ const model=eqModel(),target=$("#equationTarget").value||model.target;
+ $("#equationDisplay").textContent=model.equation;
+ $("#equationTarget").innerHTML=model.vars.map(v=>`<option value="${v.key}" ${v.key===target?"selected":""}>${esc(v.label)} (${esc(v.key)})</option>`).join("");
+ const actualTarget=$("#equationTarget").value;
+ $("#equationInputs").innerHTML=model.vars.filter(v=>v.key!==actualTarget).map(v=>`<div class="equation-input-row"><label>${esc(v.label)} <small>${esc(v.key)} · SI base: ${esc(v.si)}</small><input type="number" step="any" id="eq-${v.key}" value="${v.def}"></label><label class="unit-select"><small>Unit</small><select id="equnit-${v.key}">${v.units.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join("")}</select></label></div>`).join("");
+ $("#equationModelName").textContent=model.name;
+ $("#equationDescription").textContent=model.description;
+ $("#equationUnitNote").textContent=`Each variable has a defined physical quantity (${model.vars.map(v=>v.key+": "+v.dim).join(", ")}). Values are converted to SI base units before solving; output is shown in ${model.vars.find(v=>v.key===actualTarget).si}.`;
+ $("#equationResult").classList.remove("error");$("#equationResult").textContent=`Solve for ${model.vars.find(v=>v.key===actualTarget).label}.`;
+ $("#equationSteps").innerHTML="";$("#saveEquation").disabled=true;lastEquationSolution=null;
+}
+function solveEquationNow(){
+ const model=eqModel(),target=$("#equationTarget").value,vals={},entered={};
+ for(const v of model.vars.filter(v=>v.key!==target)){
+  const raw=$(`#eq-${v.key}`).value,unit=$(`#equnit-${v.key}`).value,meta=EQUATION_UNITS[unit];
+  if(raw.trim()===""||!Number.isFinite(Number(raw)))return equationError(`Enter a valid number for ${v.label.toLowerCase()}.`);
+  if(!meta||meta.dim!==v.dim)return equationError(`Unit mismatch for ${v.label}. Choose a unit of ${v.dim}.`);
+  const n=Number(raw);vals[v.key]=n*meta.factor;entered[v.key]={value:n,unit};
+ }
+ let result;try{result=model.solve[target](vals)}catch{return equationError("The selected rearrangement could not be evaluated.");}
+ if(!Number.isFinite(result))return equationError("No finite solution. Check for division by zero or invalid inputs.");
+ if(model.valid&&!model.valid({...vals,[target]:result}))return equationError("The inputs violate this model's stated domain or validity conditions.");
+ const targetVar=model.vars.find(v=>v.key===target),displayUnit=targetVar.si,displayValue=result;
+ const equation=model.rearrange[target]||model.equation;
+ $("#equationResult").classList.remove("error");
+ $("#equationResult").innerHTML=`${esc(target)} = ${esc(fmtEq(displayValue))} ${esc(displayUnit)}<small>${esc(model.name)} · ${esc(equation)}</small>`;
+ const lines=[`Rearranged relationship: ${equation}.`,`Convert entered values to SI base units: ${Object.entries(entered).map(([k,x])=>`${k} = ${fmtEq(x.value)} ${x.unit} = ${fmtEq(vals[k])} ${model.vars.find(v=>v.key===k).si}`).join("; ")}.`,`Substitute the known values into the rearranged relationship.`,`Result: ${target} = ${fmtEq(displayValue)} ${displayUnit}.`];
+ $("#equationSteps").innerHTML=`<b>Solution steps</b><ol>${lines.map(s=>`<li>${esc(s)}</li>`).join("")}</ol><small>Unit check: inputs were converted using matching quantity dimensions. The relationship's dimensional validity is assumed from this curated model; this check is not a proof of physical suitability.</small>`;
+ lastEquationSolution={model:model.id,name:model.name,equation:model.equation,target,result:displayValue,unit:displayUnit,entered,siValues:vals,created:new Date().toISOString()};
+ $("#saveEquation").disabled=false;
+}
+function equationError(msg){$("#equationResult").classList.add("error");$("#equationResult").textContent=msg;$("#equationSteps").textContent="";$("#saveEquation").disabled=true;lastEquationSolution=null;}
+function renderEquationHistory(){
+ const a=eqHistory();
+ $("#equationHistory").innerHTML=a.length?a.map((r,i)=>`<article class="bench-history-item"><b>${esc(r.name)} · ${esc(r.target)}</b><p>${esc(fmtEq(r.result))} ${esc(r.unit)}</p><small>${new Date(r.created).toLocaleString()}</small> <button class="text-action" data-delete-equation="${i}">Delete</button></article>`).join(""):"<p class='muted-copy'>No saved equation solutions yet.</p>";
+ document.querySelectorAll("[data-delete-equation]").forEach(b=>b.addEventListener("click",()=>{const x=eqHistory();x.splice(Number(b.dataset.deleteEquation),1);localStorage.setItem(EQUATION_HISTORY_KEY,JSON.stringify(x));renderEquationHistory()}));
+}
+$("#equationModel").innerHTML=EQUATION_MODELS.map(m=>`<option value="${m.id}">${esc(m.name)} · ${esc(m.equation)}</option>`).join("");
+$("#equationModel").addEventListener("change",()=>{const m=eqModel();$("#equationTarget").value=m.target;renderEquationInputs()});
+$("#equationTarget").addEventListener("change",renderEquationInputs);
+$("#solveEquation").addEventListener("click",solveEquationNow);
+$("#saveEquation").addEventListener("click",()=>{if(!lastEquationSolution)return;const a=eqHistory();a.unshift(lastEquationSolution);localStorage.setItem(EQUATION_HISTORY_KEY,JSON.stringify(a));renderEquationHistory();$("#saveEquation").disabled=true;});
+renderEquationInputs();renderEquationHistory();
+
+// V5: explicit SI dimensional analysis and curated unit intelligence.
+const DIMENSION_BASES={L:"length",M:"mass",T:"time",I:"electric current",Th:"thermodynamic temperature",N:"amount of substance",J:"luminous intensity"};
+const DIMENSION_VECTORS={
+ length:[1,0,0,0,0,0,0],area:[2,0,0,0,0,0,0],volume:[3,0,0,0,0,0,0],
+ mass:[0,1,0,0,0,0,0],time:[0,0,1,0,0,0,0],frequency:[0,0,-1,0,0,0,0],
+ speed:[1,0,-1,0,0,0,0],acceleration:[1,0,-2,0,0,0,0],force:[1,1,-2,0,0,0,0],
+ energy:[2,1,-2,0,0,0,0],power:[2,1,-3,0,0,0,0],pressure:[-1,1,-2,0,0,0,0],
+ density:[-3,1,0,0,0,0,0],voltage:[2,1,-3,-1,0,0,0],current:[0,0,0,1,0,0,0],
+ resistance:[2,1,-3,-2,0,0,0],conductance:[-2,-1,3,2,0,0,0],capacitance:[-2,-1,4,2,0,0,0],
+ charge:[0,0,1,1,0,0,0],magneticFlux:[2,1,-2,-1,0,0,0],magneticFluxDensity:[0,1,-2,-1,0,0,0],
+ inductance:[2,1,-2,-2,0,0,0],specificHeat:[2,0,-2,0,-1,0,0],temperatureDifference:[0,0,0,0,1,0,0],
+ dynamicViscosity:[-1,1,-1,0,0,0,0],kinematicViscosity:[2,0,-1,0,0,0,0],momentum:[1,1,-1,0,0,0,0],
+ powerPerArea:[0,1,-3,0,0,0,0],accelerationDueToGravity:[1,0,-2,0,0,0,0]
+};
+const UNIT_GROUPS={
+ length:{label:"Length",dim:"length",units:{m:[1,0],km:[1000,0],cm:[.01,0],mm:[.001,0],µm:[1e-6,0],nm:[1e-9,0],ft:[.3048,0],in:[.0254,0],yd:[.9144,0],mi:[1609.344,0]}},
+ area:{label:"Area",dim:"area",units:{"m²":[1,0],"cm²":[1e-4,0],"mm²":[1e-6,0],ha:[10000,0],acre:[4046.8564224,0],"ft²":[.09290304,0]}},
+ volume:{label:"Volume",dim:"volume",units:{"m³":[1,0],L:[.001,0],mL:[1e-6,0],"cm³":[1e-6,0],"ft³":[.028316846592,0],galUS:[.003785411784,0]}},
+ mass:{label:"Mass",dim:"mass",units:{kg:[1,0],g:[.001,0],mg:[1e-6,0],t:[1000,0],lb:[.45359237,0],oz:[.028349523125,0]}},
+ time:{label:"Time",dim:"time",units:{s:[1,0],ms:[.001,0],min:[60,0],h:[3600,0],day:[86400,0]}},
+ speed:{label:"Speed",dim:"speed",units:{"m/s":[1,0],"km/h":[1/3.6,0],mph:[.44704,0],knot:[.514444444444,0]}},
+ acceleration:{label:"Acceleration",dim:"acceleration",units:{"m/s²":[1,0],Gal:[.01,0],"ft/s²":[.3048,0]}},
+ force:{label:"Force",dim:"force",units:{N:[1,0],kN:[1000,0],lbf:[4.4482216152605,0],dyn:[1e-5,0]}},
+ energy:{label:"Energy",dim:"energy",units:{J:[1,0],kJ:[1000,0],MJ:[1e6,0],Wh:[3600,0],kWh:[3.6e6,0],cal:[4.184,0],kcal:[4184,0],BTU:[1055.05585262,0]}},
+ power:{label:"Power",dim:"power",units:{W:[1,0],kW:[1000,0],MW:[1e6,0],hp:[745.699871582,0]}},
+ pressure:{label:"Pressure",dim:"pressure",units:{Pa:[1,0],kPa:[1000,0],MPa:[1e6,0],bar:[1e5,0],atm:[101325,0],psi:[6894.757293168,0],torr:[133.322368421,0]}},
+ density:{label:"Mass density",dim:"density",units:{"kg/m³":[1,0],"g/cm³":[1000,0],"g/mL":[1000,0],"lb/ft³":[16.01846337396,0]}},
+ voltage:{label:"Voltage",dim:"voltage",units:{V:[1,0],mV:[.001,0],kV:[1000,0]}},
+ current:{label:"Electric current",dim:"current",units:{A:[1,0],mA:[.001,0],µA:[1e-6,0],kA:[1000,0]}},
+ resistance:{label:"Electrical resistance",dim:"resistance",units:{"Ω":[1,0],"mΩ":[.001,0],"kΩ":[1000,0],"MΩ":[1e6,0]}},
+ frequency:{label:"Frequency",dim:"frequency",units:{Hz:[1,0],kHz:[1000,0],MHz:[1e6,0],GHz:[1e9,0],rpm:[1/60,0]}},
+ temperature:{label:"Absolute temperature",dim:"temperatureDifference",units:{K:[1,0],"°C":[1,273.15],"°F":[5/9,255.3722222222222]}}
+};
+const DIMENSION_LABELS={length:"L",area:"L²",volume:"L³",mass:"M",time:"T",frequency:"T⁻¹",speed:"LT⁻¹",acceleration:"LT⁻²",force:"MLT⁻²",energy:"ML²T⁻²",power:"ML²T⁻³",pressure:"ML⁻¹T⁻²",density:"ML⁻³",voltage:"ML²T⁻³I⁻¹",current:"I",resistance:"ML²T⁻³I⁻²",temperatureDifference:"Θ",specificHeat:"L²T⁻²Θ⁻¹",area:"L²"};
+function dimensionFmt(n){return new Intl.NumberFormat(undefined,{maximumSignificantDigits:10}).format(n)}
+function dimensionSignature(dim){const v=DIMENSION_VECTORS[dim];if(!v)return "Dimension metadata unavailable";const symbols=["L","M","T","I","Θ","N","J"],num=[],den=[];v.forEach((e,i)=>{if(e>0)num.push(symbols[i]+(e===1?"":`^${e}`));if(e<0)den.push(symbols[i]+(e===-1?"":`^${-e}`))});return (num.length?num.join(" · "):"1")+(den.length?" / "+den.join(" · "):"")}
+function dimensionUnitOptions(group){return Object.keys(UNIT_GROUPS[group].units).map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join("")}
+function refreshDimensionUnits(){const g=$("#dimensionQuantity").value,units=UNIT_GROUPS[g].units;$("#dimensionFrom").innerHTML=dimensionUnitOptions(g);$("#dimensionTo").innerHTML=dimensionUnitOptions(g);const preferred=Object.keys(units);if(preferred.length>1)$("#dimensionTo").selectedIndex=1;updateDimensionConversion();$("#dimensionSignature").textContent=`SI base dimensions: ${dimensionSignature(UNIT_GROUPS[g].dim)} · ${DIMENSION_LABELS[UNIT_GROUPS[g].dim]||UNIT_GROUPS[g].dim}`}
+function updateDimensionConversion(){const g=$("#dimensionQuantity").value,group=UNIT_GROUPS[g],v=Number($("#dimensionValue").value),from=$("#dimensionFrom").value,to=$("#dimensionTo").value;if(!Number.isFinite(v)){$("#dimensionResult").textContent="Enter a finite numeric value.";return}const [sf,of]=group.units[from],[st,ot]=group.units[to];const base=g==="temperature"?v*sf+of:v*sf;const out=g==="temperature"?(base-ot)/st:base/st;$("#dimensionResult").textContent=`${dimensionFmt(v)} ${from} = ${dimensionFmt(out)} ${to}`}
+function dimensionModelSpec(id){const specs={speed:["speed","length","time"],acceleration:["acceleration","speed","time"],newton:["force","mass","acceleration"],weight:["force","mass","accelerationDueToGravity"],kinetic:["energy","mass","speed"],potential:["energy","mass","accelerationDueToGravity","length"],power:["power","energy","time"],ohm:["voltage","current","resistance"],density:["density","mass","volume"],pressure:["pressure","force","area"],thermal:["energy","mass","specificHeat","temperatureDifference"],frequency:["frequency","time"]};return specs[id]||null}
+function vectorEqual(a,b){return a&&b&&a.every((n,i)=>n===b[i])}
+function vectorProduct(vectors,divideIndex=-1){const out=[0,0,0,0,0,0,0];vectors.forEach((v,i)=>v.forEach((n,j)=>out[j]+=n*(i===divideIndex?-1:1)));return out}
+function checkDimensionalModel(){const model=EQUATION_MODELS.find(m=>m.id===$("#dimensionEquation").value)||EQUATION_MODELS[0],spec=dimensionModelSpec(model.id),result=$("#dimensionCheckResult"),details=$("#dimensionCheckDetails");if(!spec){result.textContent="No dimensional metadata is available for this model.";return}const [lhs,...rhs]=spec,lv=DIMENSION_VECTORS[lhs],rv=vectorProduct(rhs.map(x=>DIMENSION_VECTORS[x]),model.id==="speed"||model.id==="acceleration"||model.id==="power"||model.id==="density"||model.id==="pressure"||model.id==="frequency"?1:-1);
+// Explicit equation metadata is authoritative: multiplication adds exponents; division subtracts denominator exponents.
+const op=({speed:()=>vectorProduct([DIMENSION_VECTORS.length,DIMENSION_VECTORS.time],1),acceleration:()=>vectorProduct([DIMENSION_VECTORS.speed,DIMENSION_VECTORS.time],1),newton:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.acceleration]),weight:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.accelerationDueToGravity]),kinetic:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.speed,DIMENSION_VECTORS.speed]),potential:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.accelerationDueToGravity,DIMENSION_VECTORS.length]),power:()=>vectorProduct([DIMENSION_VECTORS.energy,DIMENSION_VECTORS.time],1),ohm:()=>vectorProduct([DIMENSION_VECTORS.current,DIMENSION_VECTORS.resistance]),density:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.volume],1),pressure:()=>vectorProduct([DIMENSION_VECTORS.force,DIMENSION_VECTORS.area],1),thermal:()=>vectorProduct([DIMENSION_VECTORS.mass,DIMENSION_VECTORS.specificHeat,DIMENSION_VECTORS.temperatureDifference]),frequency:()=>vectorProduct([[0,0,0,0,0,0,0],DIMENSION_VECTORS.time],1)})[model.id];
+const right=op?op():rv,ok=vectorEqual(lv,right);result.classList.toggle("success",ok);result.classList.toggle("warning",!ok);result.textContent=ok?"DIMENSIONALLY CONSISTENT — both sides reduce to the same SI base dimensions.":"DIMENSIONAL MISMATCH — the left and right sides do not have the same base dimensions.";
+const terms=model.vars.map(v=>`<li><b>${esc(v.key)}</b> (${esc(v.label)}): ${esc(dimensionSignature(v.dim))}</li>`).join("");details.innerHTML=`<b>Dimension audit</b><p>Left-hand side: <code>${esc(dimensionSignature(lhs))}</code></p><p>Right-hand side: <code>${esc(right.map((n,i)=>n===0?null:["L","M","T","I","Θ","N","J"][i]+(n===1?"":`^${n}`)).filter(Boolean).join(" · ")||"1")}</code></p><p>Variable dimensions</p><ul>${terms}</ul><small>Check result applies to the stated idealized relationship and its dimensional metadata.</small>`;
+}
+function renderDimensionCatalog(){const entries=Object.entries(DIMENSION_VECTORS).filter(([k])=>!k.endsWith("DueToGravity")).map(([k,v])=>{const label=Object.values(UNIT_GROUPS).find(g=>g.dim===k)?.label||k.replace(/([A-Z])/g," $1");return `<article class="dimension-card"><b>${esc(label)}</b><code>${esc(dimensionSignature(k))}</code><small>SI base dimensions</small></article>`});$("#dimensionCatalog").innerHTML=entries.join("")}
+$("#dimensionQuantity").innerHTML=Object.entries(UNIT_GROUPS).map(([k,g])=>`<option value="${k}">${esc(g.label)}</option>`).join("");
+$("#dimensionQuantity").addEventListener("change",refreshDimensionUnits);
+["#dimensionValue","#dimensionFrom","#dimensionTo"].forEach(s=>$(s).addEventListener("input",updateDimensionConversion));
+$("#dimensionEquation").innerHTML=EQUATION_MODELS.map(m=>`<option value="${m.id}">${esc(m.name)} · ${esc(m.equation)}</option>`).join("");
+$("#dimensionEquation").addEventListener("change",()=>{$("#dimensionEquationDisplay").textContent=(EQUATION_MODELS.find(m=>m.id===$("#dimensionEquation").value)||EQUATION_MODELS[0]).equation;$("#dimensionCheckResult").textContent="Ready to check this equation.";$("#dimensionCheckDetails").innerHTML=""});
+$("#checkDimensions").addEventListener("click",checkDimensionalModel);
+$("#dimensionEquationDisplay").textContent=EQUATION_MODELS[0].equation;
+refreshDimensionUnits();renderDimensionCatalog();
+
+// V5 backup format retains compatibility with V2, V3 and V4.
+const exportBackupButton=$("#exportBackup");
+exportBackupButton.addEventListener("click",()=>{
+ const backup={application:"Formula of Everything",schemaVersion:5,exportedAt:new Date().toISOString(),lab:loadLab(),ideas:loadIdeas(),theme:localStorage.getItem("foe-theme")||"light",calculations:readRecords(BENCH_KEY),experiments:readRecords(EXPERIMENT_KEY),equationSolutions:eqHistory()};
+ const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download=`formula-of-everything-v5-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
+});
+$("#importBackup").addEventListener("change",async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  const d=JSON.parse(await file.text());
+  if(d.application!=="Formula of Everything"||![2,3,4,5].includes(d.schemaVersion)||!d.lab||!Array.isArray(d.lab.projects)||!Array.isArray(d.lab.notes)||!Array.isArray(d.ideas))throw Error("Unsupported backup file.");
+  if(!confirm("Replace this browser's lab records with the selected backup? Export your current work first if needed."))return;
+  localStorage.setItem(LAB_KEY,JSON.stringify(d.lab));saveIdeas(d.ideas);
+  localStorage.setItem(BENCH_KEY,JSON.stringify(Array.isArray(d.calculations)?d.calculations:[]));
+  localStorage.setItem(EXPERIMENT_KEY,JSON.stringify(Array.isArray(d.experiments)?d.experiments:[]));
+  localStorage.setItem(EQUATION_HISTORY_KEY,JSON.stringify(Array.isArray(d.equationSolutions)?d.equationSolutions:[]));
+  if(d.theme==="dark"||d.theme==="light"){localStorage.setItem("foe-theme",d.theme);document.body.classList.toggle("dark",d.theme==="dark");}
+  renderIdeas();renderLab();renderBenchHistory();renderExperiments();renderEquationHistory();alert("Backup imported successfully.");
+ }catch(err){alert("Import failed: "+err.message)}finally{e.target.value="";}
+});
+
+</script>
+</body></html>
