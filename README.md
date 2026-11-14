@@ -73,7 +73,7 @@ Records default to Private and are stored in this browser. Users can deliberatel
 
 ## Laboratory capabilities
 
-Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V8 backups include research records, guided journey progress and department calculation history, and accept earlier V2–V7 backup schemas.
+Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 dedicated department pages, saved local histories, dark mode and JSON backup/restore. V8 backups include research records, guided journey progress and department calculation history, and accept earlier V2–V7 backup schemas.
 
 ## GitHub Pages
 
