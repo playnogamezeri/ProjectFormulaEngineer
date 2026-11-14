@@ -81,17 +81,18 @@ body.dark{--bg:#0e1522;--surface:#151f30;--ink:#e8eef8;--muted:#9baac0;--line:#2
 .dept-history{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dept-history article{padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:12px}.dept-history p{color:var(--muted);overflow-wrap:anywhere}
 @media(max-width:850px){.dept-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.dept-grid,.dept-form,.dept-history{grid-template-columns:1fr}}
 
+/* V7 shared research foundation */.v7-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.v7-form{display:grid;gap:10px}.v7-form label{display:grid;gap:5px;font-size:12px;color:var(--muted);font-weight:600}.v7-form input,.v7-form select,.v7-form textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px}.v7-form textarea{resize:vertical}.v7-actions{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.v7-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.v7-stats div{padding:12px;border:1px solid var(--line);border-radius:9px;text-align:center}.v7-stats strong{display:block;font-size:22px}.v7-stats span{font-size:11px;color:var(--muted)}.v7-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.v7-record{padding:14px;border:1px solid var(--line);border-radius:11px;background:var(--surface);overflow-wrap:anywhere}.v7-record p{white-space:pre-wrap;font-size:13px}.v7-record small{color:var(--muted)}.v7-record button{margin:5px 6px 0 0;padding:6px 9px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}.v7-tag{font-size:10px;font-weight:700;padding:3px 7px;border-radius:20px;background:var(--soft)}@media(max-width:760px){.v7-grid,.v7-list{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="topbar">
   <a class="brand" href="#" aria-label="Formula of Everything home"><span class="brand-mark">ƒ</span><span>FORMULA <b>OF EVERYTHING</b></span></a>
-  <nav><a href="#workspace">My Lab</a><a href="#disciplines">Disciplines</a><a href="#library">Formulas</a><a href="#workshop">Workshop</a><a href="#engineering-bench">Calculations</a><a href="#equation-engine">Equation Solver</a><a href="#unit-intelligence">Unit Intelligence</a><a href="#department-studios">15 Departments</a></nav>
+  <nav><a href="#workspace">My Lab</a><a href="#disciplines">Disciplines</a><a href="#library">Formulas</a><a href="#workshop">Workshop</a><a href="#engineering-bench">Calculations</a><a href="#equation-engine">Equation Solver</a><a href="#unit-intelligence">Unit Intelligence</a><a href="#department-studios">15 Departments</a><a href="#research-exchange">Research Exchange</a></nav>
   <button class="theme-btn" id="themeToggle" aria-label="Toggle color theme">◐</button>
 </header>
 <main>
 <section class="hero">
-  <div class="eyebrow">VERSION 6 · 15 FUNCTIONAL DEPARTMENTS · LOCAL-FIRST · PERSONAL ENGINEERING LABORATORY</div>
+  <div class="eyebrow">VERSION 7 · 15 DISCIPLINES · SHARED RESEARCH FOUNDATION · PRIVATE + PUBLIC</div>
   <h1>Understand the world.<br><span>Build what you imagine.</span></h1>
   <p>Your private space to investigate scientific principles, calculate, record experiments, develop engineering projects and turn ideas into working prototypes.</p>
   <div class="hero-actions"><a class="btn primary" href="#workspace">Open my laboratory</a><a class="btn secondary" href="#library">Explore formulas</a></div>
@@ -271,6 +272,19 @@ body.dark{--bg:#0e1522;--surface:#151f30;--ink:#e8eef8;--muted:#9baac0;--line:#2
 </section>
 
 
+
+<section class="section" id="research-exchange">
+<div class="section-heading"><div><div class="eyebrow">V7 / SHARED RESEARCH FOUNDATION</div><h2>Research exchange & cross-disciplinary workspace</h2><p>One shared record structure connects projects, methods, observations and results across all 15 disciplines.</p></div><span class="section-number">07</span></div>
+<div class="notice"><b>Public software. Private-by-default research.</b> Records stay in this browser. Mark a record Public only when you intend to share it. Export creates a portable package; nothing is uploaded automatically.</div>
+<div class="v7-grid"><article class="lab-card"><div class="eyebrow">UNIFIED RESEARCH RECORD</div><h3>Create a research record</h3><form id="v7Form" class="v7-form">
+<label>Title<input id="v7Title" maxlength="120" required></label><label>Record type<select id="v7Type"><option>Research question</option><option>Project proposal</option><option>Design note</option><option>Experiment</option><option>Calculation</option><option>Prototype</option><option>Finding</option></select></label>
+<label>Lead discipline<select id="v7Discipline"><option>Advanced Mathematics & Calculus</option><option>Physics & Quantum Mechanics</option><option>Chemistry & Material Science</option><option>Biology & Genetics</option><option>Human Anatomy & Physiology</option><option>Electrical & Electronics Engineering</option><option>Mechanical Engineering</option><option>Civil Engineering & Architecture</option><option>Computer Science & Artificial Intelligence</option><option>Robotics & Automation</option><option>Economics & Business</option><option>Astronomy & Space Engineering</option><option>Agriculture & Environmental Science</option><option>Psychology & Cognitive Science</option><option>Everyday Practical Formulas</option></select></label>
+<label>Related disciplines<input id="v7Related" maxlength="240" placeholder="Optional; separate with commas"></label>
+<label>Objective / question<textarea id="v7Objective" maxlength="1600" rows="2"></textarea></label><label>Method / design approach<textarea id="v7Method" maxlength="2400" rows="2"></textarea></label><label>Observations / results<textarea id="v7Result" maxlength="2400" rows="2"></textarea></label><label>Assumptions & limitations<textarea id="v7Limits" maxlength="1600" rows="2"></textarea></label>
+<label>Sharing status<select id="v7Visibility"><option value="private">Private — this browser only</option><option value="public">Public — eligible for manual sharing</option></select></label><button class="btn primary" type="submit">Save research record</button></form></article>
+<article class="lab-card"><div class="eyebrow">RESEARCH EXCHANGE</div><h3>Share or import public knowledge</h3><p class="muted-copy">Only records explicitly marked Public are exported. Review records first and remove personal or confidential information.</p><div class="v7-actions"><button class="btn secondary" id="v7Export">Export public package</button><label class="btn secondary file-button">Import public package<input type="file" id="v7Import" accept="application/json"></label></div><div class="v7-stats"><div><strong id="v7PrivCount">0</strong><span>Private</span></div><div><strong id="v7PubCount">0</strong><span>Public</span></div><div><strong id="v7DiscCount">0</strong><span>Disciplines</span></div></div><p class="reference-note"><b>Sharing boundary:</b> Public means marked for sharing, not automatically published online. A future hosted collaboration service would require authentication, moderation, consent, access controls and security.</p></article></div>
+<div class="section-heading"><div><div class="eyebrow">YOUR RESEARCH REGISTER</div><h3>Cross-disciplinary records</h3></div></div><div id="v7List" class="v7-list"></div>
+</section>
 <section class="section" id="department-studios">
  <div class="section-heading"><div><div class="eyebrow">V6 / ALL 15 DISCIPLINES</div><h2>Department studios</h2><p>Each approved discipline has a working interactive starter tool, with its model and limitations visible.</p></div><span class="section-number">15</span></div>
  <div class="dept-grid" id="deptGrid"></div>
@@ -590,21 +604,22 @@ refreshDimensionUnits();renderDimensionCatalog();
 // V5 backup format retains compatibility with V2, V3 and V4.
 const exportBackupButton=$("#exportBackup");
 exportBackupButton.addEventListener("click",()=>{
- const backup={application:"Formula of Everything",schemaVersion:6,exportedAt:new Date().toISOString(),lab:loadLab(),ideas:loadIdeas(),theme:localStorage.getItem("foe-theme")||"light",calculations:readRecords(BENCH_KEY),experiments:readRecords(EXPERIMENT_KEY),equationSolutions:eqHistory(),departmentHistory:JSON.parse(localStorage.getItem("foe-department-history-v6")||"[]")};
+ const backup={application:"Formula of Everything",schemaVersion:7,exportedAt:new Date().toISOString(),lab:loadLab(),ideas:loadIdeas(),theme:localStorage.getItem("foe-theme")||"light",calculations:readRecords(BENCH_KEY),experiments:readRecords(EXPERIMENT_KEY),equationSolutions:eqHistory(),departmentHistory:JSON.parse(localStorage.getItem("foe-department-history-v6")||"[]"),researchRecords:JSON.parse(localStorage.getItem("foe-v7-research-records")||"[]")};
  const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
- a.href=url;a.download=`formula-of-everything-v6-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
+ a.href=url;a.download=`formula-of-everything-v7-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url);
 });
 $("#importBackup").addEventListener("change",async e=>{
  const file=e.target.files[0];if(!file)return;
  try{
   const d=JSON.parse(await file.text());
-  if(d.application!=="Formula of Everything"||![2,3,4,5,6].includes(d.schemaVersion)||!d.lab||!Array.isArray(d.lab.projects)||!Array.isArray(d.lab.notes)||!Array.isArray(d.ideas))throw Error("Unsupported backup file.");
+  if(d.application!=="Formula of Everything"||![2,3,4,5,6,7].includes(d.schemaVersion)||!d.lab||!Array.isArray(d.lab.projects)||!Array.isArray(d.lab.notes)||!Array.isArray(d.ideas))throw Error("Unsupported backup file.");
   if(!confirm("Replace this browser's lab records with the selected backup? Export your current work first if needed."))return;
   localStorage.setItem(LAB_KEY,JSON.stringify(d.lab));saveIdeas(d.ideas);
   localStorage.setItem(BENCH_KEY,JSON.stringify(Array.isArray(d.calculations)?d.calculations:[]));
   localStorage.setItem(EXPERIMENT_KEY,JSON.stringify(Array.isArray(d.experiments)?d.experiments:[]));
   localStorage.setItem(EQUATION_HISTORY_KEY,JSON.stringify(Array.isArray(d.equationSolutions)?d.equationSolutions:[]));
   localStorage.setItem("foe-department-history-v6",JSON.stringify(Array.isArray(d.departmentHistory)?d.departmentHistory:[]));
+  localStorage.setItem("foe-v7-research-records",JSON.stringify(Array.isArray(d.researchRecords)?d.researchRecords:[]));
   if(d.theme==="dark"||d.theme==="light"){localStorage.setItem("foe-theme",d.theme);document.body.classList.toggle("dark",d.theme==="dark");}
   renderIdeas();renderLab();renderBenchHistory();renderExperiments();renderEquationHistory();alert("Backup imported successfully.");
  }catch(err){alert("Import failed: "+err.message)}finally{e.target.value="";}
@@ -644,5 +659,11 @@ function drawHist(){let a=hist();document.getElementById("deptHistory").innerHTM
 drawHist();open(models[0]);window.FormulaOfEverythingDepartments={count:models.length,models:models.map(m=>m.name)};
 })();
 
+/* V7 local research register; public exchange is explicit and user-controlled */
+(()=>{const K="foe-v7-research-records",g=id=>document.getElementById(id),read=()=>{try{let x=JSON.parse(localStorage.getItem(K)||"[]");return Array.isArray(x)?x:[]}catch{return []}},write=x=>{localStorage.setItem(K,JSON.stringify(x));draw()},safe=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])),id=()=>"r-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8);
+g("v7Form").addEventListener("submit",e=>{e.preventDefault();let r={id:id(),title:g("v7Title").value.trim(),type:g("v7Type").value,discipline:g("v7Discipline").value,related:g("v7Related").value.trim(),objective:g("v7Objective").value.trim(),method:g("v7Method").value.trim(),result:g("v7Result").value.trim(),limitations:g("v7Limits").value.trim(),visibility:g("v7Visibility").value==="public"?"public":"private",created:new Date().toISOString()};if(!r.title)return;write([r,...read()]);e.target.reset()});
+function draw(){let a=read(),p=a.filter(x=>x.visibility==="public"),q=a.filter(x=>x.visibility!=="public");g("v7PrivCount").textContent=q.length;g("v7PubCount").textContent=p.length;g("v7DiscCount").textContent=new Set(a.map(x=>x.discipline)).size;g("v7List").innerHTML=a.length?a.map(r=>'<article class="v7-record"><b>'+safe(r.title)+'</b> <span class="v7-tag">'+(r.visibility==="public"?"PUBLIC":"PRIVATE")+'</span><br><small>'+safe(r.type)+' · '+safe(r.discipline)+' · '+new Date(r.created).toLocaleString()+'</small>'+(r.related?'<p><b>Related:</b> '+safe(r.related)+'</p>':'')+(r.objective?'<p><b>Objective:</b> '+safe(r.objective)+'</p>':'')+(r.method?'<p><b>Method:</b> '+safe(r.method)+'</p>':'')+(r.result?'<p><b>Results:</b> '+safe(r.result)+'</p>':'')+(r.limitations?'<p><b>Limitations:</b> '+safe(r.limitations)+'</p>':'')+'<button data-v7-toggle="'+safe(r.id)+'">Make '+(r.visibility==="public"?"private":"public")+'</button><button data-v7-delete="'+safe(r.id)+'">Delete</button></article>').join(""):"<p class='muted-copy'>No research records yet. Start with a question, design note or experiment.</p>";document.querySelectorAll("[data-v7-toggle]").forEach(b=>b.onclick=()=>{let x=read(),r=x.find(z=>z.id===b.dataset.v7Toggle);if(r){r.visibility=r.visibility==="public"?"private":"public";write(x)}});document.querySelectorAll("[data-v7-delete]").forEach(b=>b.onclick=()=>{if(confirm("Delete this research record?"))write(read().filter(r=>r.id!==b.dataset.v7Delete))})}
+g("v7Export").onclick=()=>{let records=read().filter(r=>r.visibility==="public").map(({id,title,type,discipline,related,objective,method,result,limitations,created})=>({id,title,type,discipline,related,objective,method,result,limitations,created}));if(!records.length){alert("No records are marked Public.");return}let pkg={format:"FormulaOfEverything.PublicResearch",version:1,created:new Date().toISOString(),records},u=URL.createObjectURL(new Blob([JSON.stringify(pkg,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="formula-of-everything-public-research.json";a.click();URL.revokeObjectURL(u)};
+g("v7Import").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let d=JSON.parse(await f.text());if(d.format!=="FormulaOfEverything.PublicResearch"||d.version!==1||!Array.isArray(d.records))throw Error("Unsupported public research package");let x=d.records.slice(0,500).filter(r=>r&&typeof r.title==="string"&&r.title.trim()).map(r=>({...r,id:id(),title:r.title.slice(0,120),visibility:"public",created:new Date().toISOString()}));if(!x.length)throw Error("No usable records found");if(confirm("Import "+x.length+" public record(s) into this browser?"))write([...x,...read()])}catch(err){alert("Import failed: "+err.message)}finally{e.target.value=""}};draw();window.FormulaOfEverythingV7={storageKey:K,recordCount:()=>read().length}})();
 </script>
 </body></html>
