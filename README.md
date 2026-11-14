@@ -1,4 +1,4 @@
-# Formula of Everything — V7
+# Formula of Everything — V8
 
 A local-first personal engineering laboratory and cross-disciplinary research workspace.
 
@@ -32,6 +32,25 @@ The build-goal selector narrows the formula list before the user chooses an indi
 14. Psychology & Cognitive Science — reaction-time descriptive statistics.
 15. Everyday Practical Formulas — recipe quantity scaling.
 
+
+## Guided engineering journeys (V8)
+
+The guided journey planner starts with a practical build or study goal and then leads through five milestones: define the mission, choose a system architecture, model and calculate, prototype or implement, and test/learn. It includes nine starter pathways:
+
+- Desk-scale electric rover
+- Solar USB charging station
+- Automated plant irrigation
+- Pedestrian bridge concept study (strictly conceptual)
+- Indoor air-quality monitor
+- Population genetics learning model
+- Human movement and ergonomics study
+- Classroom satellite orbit model
+- Smart pantry and recipe planner
+
+Together, these pathways connect all 15 approved disciplines. Each pathway links to relevant department studios, provides staged tasks and explicit limitations, and saves milestone progress locally in the browser. A user can save a selected pathway as a **private** project proposal in the local research register. No project data is sent to a server.
+
+The pathways are structured educational starting points, not certified designs, construction instructions or professional engineering approvals. Safety-critical work requires qualified review and applicable standards. Health-related examples are educational only and do not diagnose or predict individual outcomes.
+
 ## Research workspace and exchange
 
 The research register supports questions, project proposals, design notes, experiments, calculations, prototypes and findings. Records can identify a lead discipline and related disciplines, and preserve objectives, methods, results, assumptions and limitations.
@@ -40,7 +59,7 @@ Records default to Private and are stored in this browser. Users can deliberatel
 
 ## Laboratory capabilities
 
-Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V7 backups include research records and accept earlier V2–V6 backup schemas.
+Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V7 backups include research records and accept earlier V2–V6 backup schemas. Guided journey progress is stored separately in browser storage and is not currently included in the general JSON backup.
 
 ## GitHub Pages
 
