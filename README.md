@@ -1,4 +1,4 @@
-# Formula of Everything — V8
+# Formula of Everything — V9
 
 A local-first personal engineering laboratory and cross-disciplinary research workspace.
 
@@ -14,7 +14,18 @@ Every one of the 24 starter formulas includes:
 
 The build-goal selector narrows the formula list before the user chooses an individual formula. Academic discipline and topic filters remain available too.
 
-## 15 discipline studios
+## 15 dedicated department pages
+
+The laboratory dashboard groups the approved disciplines into five understandable areas and provides a searchable department directory. Every department has its own page under `departments/`, with a consistent structure:
+
+- A focused introduction describing what the discipline is useful for.
+- An ELI5-style explanation of its starter model.
+- Its own interactive educational calculator, equation and input fields.
+- Assumptions and limitations displayed alongside the result.
+- A saved calculation history shared with the main laboratory's local backup system.
+- Navigation to the previous/next department, the full directory, formula library and guided journeys.
+
+The 15 dedicated pages are:
 
 1. Advanced Mathematics & Calculus — quadratic equation solver.
 2. Physics & Quantum Mechanics — ideal projectile motion.
@@ -32,6 +43,9 @@ The build-goal selector narrows the formula list before the user chooses an indi
 14. Psychology & Cognitive Science — reaction-time descriptive statistics.
 15. Everyday Practical Formulas — recipe quantity scaling.
 
+## Navigation and page architecture (V9)
+
+The main dashboard is ordered around a practical workflow: personal workspace → knowledge map → department directory → guided build journeys → formula library → workshop → converters and learning → calculation and equation tools → research exchange. Department pages are separate URLs, not just panels embedded in the dashboard. The shared department model registry lives in `departments/department-data.js`; shared page behavior and styling live in `departments/department.js` and `departments/department.css`.
 
 ## Guided engineering journeys (V8)
 
@@ -59,11 +73,11 @@ Records default to Private and are stored in this browser. Users can deliberatel
 
 ## Laboratory capabilities
 
-Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V8 backups include research records and guided journey progress, and accept earlier V2–V7 backup schemas. V8 backups include guided journey progress and accept earlier V2–V7 backup schemas.
+Project register, research notebook, invention idea planner, formula library, engineering calculation bench, experiment log, curated equation solver, dimensional analysis and unit intelligence, converters, 15 department studios, saved local histories, dark mode and JSON backup/restore. V8 backups include research records, guided journey progress and department calculation history, and accept earlier V2–V7 backup schemas.
 
 ## GitHub Pages
 
-The application is a self-contained `index.html` and requires no build step, server, API key or paid service. In repository Settings → Pages, select deploy from branch `main` and folder `/(root)`.
+The application uses a root `index.html` dashboard plus shared assets and 15 standalone pages under `departments/`. It requires no build step, server, API key or paid service. Keep the folder structure intact. In repository Settings → Pages, select deploy from branch `main` and folder `/(root)`. All department pages share the same model registry and calculator script, so improvements can be made consistently.
 
 ## Privacy, scientific quality and safety
 
