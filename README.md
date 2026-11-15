@@ -2,7 +2,7 @@
 
 A growing pixel-art anime encyclopedia and comparative research library.
 
-## Founding universes
+## Anime universes
 - Naruto
 - Dragon Ball Z
 - Bleach
@@ -29,9 +29,13 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Demon Slayer: Kimetsu no Yaiba
 - Vinland Saga
 - Solo Leveling
+- Gintama
+- Rurouni Kenshin
+- Berserk
+- One-Punch Man
 
 ## Current foundation
-- 26 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
+- 30 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
 - Each universe has a starter overview of its premise, power or gameplay systems, and central themes.
 - Newly added universes use original abstract pixel mascots as temporary visual placeholders; they are not portraits of canon characters.
 - Responsive home dashboard and universe directory.
@@ -39,8 +43,10 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Starter profiles for Naruto Uzumaki, Son Goku, Ichigo Kurosaki and Monkey D. Luffy.
 - Original procedural pixel-art avatar sprites embedded in the page.
 - Character tabs for origin, personality, affiliations, abilities, limitations and interpretive analysis.
-- Lore and power-system overview for each founding universe.
+- Lore and power-system overview for each universe.
 - Comparative notes connecting fictional concepts with real-world religious, mythological, philosophical and historical ideas.
+- Villains & Relationships directory covering one featured antagonist or rival across each of the 30 universes.
+- Relationship labels distinguish canon partners, one-sided or manipulative dynamics, and cases with no confirmed partner.
 - Local scripted character-chat prototype.
 
 ## Research standards
