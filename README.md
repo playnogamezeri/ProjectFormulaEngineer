@@ -7,8 +7,22 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Dragon Ball Z
 - Bleach
 - One Piece
+- Hunter × Hunter
+- Beelzebub
+- Jujutsu Kaisen
+- Fullmetal Alchemist: Brotherhood
+- My Hero Academia
+- Attack on Titan
+- Hajime no Ippo
+- The Prince of Tennis
+- Haikyu!!
+- Eyeshield 21
+- History's Strongest Disciple Kenichi
 
 ## Current foundation
+- 15 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
+- Each universe has a starter overview of its premise, power or gameplay systems, and central themes.
+- Newly added universes use original abstract pixel mascots as temporary visual placeholders; they are not portraits of canon characters.
 - Responsive home dashboard and universe directory.
 - Searchable character index.
 - Starter profiles for Naruto Uzumaki, Son Goku, Ichigo Kurosaki and Monkey D. Luffy.
