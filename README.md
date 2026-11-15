@@ -18,9 +18,20 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Haikyu!!
 - Eyeshield 21
 - History's Strongest Disciple Kenichi
+- Yu Yu Hakusho
+- The Seven Deadly Sins
+- Chainsaw Man
+- Toriko
+- Fairy Tail
+- Soul Eater
+- Death Note
+- Code Geass
+- Demon Slayer: Kimetsu no Yaiba
+- Vinland Saga
+- Solo Leveling
 
 ## Current foundation
-- 15 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
+- 26 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
 - Each universe has a starter overview of its premise, power or gameplay systems, and central themes.
 - Newly added universes use original abstract pixel mascots as temporary visual placeholders; they are not portraits of canon characters.
 - Responsive home dashboard and universe directory.
