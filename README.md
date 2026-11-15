@@ -46,6 +46,8 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Lore and power-system overview for each universe.
 - Comparative notes connecting fictional concepts with real-world religious, mythological, philosophical and historical ideas.
 - Villains & Relationships directory covering one featured antagonist or rival across each of the 30 universes.
+- Character Investigations framework defining evidence-led dossiers for protagonists, supporting characters and antagonists, including origin stories, life chronology, psychological analysis, forensic findings, limitations, relationships, ethical accountability and completeness assessments.
+- Explicit research labels for canon facts, adaptation differences, interpretation and unresolved claims; detailed character coverage is being expanded in stages rather than presented as complete.
 - Relationship labels distinguish canon partners, one-sided or manipulative dynamics, and cases with no confirmed partner.
 - Local scripted character-chat prototype.
 
