@@ -188,7 +188,7 @@ function renderMainCast(){
  const q=(document.getElementById("castSearch").value||"").toLowerCase();
  const series=document.getElementById("castSeries").value;
  const items=mainCast.filter(c=>(!series||c[0]===series)&&(!q||c[1].toLowerCase().includes(q)||c[2].toLowerCase().includes(q)||c[3].toLowerCase().includes(q)));
- document.getElementById("mainCastGrid").innerHTML=items.map(c=>'<article class="card cast-card"><div class="spritebox chibi-box"><img class="sprite chibi-sprite" src="'+castSprite(c)+'" alt="3D-style chibi sprite of '+c[2]+'"></div><div class="cardbody"><span class="tag">'+c[1]+'</span><h3>'+c[2]+'</h3><div class="muted">'+c[3]+'</div><button class="btn primary" onclick="openCastProfile('+mainCast.indexOf(c)+')">Open starter profile →</button></div></article>').join("");
+ document.getElementById("mainCastGrid").innerHTML=items.map(c=>'<article class="card cast-card"><div class="spritebox chibi-box"><img class="sprite chibi-sprite" src="data:image/svg+xml;charset=utf-8,'+encodeURIComponent(castSprite(c))+'" alt="Shaded chibi illustration of '+c[2]+'"></div><div class="cardbody"><span class="tag">'+c[1]+'</span><h3>'+c[2]+'</h3><div class="muted">'+c[3]+'</div><button class="btn primary" onclick="openCastProfile('+mainCast.indexOf(c)+')">Open starter profile →</button></div></article>').join("");
  document.getElementById("castCount").textContent=items.length+" of "+mainCast.length+" main-cast sprites shown · "+new Set(mainCast.map(c=>c[0])).size+" universes";
 }
 
@@ -196,7 +196,7 @@ function openCastProfile(index){
  const c=mainCast[index];if(!c)return;
  const featured={"Naruto Uzumaki":"naruto","Son Goku":"goku","Ichigo Kurosaki":"ichigo","Monkey D. Luffy":"luffy"};
  if(featured[c[2]]){openProfile(featured[c[2]]);return;}
- const sprite=castSprite(c);
+ const sprite="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(castSprite(c));
  const facts='<div class="info"><h4>Identity & role</h4><p>'+c[2]+' is listed in the '+c[1]+' universe as '+c[3]+'.</p></div>'+
  '<div class="info"><h4>Origin & life chronology</h4><p>Starter research section. Canon origin, family background and chronological turning points are to be documented with source references before being marked verified.</p></div>'+
  '<div class="info"><h4>Personality & psychology</h4><p>Character analysis pending evidence review. Interpretations will be separated from confirmed story events.</p></div>'+
