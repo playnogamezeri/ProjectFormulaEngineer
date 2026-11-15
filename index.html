@@ -194,6 +194,8 @@ function renderMainCast(){
 
 function openCastProfile(index){
  const c=mainCast[index];if(!c)return;
+ const featured={"Naruto Uzumaki":"naruto","Son Goku":"goku","Ichigo Kurosaki":"ichigo","Monkey D. Luffy":"luffy"};
+ if(featured[c[2]]){openProfile(featured[c[2]]);return;}
  const sprite=castSprite(c);
  const facts='<div class="info"><h4>Identity & role</h4><p>'+c[2]+' is listed in the '+c[1]+' universe as '+c[3]+'.</p></div>'+
  '<div class="info"><h4>Origin & life chronology</h4><p>Starter research section. Canon origin, family background and chronological turning points are to be documented with source references before being marked verified.</p></div>'+
