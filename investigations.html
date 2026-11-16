@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#11101c"><title>Character Investigations — ANIMARCHIVE</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b16"><title>Investigation Lab — ANIMARCHIVE NEXUS</title>
 <style>
 :root{--bg:#100f19;--panel:#191827;--panel2:#242139;--line:#39364e;--ink:#f5f0ff;--muted:#aaa4bf;--pink:#ff6b9d;--cyan:#68e0dc;--gold:#ffd166}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#282044,transparent 42%),var(--bg);color:var(--ink);font:15px/1.65 system-ui,sans-serif}.top{position:sticky;top:0;background:#100f19ed;border-bottom:1px solid var(--line);padding:13px max(4vw,18px);z-index:3}.top a{color:var(--cyan);font:900 17px monospace;letter-spacing:2px;text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:30px 20px 70px}.eyebrow{font:12px monospace;color:var(--cyan);letter-spacing:2px}.hero{padding:24px 0}.hero h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:12px 0}.hero h1 em{color:var(--pink);font-style:normal}.hero p,.muted{color:var(--muted)}.notice{background:#242039;border:1px solid #51456f;padding:14px 16px;border-radius:8px;color:#d7cfee;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}.card h2{font-size:18px;margin:0 0 8px;color:var(--gold)}.card h3{font-size:14px;color:var(--cyan);margin:13px 0 3px}.tag{display:inline-block;border:1px solid #386c70;color:var(--cyan);font:10px monospace;padding:3px 6px;border-radius:4px;margin:2px}.steps{counter-reset:item;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.step{background:var(--panel2);border:1px solid var(--line);padding:12px;border-radius:8px}.step b{color:var(--pink)}a{color:var(--cyan)}footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:650px){.grid,.steps{grid-template-columns:1fr}.wrap{padding:20px 14px 50px}}
 
@@ -10,8 +10,49 @@ html{scroll-padding-top:18px;scroll-behavior:smooth}body{overflow-x:hidden}img,s
 
 .top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.top nav{display:flex;align-items:center;gap:6px;min-width:0}.top nav a{font:12px system-ui,sans-serif;letter-spacing:0;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:8px 10px;white-space:nowrap}.top nav a:hover{border-color:var(--pink);color:var(--pink)}
 @media(max-width:760px){.top{align-items:flex-start;flex-direction:column;gap:7px}.top nav{width:100%;overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;white-space:nowrap;padding:2px 0 7px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.top nav::-webkit-scrollbar{display:none}.top nav a{flex:0 0 auto;min-height:40px}}
+
+/* === ANIMARCHIVE NEXUS / CYBER ARCHIVE VISUAL SYSTEM === */
+:root{--bg:#070b16;--panel:#0d1627;--panel2:#111f35;--line:#203b58;--ink:#eaf6ff;--muted:#91a9c2;--pink:#ff4fa3;--cyan:#55f0ec;--gold:#f8c96b;--glow-cyan:0 0 22px #55f0ec26;--glow-pink:0 0 22px #ff4fa326;color-scheme:dark}
+html{background:var(--bg);scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 8% -8%,#103b4b70,transparent 38%),radial-gradient(ellipse at 95% 4%,#40204c55,transparent 34%),linear-gradient(180deg,#070b16,#090e1b 55%,#070b16)!important;color:var(--ink)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:linear-gradient(#55f0ec0c 1px,transparent 1px),linear-gradient(90deg,#55f0ec0c 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+::selection{background:#55f0ec55;color:#fff}
+a{transition:color .18s ease,border-color .18s ease,box-shadow .18s ease}
+.top{background:#070d19ed!important;border-bottom:1px solid #28506b!important;box-shadow:0 8px 28px #0008,0 1px 0 #55f0ec14;backdrop-filter:blur(18px)}
+.brand,.top>a{color:var(--cyan)!important;text-shadow:0 0 14px #55f0ec4d}
+.brand span{color:var(--pink)!important}
+.top nav{gap:7px}
+.top nav button,.top nav a,.btn{background:linear-gradient(145deg,#101d30,#0c1525)!important;border:1px solid #29435d!important;color:#d8eaff!important;border-radius:8px!important;box-shadow:inset 0 1px #ffffff09;transition:all .18s ease}
+.top nav button:hover,.top nav a:hover,.btn:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;box-shadow:var(--glow-cyan);transform:translateY(-1px)}
+.top nav button.active,.primary,.btn.primary{background:linear-gradient(110deg,#ff4fa3,#ff78bd)!important;color:#21091a!important;border-color:#ff82c2!important;box-shadow:0 0 20px #ff4fa344!important}
+.wrap{position:relative}
+.hero{position:relative}
+.eyebrow{color:var(--cyan)!important;text-shadow:0 0 12px #55f0ec3d;letter-spacing:2.3px!important}
+.hero h1,.hero h2,.heading h2{letter-spacing:-.035em;text-shadow:0 5px 28px #0008}
+.hero h1 em,.hero h1 em{color:var(--pink)!important;text-shadow:0 0 24px #ff4fa344}
+.hero p,.heading p{color:#a9bdd1}
+.stats>div,.card,.anime-card,.cast-card,.info,.fact,.step,.notice,.detail,.prose,.chat,.chatlog{background:linear-gradient(145deg,#101c30ed,#0b1424f5)!important;border:1px solid #24415e!important;box-shadow:0 14px 35px #0004,inset 0 1px #ffffff08}
+.card,.anime-card,.cast-card,.step,.fact{border-radius:12px!important;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.card:hover,.anime-card:hover,.cast-card:hover{border-color:#55f0ec88!important;box-shadow:0 16px 36px #0006,var(--glow-cyan);transform:translateY(-2px)}
+.card h2,.card h3,.heading h2{color:#eaf6ff}
+.notice{border-color:#6b4d7b!important;background:linear-gradient(100deg,#25172fdd,#111c30ee)!important;color:#d7cde5!important}
+.tag,.pill{background:#0b2633!important;border:1px solid #286d76!important;color:#72f4ed!important;border-radius:5px}
+.filters input,.filters select,input,select,textarea{background:#091322!important;border:1px solid #294761!important;color:var(--ink)!important;border-radius:8px!important;box-shadow:inset 0 2px 8px #0005}
+input::placeholder,textarea::placeholder{color:#718aa5}
+.filters input:focus,.filters select:focus,input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan)!important;box-shadow:0 0 0 3px #55f0ec20,var(--glow-cyan)}
+button{transition:all .18s ease}
+button:not(:disabled):hover{filter:brightness(1.08)}
+.tabs button{background:#0e1b2d!important;border:1px solid #29445e!important;color:#c4d7e8!important;border-radius:7px!important}
+.tabs button.active{background:#ff4fa3!important;border-color:#ff78bd!important;color:#21091a!important}
+.count,.muted,small{color:var(--muted)}
+.detail{border-radius:14px!important}
+.spritebox,.portrait-frame,.villain-portrait{background:radial-gradient(ellipse,#1b3651,#0b1424 72%)!important;border:1px solid #244d68!important;border-radius:12px!important}
+hr{border:0;border-top:1px solid #24415e}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(max-width:760px){.top{background:#070d19f7!important}.top nav button,.top nav a{box-shadow:none}.hero{padding-top:32px}.stats{gap:9px}.stats>div{padding:12px!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 </style></head><body><header class="top"><a href="index.html">← ANIMARCHIVE</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#anime">Anime</a><a href="index.html#characters">Characters</a><a href="index.html#lore">Lore &amp; Powers</a><a href="index.html#connections">Reality Connections</a><a href="villains.html">Villains &amp; Rivals</a><a href="investigations.html">Investigations</a></nav></header><main class="wrap">
-<section class="hero"><div class="eyebrow">EVIDENCE-LED CHARACTER RESEARCH // DOSSIER SYSTEM</div><h1>Character <em>investigations.</em></h1><p>A consistent research framework for protagonists, supporting characters and antagonists across all 30 ANIMARCHIVE universes. The aim is to understand each character—not to excuse them, condemn them in advance, or confuse interpretation with canon.</p></section>
+<section class="hero"><div class="eyebrow">NEXUS RESEARCH LAB // EVIDENCE-LED DOSSIER SYSTEM</div><h1>Character <em>investigations.</em></h1><p>A consistent research framework for protagonists, supporting characters and antagonists across all 30 ANIMARCHIVE universes. The aim is to understand each character—not to excuse them, condemn them in advance, or confuse interpretation with canon.</p></section>
 <div class="notice"><b>Scope and honesty:</b> The current archive contains four full starter protagonist profiles and one featured antagonist or rival per universe. This page establishes the dossier standard for expanding those profiles. It does not claim that every character in every series has already been researched. Coverage will grow in documented batches, with sources and uncertainty recorded.</div>
 <h2>Every character receives the same investigation</h2><div class="steps">
 <div class="step"><b>01 · Identity & origin</b><br>Names, aliases, birthplace, family, ancestry, upbringing and the complete canon origin story.</div>
