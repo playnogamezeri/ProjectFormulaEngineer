@@ -51,6 +51,45 @@ hr{border:0;border-top:1px solid #24415e}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 @media(max-width:760px){.top{background:#070d19f7!important}.top nav button,.top nav a{box-shadow:none}.hero{padding-top:32px}.stats{gap:9px}.stats>div{padding:12px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* ANIMARCHIVE // NEXUS VISUAL PASS */
+:root{--bg:#050914;--panel:#0b1424;--panel2:#101d32;--line:#16445a;--ink:#eafaff;--muted:#9bb7c8;--pink:#ff35c8;--cyan:#32f3ff;--gold:#f6d66b}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:radial-gradient(ellipse at 50% -18%,#153b58 0%,transparent 48%),radial-gradient(ellipse at 100% 35%,#29103d 0%,transparent 42%),#050914;color:var(--ink);position:relative}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.2;background-image:linear-gradient(#1c779022 1px,transparent 1px),linear-gradient(90deg,#1c779022 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.top{background:rgba(4,10,22,.92);backdrop-filter:blur(16px);border-bottom:1px solid #1b6578;box-shadow:0 8px 30px #0008}
+.brand,.top a{color:var(--cyan);text-shadow:0 0 14px #32f3ff55}
+.brand span{color:var(--pink)}
+nav button,.btn{background:linear-gradient(145deg,#101e32,#0a1221);border:1px solid #1c5368;color:#dffaff;border-radius:4px;transition:.2s}
+nav button:hover,.btn:hover{border-color:var(--cyan);box-shadow:0 0 16px #32f3ff35;transform:translateY(-1px)}
+nav button.active,.primary{background:linear-gradient(100deg,#20ddeb,#ff35c8)!important;color:#06101b!important;border:0!important;box-shadow:0 0 20px #32f3ff55;font-weight:900}
+.hero{position:relative}
+.eyebrow{color:var(--cyan);text-shadow:0 0 12px #32f3ff55;letter-spacing:3px}
+.hero h1{color:#f4fcff;text-shadow:0 0 28px #32f3ff20}
+.hero h1 em{color:var(--pink);text-shadow:0 0 20px #ff35c866}
+.hero p,.muted{color:var(--muted)}
+.stats b{color:var(--cyan);text-shadow:0 0 12px #32f3ff55}
+.notice{background:linear-gradient(110deg,#0c2032dd,#1a1030dd);border:1px solid #28788a;border-left:3px solid var(--pink);border-radius:4px;color:#d8f7ff;box-shadow:0 8px 30px #0003}
+.section{border-top:1px solid #17465b}
+.heading{color:var(--cyan);letter-spacing:1px}
+.grid{gap:16px}
+.card{position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(15,31,52,.97),rgba(7,14,28,.98));border:1px solid #1b5368;border-radius:5px;box-shadow:0 10px 28px #0005;transition:transform .22s,border-color .22s,box-shadow .22s}
+.card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--cyan),transparent 55%,var(--pink));opacity:.8}
+.card:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 14px 34px #0008,0 0 20px #32f3ff20}
+.card h2,.card h3{color:#f2fcff}
+.cardbody{color:#c4dce8}
+.tag,.pill{border:1px solid #26778a;background:#0a2534;color:var(--cyan);border-radius:3px;font-family:monospace;letter-spacing:.4px}
+.filters input,.filters select,input,select,textarea{background:#071322!important;color:var(--ink)!important;border:1px solid #20556a!important;border-radius:4px!important}
+.filters input:focus,.filters select:focus,input:focus,select:focus,textarea:focus{outline:1px solid var(--cyan);box-shadow:0 0 14px #32f3ff30}
+.chibi-box,.portrait-frame{background:radial-gradient(ellipse at 50% 30%,#17465b,#0a1222 72%);border:1px solid #27869a;box-shadow:inset 0 0 28px #32f3ff16,0 0 18px #32f3ff12;border-radius:4px}
+.villain-portrait{filter:drop-shadow(0 0 12px #ff35c855)}
+.tabs{border-bottom:1px solid #1c5368}
+.tabs button,.tab{border-radius:3px}
+.fact,.step,.finding{background:linear-gradient(145deg,#0d1d30,#091321);border:1px solid #17485e;border-radius:4px}
+.chatlog,.bubble{background:#071322;border-color:#1b5368}
+a{color:var(--cyan)}
+@media(max-width:700px){.top{padding:10px 12px}nav{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding:5px 0}nav button{white-space:nowrap}.wrap{padding-left:15px;padding-right:15px}.hero{padding-top:36px}.grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}}
+
 </style></head><body><header class="top"><a href="index.html">← ANIMARCHIVE</a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#anime">Anime</a><a href="index.html#characters">Characters</a><a href="index.html#lore">Lore &amp; Powers</a><a href="index.html#connections">Reality Connections</a><a href="villains.html">Villains &amp; Rivals</a><a href="investigations.html">Investigations</a></nav></header><main class="wrap">
 <section class="hero"><div class="eyebrow">NEXUS RESEARCH LAB // EVIDENCE-LED DOSSIER SYSTEM</div><h1>Character <em>investigations.</em></h1><p>A consistent research framework for protagonists, supporting characters and antagonists across all 30 ANIMARCHIVE universes. The aim is to understand each character—not to excuse them, condemn them in advance, or confuse interpretation with canon.</p></section>
 <div class="notice"><b>Scope and honesty:</b> The current archive contains four full starter protagonist profiles and one featured antagonist or rival per universe. This page establishes the dossier standard for expanding those profiles. It does not claim that every character in every series has already been researched. Coverage will grow in documented batches, with sources and uncertainty recorded.</div>
