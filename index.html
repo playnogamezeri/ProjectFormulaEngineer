@@ -115,23 +115,53 @@ body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.arch
 body.archive-entered .entry-gate{display:none}
 @keyframes gateDrift{to{background-position:0 46px,46px 0}}
 @media(max-width:520px){.gate-content{padding:20px 12px}.gate-kicker{margin-top:32px;font-size:9px}.gate-actions{gap:12px;margin:34px auto 44px}.gate-button{min-height:54px;font-size:14px}.gate-mark{letter-spacing:.1em}}
+
+/* THE NEXUS — destination portal */
+body.archive-portal>header{display:none}
+body.archive-portal>main{max-width:1320px;padding-top:24px}
+.portal-wrap{min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;padding:50px 0}
+.portal-title,.destination-title{font-size:clamp(40px,7vw,76px);line-height:.98;letter-spacing:-.05em;margin:18px 0}
+.portal-title em,.destination-title em{font-style:normal;color:var(--pink);text-shadow:0 0 22px #ff35c855}
+.portal-copy,.destination-copy{font-size:17px;color:var(--muted);margin:0 0 35px}
+.portal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portal-card{min-height:330px;position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:left;padding:28px;border:1px solid #24657b;background:linear-gradient(155deg,#10263b,#080f1d 72%);color:var(--ink);cursor:pointer;overflow:hidden;transition:.25s}
+.portal-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#32f3ff16,transparent 45%,#ff35c820);pointer-events:none}
+.portal-card:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #32f3ff30;border-radius:50%;right:-80px;top:-80px;box-shadow:0 0 50px #32f3ff18,inset 0 0 40px #32f3ff12}
+.portal-card:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 15px 45px #0008,0 0 26px #32f3ff22}
+.portal-number{font:11px monospace;letter-spacing:.17em;color:var(--cyan);margin-bottom:auto;position:relative}
+.portal-card strong{font:900 clamp(27px,3.3vw,42px)/.98 system-ui;letter-spacing:-.04em;position:relative;text-shadow:0 0 24px #32f3ff22}
+.portal-desc{font-size:14px;color:#a9c3d2;max-width:300px;margin:17px 0 26px;position:relative}
+.portal-link{font:12px monospace;letter-spacing:.12em;color:var(--pink);position:relative}
+.tv-dest{border-color:#75509a;background:linear-gradient(155deg,#28193d,#0b1020 72%)}
+.tv-dest .portal-number{color:#d6a2ff}.tv-dest .portal-link{color:#e5a9ff}
+.movie-dest{border-color:#936b36;background:linear-gradient(155deg,#382817,#0b1020 72%)}
+.movie-dest .portal-number{color:#ffd166}.movie-dest .portal-link{color:#ffd166}
+.destination-title{margin-top:14px}.destination-copy{max-width:760px}
+@media(max-width:760px){.portal-wrap{padding:34px 0;justify-content:flex-start}.portal-grid{grid-template-columns:1fr}.portal-card{min-height:225px;padding:22px}.portal-title{font-size:clamp(40px,12vw,64px)}}
 </style></head><body>
 <div id="entryGate" class="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
  <div class="gate-grid"></div><div class="gate-content">
-  <div class="gate-mark">ANIMARCHIVE <span>NEXUS</span></div>
-  <div class="gate-kicker">ANIME INTELLIGENCE ARCHIVE // 30 UNIVERSES</div>
-  <h1 id="gateTitle">ENTER THE<br><em>ANIMARCHIVE</em></h1>
-  <p class="gate-copy">A universe of stories, characters, histories and discoveries.</p>
+  <div class="gate-mark">THE <span>NEXUS</span></div>
+  <div class="gate-kicker">A GATEWAY TO STORIES, WORLDS & CINEMA</div>
+  <h1 id="gateTitle"><em>THE NEXUS</em></h1>
+  <p class="gate-copy">Choose your destination beyond the ordinary.</p>
   <div class="gate-actions">
    <button class="gate-button gate-enter" type="button" onclick="enterAnimarchive()">ENTER</button>
    <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
   </div>
-  <div class="gate-foot">EST. NEXUS ARCHIVE // ACCESS TERMINAL</div>
+  <div class="gate-foot">THE NEXUS // MULTIVERSE ACCESS TERMINAL</div>
  </div>
 </div>
 <header class="top"><a class="brand" href="#" onclick="showPage('home')">ANI<span>M</span>ARCHIVE</a><nav><button class="active" data-page="home">Home</button><button data-page="anime">Anime</button><button data-page="characters">Characters</button><button data-page="lore">Lore & Powers</button><button data-page="connections">Reality Connections</button><a class="btn" href="villains.html">Villains & Rivals</a><a class="btn" href="investigations.html">Character Investigations</a></nav></header>
 <main class="wrap">
 <section id="home" class="page"><div class="hero"><div class="eyebrow">ANIMARCHIVE NEXUS // ANIME INTELLIGENCE NETWORK</div><h1>Enter the worlds.<br><em>Understand the legends.</em></h1><p>A connected anime intelligence archive for character records, world histories, abilities, lore and evidence-led research. Explore thirty anime universes, then follow the connections between fictional worlds and the real human imagination.</p><div class="stats"><div><b>30</b><small>Anime universes</small></div><div><b>04</b><small>Starter profiles</small></div><div><b>∞</b><small>Room to expand</small></div></div></div><div class="notice">Research labels matter: official story facts, reasonable interpretation, fan theory and real-world comparison are kept distinct. This starter archive is a foundation, not a claim of complete coverage.</div><div class="section"><div class="heading"><div><div class="eyebrow">START YOUR JOURNEY</div><h2>Thirty worlds. Countless stories.</h2><p>Select a universe to explore its worldbuilding, themes and characters.</p></div></div><div class="grid" id="featuredAnime"></div></div><div class="section"><div class="heading"><div><div class="eyebrow">MEET THE CAST</div><h2>Character index</h2><p>Character records, portraits and research profiles across thirty anime universes.</p></div><button class="btn" onclick="showPage('characters')">All characters →</button></div><div class="grid" id="featuredChars"></div></div></section>
+<section id="portal" class="page hidden"><div class="portal-wrap"><div class="eyebrow">THE NEXUS // DESTINATION SELECT</div><h1 class="portal-title">CHOOSE YOUR <em>WORLD</em></h1><p class="portal-copy">Three gateways. Countless stories to explore.</p><div class="portal-grid">
+<button class="portal-card anime-dest" onclick="openNexusSection('anime')"><span class="portal-number">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><span class="portal-desc">Characters, sagas, lore, abilities and anime worlds.</span><span class="portal-link">ENTER UNIVERSE →</span></button>
+<button class="portal-card tv-dest" onclick="openNexusSection('television')"><span class="portal-number">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><span class="portal-desc">TV shows, seasons, episodes, characters and storylines.</span><span class="portal-link">ENTER WORLD →</span></button>
+<button class="portal-card movie-dest" onclick="openNexusSection('movies')"><span class="portal-number">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><span class="portal-desc">Films, cinematic universes, characters and stories.</span><span class="portal-link">ENTER GALAXY →</span></button>
+</div></div></section>
+<section id="television" class="page hidden"><div class="section"><div class="eyebrow">THE NEXUS // TELEVISION WORLD</div><h1 class="destination-title">TELEVISION <em>WORLD</em></h1><p class="destination-copy">A dedicated archive for television series, seasons, episodes, characters, storylines, themes and analysis.</p><div class="notice">Television World is established as a destination. Its show directory and research modules will be built next.</div><button class="btn primary" onclick="showPage('portal');document.body.classList.add('archive-portal')">← Back to destinations</button></div></section>
+<section id="movies" class="page hidden"><div class="section"><div class="eyebrow">THE NEXUS // MOVIE GALAXY</div><h1 class="destination-title">MOVIE <em>GALAXY</em></h1><p class="destination-copy">A dedicated archive for films, cinematic universes, characters, plots, themes, production context and analysis.</p><div class="notice">Movie Galaxy is established as a destination. Its film directory and research modules will be built next.</div><button class="btn primary" onclick="showPage('portal');document.body.classList.add('archive-portal')">← Back to destinations</button></div></section>
 <section id="anime" class="page hidden"><div class="section"><div class="heading"><div><div class="eyebrow">UNIVERSE DIRECTORY</div><h2>Anime collection</h2><p>Series, worlds, story foundations and central concepts.</p></div></div><div class="grid" id="animeGrid"></div></div></section>
 <section id="characters" class="page hidden"><div class="section"><div class="heading"><div><div class="eyebrow">ANIMARCHIVE // PROTAGONIST INDEX</div><h2>The 30 main characters</h2><p>Choose a protagonist to open their character hub: biography, story chronology, personality, abilities, relationships, rivals, and research notes.</p></div></div><div class="grid" id="protagonistGrid"></div><p class="muted" id="protagonistCount"></p></div><div class="section"><div class="heading"><div><div class="eyebrow">CHARACTER DATABASE</div><h2>Find a character</h2><p>Search profiles by name, universe, role or ability.</p></div></div><div class="filters"><input id="search" placeholder="Search characters, powers, clans…"><select id="seriesFilter"><option value="">All universes</option></select></div><div class="grid" id="characterGrid"></div>
 <div class="section" style="padding:30px 0 10px">
@@ -356,8 +386,14 @@ document.getElementById("castSearch").addEventListener("input",renderMainCast);d
 document.getElementById("search").addEventListener("input",filterChars);document.getElementById("seriesFilter").addEventListener("change",filterChars);render();const deepLink=location.hash.slice(1);if(deepLink&&document.getElementById(deepLink)?.classList.contains("page"))showPage(deepLink);
 </script><script>
 function enterAnimarchive(){
- document.body.classList.add("archive-entered");
+ document.body.classList.add("archive-entered","archive-portal");
+ showPage("portal");
  try{sessionStorage.setItem("animarchiveEntered","1")}catch(e){}
+}
+function openNexusSection(destination){
+ document.body.classList.remove("archive-portal");
+ if(destination==="anime"){showPage("home");return;}
+ showPage(destination);
 }
 function exitAnimarchive(){
  window.location.replace("about:blank");
