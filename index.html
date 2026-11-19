@@ -91,7 +91,44 @@ a{color:var(--cyan)}
 
 .protagonist-card{cursor:pointer;min-height:150px;display:flex;align-items:stretch}.protagonist-card .cardbody{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:7px}.protagonist-card h3{margin:2px 0;font-size:18px}.protagonist-card .btn{margin-top:auto}.protagonist-card:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 @media(min-width:950px){#protagonistGrid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+
+/* ENTRY TERMINAL — FIRST PAGE */
+body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.archive-entered)>footer{visibility:hidden}
+.entry-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#102b49 0%,#071323 42%,#030711 100%);color:#eafaff}
+.gate-grid{position:absolute;inset:-30%;background-image:linear-gradient(#32f3ff19 1px,transparent 1px),linear-gradient(90deg,#32f3ff19 1px,transparent 1px);background-size:46px 46px;transform:perspective(650px) rotateX(58deg) scale(1.5);transform-origin:center 70%;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 78%,transparent);animation:gateDrift 18s linear infinite}
+.entry-gate:before,.entry-gate:after{content:"";position:absolute;width:48vw;height:48vw;border:1px solid #32f3ff25;border-radius:50%;box-shadow:0 0 80px #32f3ff10,inset 0 0 80px #ff35c810}
+.entry-gate:after{width:62vw;height:62vw;border-color:#ff35c822}
+.gate-content{position:relative;text-align:center;width:min(760px,92vw);padding:38px 20px}
+.gate-mark{font:900 clamp(20px,4vw,34px) monospace;letter-spacing:.16em;color:#32f3ff;text-shadow:0 0 22px #32f3ff66}
+.gate-mark span{color:#ff35c8}
+.gate-kicker,.gate-foot{font:11px monospace;letter-spacing:.2em;color:#9bb7c8}
+.gate-kicker{margin-top:42px}
+.gate-content h1{font:900 clamp(42px,8vw,82px)/.98 system-ui,sans-serif;letter-spacing:-.055em;margin:24px 0 16px;text-shadow:0 0 30px #32f3ff24}
+.gate-content h1 em{font-style:normal;color:#ff35c8;text-shadow:0 0 28px #ff35c866}
+.gate-copy{color:#b7d0df;font-size:clamp(14px,2vw,18px);margin:0 auto;max-width:520px}
+.gate-actions{display:flex;justify-content:center;gap:18px;margin:42px auto 54px}
+.gate-button{width:min(210px,38vw);min-height:58px;border:1px solid #32f3ff;background:#071b2c;color:#eafaff;font:900 16px monospace;letter-spacing:.2em;cursor:pointer;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:.2s}
+.gate-enter{background:linear-gradient(110deg,#32f3ff,#b9fbff);border-color:#32f3ff;color:#04111b;box-shadow:0 0 28px #32f3ff55}
+.gate-exit{border-color:#ff35c8;color:#ffb5ef;background:#190d25}
+.gate-button:hover{transform:translateY(-3px);filter:brightness(1.13);box-shadow:0 0 30px #32f3ff55}
+.gate-button:focus-visible{outline:3px solid white;outline-offset:5px}
+body.archive-entered .entry-gate{display:none}
+@keyframes gateDrift{to{background-position:0 46px,46px 0}}
+@media(max-width:520px){.gate-content{padding:20px 12px}.gate-kicker{margin-top:32px;font-size:9px}.gate-actions{gap:12px;margin:34px auto 44px}.gate-button{min-height:54px;font-size:14px}.gate-mark{letter-spacing:.1em}}
 </style></head><body>
+<div id="entryGate" class="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+ <div class="gate-grid"></div><div class="gate-content">
+  <div class="gate-mark">ANIMARCHIVE <span>NEXUS</span></div>
+  <div class="gate-kicker">ANIME INTELLIGENCE ARCHIVE // 30 UNIVERSES</div>
+  <h1 id="gateTitle">ENTER THE<br><em>ANIMARCHIVE</em></h1>
+  <p class="gate-copy">A universe of stories, characters, histories and discoveries.</p>
+  <div class="gate-actions">
+   <button class="gate-button gate-enter" type="button" onclick="enterAnimarchive()">ENTER</button>
+   <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
+  </div>
+  <div class="gate-foot">EST. NEXUS ARCHIVE // ACCESS TERMINAL</div>
+ </div>
+</div>
 <header class="top"><a class="brand" href="#" onclick="showPage('home')">ANI<span>M</span>ARCHIVE</a><nav><button class="active" data-page="home">Home</button><button data-page="anime">Anime</button><button data-page="characters">Characters</button><button data-page="lore">Lore & Powers</button><button data-page="connections">Reality Connections</button><a class="btn" href="villains.html">Villains & Rivals</a><a class="btn" href="investigations.html">Character Investigations</a></nav></header>
 <main class="wrap">
 <section id="home" class="page"><div class="hero"><div class="eyebrow">ANIMARCHIVE NEXUS // ANIME INTELLIGENCE NETWORK</div><h1>Enter the worlds.<br><em>Understand the legends.</em></h1><p>A connected anime intelligence archive for character records, world histories, abilities, lore and evidence-led research. Explore thirty anime universes, then follow the connections between fictional worlds and the real human imagination.</p><div class="stats"><div><b>30</b><small>Anime universes</small></div><div><b>04</b><small>Starter profiles</small></div><div><b>∞</b><small>Room to expand</small></div></div></div><div class="notice">Research labels matter: official story facts, reasonable interpretation, fan theory and real-world comparison are kept distinct. This starter archive is a foundation, not a claim of complete coverage.</div><div class="section"><div class="heading"><div><div class="eyebrow">START YOUR JOURNEY</div><h2>Thirty worlds. Countless stories.</h2><p>Select a universe to explore its worldbuilding, themes and characters.</p></div></div><div class="grid" id="featuredAnime"></div></div><div class="section"><div class="heading"><div><div class="eyebrow">MEET THE CAST</div><h2>Character index</h2><p>Character records, portraits and research profiles across thirty anime universes.</p></div><button class="btn" onclick="showPage('characters')">All characters →</button></div><div class="grid" id="featuredChars"></div></div></section>
@@ -317,4 +354,13 @@ function showAnime(id){const a=anime.find(x=>x.id===id);showPage("profile");docu
 function filterChars(){const q=document.getElementById("search").value.toLowerCase(),s=document.getElementById("seriesFilter").value,list=chars.filter(c=>(!s||c.series===s)&&[c.name,c.series,c.role,...c.powers,...c.affiliations].join(" ").toLowerCase().includes(q));document.getElementById("characterGrid").innerHTML=list.length?list.map(cardChar).join(""):'<div class="empty">No matching character in the current starter dataset. More entries can be added.</div>'}
 document.getElementById("castSearch").addEventListener("input",renderMainCast);document.getElementById("castSeries").addEventListener("change",renderMainCast);
 document.getElementById("search").addEventListener("input",filterChars);document.getElementById("seriesFilter").addEventListener("change",filterChars);render();const deepLink=location.hash.slice(1);if(deepLink&&document.getElementById(deepLink)?.classList.contains("page"))showPage(deepLink);
-</script></body></html>
+</script><script>
+function enterAnimarchive(){
+ document.body.classList.add("archive-entered");
+ try{sessionStorage.setItem("animarchiveEntered","1")}catch(e){}
+}
+function exitAnimarchive(){
+ window.location.replace("about:blank");
+}
+</script>
+</body></html>
