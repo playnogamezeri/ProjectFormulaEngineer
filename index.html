@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b16"><title>ANIMARCHIVE NEXUS — Anime Intelligence Archive</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b16"><title>Motion4i — Anime, Television & Movie Archive</title>
 <style>
 :root{--bg:#100f19;--panel:#191827;--panel2:#242139;--line:#39364e;--ink:#f5f0ff;--muted:#aaa4bf;--pink:#ff6b9d;--cyan:#68e0dc;--gold:#ffd166}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#282044,transparent 42%),var(--bg);color:var(--ink);font:15px/1.6 system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:5;background:#100f19ed;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px max(4vw,18px)}.brand{font:900 18px monospace;letter-spacing:2px;color:var(--cyan);text-decoration:none}.brand span{color:var(--pink)}nav{display:flex;gap:8px;flex-wrap:wrap}nav button,.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 12px;border-radius:7px;font-size:12px}nav button.active,.primary{background:var(--pink)!important;color:#210d1a!important;border-color:var(--pink)!important;font-weight:800}.wrap{max-width:1200px;margin:auto;padding:0 22px}.hero{padding:68px 0 38px}.eyebrow{font:12px monospace;color:var(--cyan);letter-spacing:2px}.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.02;margin:14px 0;letter-spacing:-3px}.hero h1 em{font-style:normal;color:var(--pink)}.hero p{max-width:720px;color:var(--muted);font-size:17px}.stats{display:flex;gap:26px;margin-top:25px;flex-wrap:wrap}.stats b{display:block;font:22px monospace;color:var(--gold)}.stats small{color:var(--muted)}.notice{background:#242039;border:1px solid #51456f;padding:13px 16px;border-radius:8px;color:#d7cfee;font-size:13px;margin:18px 0}.section{padding:30px 0 55px}.heading{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:18px}.heading h2{font-size:27px;margin:0}.heading p{margin:4px 0 0;color:var(--muted);font-size:13px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}.filters input,.filters select{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:11px;border-radius:7px;min-width:160px}.filters input{flex:1}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:.2s}.card:hover{transform:translateY(-3px);border-color:var(--pink)}.cardbody{padding:14px}.card h3{margin:3px 0;font-size:17px}.muted{color:var(--muted);font-size:12px}.tag{display:inline-block;color:var(--cyan);font:10px monospace;border:1px solid #386c70;padding:3px 6px;border-radius:4px;margin:2px}.chibi-box{background:radial-gradient(ellipse at 50% 20%,#50446f 0%,#292442 48%,#171626 100%)}.chibi-sprite{image-rendering:auto;filter:drop-shadow(0 8px 8px #080812aa);transition:transform .2s ease}.cast-card:hover .chibi-sprite{transform:translateY(-5px) scale(1.04)}.cast-card .spritebox{height:180px}.cast-card .chibi-sprite{width:140px;height:170px}.cast-card .cardbody .btn{width:100%}.detail .chibi-sprite{width:210px;height:260px}@media(max-width:560px){.cast-card .spritebox{height:150px}.cast-card .chibi-sprite{height:145px;width:120px}}
 .spritebox{height:158px;background:linear-gradient(145deg,#292442,#171626);display:grid;place-items:center;position:relative;overflow:hidden}.sprite{width:112px;height:144px;image-rendering:pixelated;object-fit:contain;z-index:1;filter:drop-shadow(4px 5px 0 #080812)}.anime-card .spritebox{height:130px}.anime-card .sprite{width:90px;height:116px}.btn{display:inline-block;text-decoration:none;margin-top:10px}.detail{display:grid;grid-template-columns:260px 1fr;gap:20px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px}.detail .spritebox{height:280px;border-radius:8px}.detail .sprite{width:190px;height:250px}.detail h2{margin:0;font-size:30px}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.tabs button{background:var(--panel2);border:1px solid var(--line);color:var(--ink);padding:7px 10px;border-radius:6px}.tabs button.active{border-color:var(--cyan);color:var(--cyan);background:var(--panel2)!important}.prose{color:#d7d2e4;max-width:850px}.prose h3{color:var(--gold);margin-bottom:5px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.info{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:13px}.info h4{margin:0 0 5px;color:var(--cyan)}.chat{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:14px;max-width:650px}.chatlog{height:190px;overflow:auto;background:#11101b;border-radius:7px;padding:12px;margin:10px 0;font-size:13px}.bubble{margin:7px 0;padding:8px 10px;background:#29253e;border-radius:7px}.bubble.user{background:#30364b;text-align:right}.chatrow{display:flex;gap:8px}.chatrow input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);color:var(--ink);padding:10px;border-radius:6px}.chatrow button{background:var(--pink);border:0;border-radius:6px;padding:0 15px;font-weight:bold}.hidden{display:none!important}.pill{color:var(--gold);font:11px monospace}footer{border-top:1px solid var(--line);padding:28px;color:var(--muted);font-size:12px;text-align:center}.empty{padding:40px;text-align:center;color:var(--muted);grid-column:1/-1}@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.detail{grid-template-columns:1fr}.detail .spritebox{height:220px}.detail .sprite{height:190px;width:150px}}@media(max-width:560px){.top{align-items:flex-start;gap:10px;flex-direction:column}.wrap{padding:0 15px}.grid{grid-template-columns:1fr 1fr;gap:8px}.hero{padding-top:42px}.hero p{font-size:14px}.heading{align-items:start;flex-direction:column}.two{grid-template-columns:1fr}.detail{padding:12px}.cardbody{padding:10px}.card h3{font-size:14px}}
@@ -9,7 +9,7 @@ html{scroll-padding-top:18px;scroll-behavior:smooth}body{overflow-x:hidden}img,s
 @media(max-width:700px){.top{padding:10px 14px}.top nav{display:flex;flex-wrap:nowrap;gap:7px;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:2px 0 7px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}.top nav::-webkit-scrollbar{display:none}.top nav button,.top nav a{flex:0 0 auto;white-space:nowrap;min-height:42px;padding:9px 12px;font-size:12px}.top nav .btn{margin:0}.hero h1{letter-spacing:-1.5px}.filters{align-items:stretch}.filters input,.filters select{min-width:0;width:100%;flex:1 1 100%}.detail,.card,.info,.fact{min-width:0}.prose,.card p{overflow-wrap:anywhere}}
 @media(max-width:420px){.wrap{padding-left:12px;padding-right:12px}.grid{gap:8px}.cardbody{padding:9px}.card h3{overflow-wrap:anywhere}.detail h2{font-size:25px}.tabs{gap:6px}.tabs button{padding:8px;font-size:12px}}
 
-/* === ANIMARCHIVE NEXUS / CYBER ARCHIVE VISUAL SYSTEM === */
+/* === ANIMARCHIVE MOTION4I / CYBER ARCHIVE VISUAL SYSTEM === */
 :root{--bg:#070b16;--panel:#0d1627;--panel2:#111f35;--line:#203b58;--ink:#eaf6ff;--muted:#91a9c2;--pink:#ff4fa3;--cyan:#55f0ec;--gold:#f8c96b;--glow-cyan:0 0 22px #55f0ec26;--glow-pink:0 0 22px #ff4fa326;color-scheme:dark}
 html{background:var(--bg);scroll-behavior:smooth}
 body{background:radial-gradient(ellipse at 8% -8%,#103b4b70,transparent 38%),radial-gradient(ellipse at 95% 4%,#40204c55,transparent 34%),linear-gradient(180deg,#070b16,#090e1b 55%,#070b16)!important;color:var(--ink)}
@@ -50,7 +50,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:760px){.top{background:#070d19f7!important}.top nav button,.top nav a{box-shadow:none}.hero{padding-top:32px}.stats{gap:9px}.stats>div{padding:12px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
-/* ANIMARCHIVE // NEXUS VISUAL PASS */
+/* ANIMARCHIVE // MOTION4I VISUAL PASS */
 :root{--bg:#050914;--panel:#0b1424;--panel2:#101d32;--line:#16445a;--ink:#eafaff;--muted:#9bb7c8;--pink:#ff35c8;--cyan:#32f3ff;--gold:#f6d66b}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{background:radial-gradient(ellipse at 50% -18%,#153b58 0%,transparent 48%),radial-gradient(ellipse at 100% 35%,#29103d 0%,transparent 42%),#050914;color:var(--ink);position:relative}
@@ -116,7 +116,7 @@ body.archive-entered .entry-gate{display:none}
 @keyframes gateDrift{to{background-position:0 46px,46px 0}}
 @media(max-width:520px){.gate-content{padding:20px 12px}.gate-kicker{margin-top:32px;font-size:9px}.gate-actions{gap:12px;margin:34px auto 44px}.gate-button{min-height:54px;font-size:14px}.gate-mark{letter-spacing:.1em}}
 
-/* THE NEXUS — destination portal */
+/* THE MOTION4I — destination portal */
 body.archive-portal>header{display:none}
 body.archive-portal>main{max-width:1320px;padding-top:24px}
 .portal-wrap{min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:center;padding:50px 0}
@@ -155,13 +155,13 @@ body.archive-portal>main{max-width:1320px;padding-top:24px}
 .anime-arrow{font:9px monospace;letter-spacing:.08em;color:var(--cyan);white-space:nowrap}
 @media(max-width:650px){.anime-directory{padding:36px 0 55px}.anime-title-list{grid-template-columns:1fr}.anime-title-link{min-height:58px}.directory-subtitle{font-size:10px}}
 
-/* THE NEXUS // FUTURISTIC INTERFACE UPGRADE */
+/* THE MOTION4I // FUTURISTIC INTERFACE UPGRADE */
 :root{
  --bg:#030812;--panel:#091728;--panel2:#0d2035;--line:#1c536b;
  --ink:#e9fbff;--muted:#91afc4;--cyan:#42f4ff;--pink:#ff42c8;--gold:#f4d477;
- --nexus-glass:rgba(8,22,39,.78);
- --nexus-cyan-glow:0 0 10px #42f4ff55,0 0 30px #42f4ff18;
- --nexus-pink-glow:0 0 10px #ff42c855,0 0 28px #ff42c81a;
+ --motion4i-glass:rgba(8,22,39,.78);
+ --motion4i-cyan-glow:0 0 10px #42f4ff55,0 0 30px #42f4ff18;
+ --motion4i-pink-glow:0 0 10px #ff42c855,0 0 28px #ff42c81a;
 }
 body{background-color:var(--bg)!important;background-image:radial-gradient(ellipse at 50% -20%,#14506b55,transparent 48%),radial-gradient(ellipse at 100% 38%,#54134d26,transparent 38%),linear-gradient(180deg,#030812,#071222 55%,#030812)!important}
 body:after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,#78efff0a 4px);mix-blend-mode:screen}
@@ -170,20 +170,20 @@ body>*{position:relative;z-index:1}
 .brand{font-size:19px!important;letter-spacing:.22em!important}
 .top nav button,.top nav a,.btn{position:relative;isolation:isolate;background:linear-gradient(135deg,#10243a,#081525)!important;border:1px solid #24536a!important;border-radius:3px!important;box-shadow:inset 0 1px #ffffff12,0 5px 16px #0003!important;text-transform:uppercase;letter-spacing:.07em}
 .top nav button:before,.top nav a:before,.btn:before{content:"";position:absolute;inset:3px;border:1px solid #42f4ff12;pointer-events:none}
-.top nav button:hover,.top nav a:hover,.btn:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;box-shadow:var(--nexus-cyan-glow)!important}
+.top nav button:hover,.top nav a:hover,.btn:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;box-shadow:var(--motion4i-cyan-glow)!important}
 .top nav button.active,.primary,.btn.primary{background:linear-gradient(105deg,#42f4ff,#b4fbff 55%,#ff42c8)!important;color:#04101b!important;border-color:#8dfaff!important;box-shadow:0 0 22px #42f4ff55,0 0 38px #ff42c822!important}
 .hero{padding-top:clamp(54px,9vw,110px)!important;padding-bottom:65px!important}
-.hero:after{content:"NEXUS / ARCHIVE NODE 001";display:inline-block;margin-top:28px;padding:8px 12px;border-left:2px solid var(--cyan);border-right:2px solid var(--pink);background:#071727aa;color:#8edce8;font:10px monospace;letter-spacing:.2em}
+.hero:after{content:"MOTION4I / ARCHIVE NODE 001";display:inline-block;margin-top:28px;padding:8px 12px;border-left:2px solid var(--cyan);border-right:2px solid var(--pink);background:#071727aa;color:#8edce8;font:10px monospace;letter-spacing:.2em}
 .hero h1{font-size:clamp(44px,8.5vw,92px)!important;letter-spacing:-.065em!important;max-width:1000px}
 .hero h1 em{background:linear-gradient(90deg,#ff42c8,#ff8ddc 48%,#42f4ff);-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none!important}
 .eyebrow{font-size:11px!important;letter-spacing:.24em!important}
 .stats>div{min-width:125px;padding:13px 16px;border:1px solid #1d5068;background:linear-gradient(145deg,#0d2338cc,#071321cc);box-shadow:inset 0 1px #ffffff0c,0 8px 24px #0004;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
-.stats b{font-size:26px!important;text-shadow:var(--nexus-cyan-glow)}
+.stats b{font-size:26px!important;text-shadow:var(--motion4i-cyan-glow)}
 .section{border-top:1px solid #1b5065;padding-top:36px!important}
 .heading h2,.directory-title{letter-spacing:-.055em!important}
 .card,.info,.detail,.chat,.notice,.fact,.step{background:linear-gradient(145deg,rgba(13,33,54,.88),rgba(5,14,27,.94))!important;border:1px solid #1d526a!important;border-radius:4px!important;box-shadow:0 16px 40px #0006,inset 0 1px #ffffff0b!important}
 .card:before{height:2px!important;background:linear-gradient(90deg,var(--cyan),transparent 50%,var(--pink))!important}
-.card:hover{border-color:var(--cyan)!important;box-shadow:0 16px 40px #0008,var(--nexus-cyan-glow)!important}
+.card:hover{border-color:var(--cyan)!important;box-shadow:0 16px 40px #0008,var(--motion4i-cyan-glow)!important}
 .spritebox,.chibi-box{background:radial-gradient(ellipse at 50% 25%,#17455d,#091526 72%)!important;border:1px solid #24637a!important}
 .anime-directory{max-width:1100px!important;padding-top:clamp(35px,6vw,72px)!important}
 .directory-title{font-size:clamp(42px,8vw,86px)!important;text-transform:uppercase}
@@ -194,17 +194,17 @@ body>*{position:relative;z-index:1}
 .anime-title-list{gap:10px!important}
 .anime-title-link{position:relative;min-height:66px!important;padding:13px 16px!important;overflow:hidden;background:linear-gradient(110deg,#0c2035ed,#071321ed)!important;border:1px solid #1d4d66!important;border-radius:3px!important;box-shadow:inset 0 1px #ffffff0b,0 7px 20px #0003!important}
 .anime-title-link:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--cyan),var(--pink));opacity:.75}
-.anime-title-link:hover{border-color:var(--cyan)!important;transform:translateY(-2px)!important;box-shadow:var(--nexus-cyan-glow)!important;background:linear-gradient(110deg,#102b43,#09182a)!important}
+.anime-title-link:hover{border-color:var(--cyan)!important;transform:translateY(-2px)!important;box-shadow:var(--motion4i-cyan-glow)!important;background:linear-gradient(110deg,#102b43,#09182a)!important}
 .anime-index{color:var(--pink)!important;font-size:11px!important}
 .anime-title-text{color:#e6f8ff!important;letter-spacing:.01em}
 .anime-arrow{color:var(--cyan)!important;font-size:9px!important}
 .portal-wrap{max-width:1100px!important}
 .portal-card{position:relative!important;overflow:hidden!important;background:linear-gradient(145deg,#10243aee,#071321f5)!important;border:1px solid #28617a!important;border-radius:4px!important;box-shadow:0 18px 42px #0007,inset 0 1px #ffffff10!important}
 .portal-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));}
-.portal-card:hover{border-color:var(--cyan)!important;box-shadow:var(--nexus-cyan-glow)!important;transform:translateY(-5px)!important}
+.portal-card:hover{border-color:var(--cyan)!important;box-shadow:var(--motion4i-cyan-glow)!important;transform:translateY(-5px)!important}
 .portal-card strong{letter-spacing:-.045em!important}
 footer{border-top:1px solid #1d526a!important;background:#040b16aa}
-@keyframes nexusPulse{0%,100%{box-shadow:0 0 0 #42f4ff00}50%{box-shadow:0 0 22px #42f4ff16}}
+@keyframes motion4iPulse{0%,100%{box-shadow:0 0 0 #42f4ff00}50%{box-shadow:0 0 22px #42f4ff16}}
 .entry-gate{background:radial-gradient(ellipse at 50% 42%,#123c5a 0%,#071323 42%,#02050d 100%)!important}
 .gate-enter{background:linear-gradient(100deg,#42f4ff,#c6fcff 58%,#ff42c8)!important;box-shadow:0 0 30px #42f4ff66,0 0 55px #ff42c822!important}
 @media(max-width:700px){
@@ -217,33 +217,33 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
  .top{border-bottom-color:#28617a!important}
 }
 @media(prefers-reduced-motion:no-preference){
- .anime-title-link,.portal-card{animation:nexusPulse 7s ease-in-out infinite}
+ .anime-title-link,.portal-card{animation:motion4iPulse 7s ease-in-out infinite}
  .anime-title-link:nth-child(2n),.portal-card:nth-child(2n){animation-delay:1.5s}
 }
 </style></head><body>
 <div id="entryGate" class="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
  <div class="gate-grid"></div><div class="gate-content">
-  <div class="gate-mark">THE <span>NEXUS</span></div>
+  <div class="gate-mark"><span>MOTION4I</span></div>
   <div class="gate-kicker">A GATEWAY TO STORIES, WORLDS & CINEMA</div>
-  <h1 id="gateTitle"><em>THE NEXUS</em></h1>
+  <h1 id="gateTitle"><em>MOTION4I</em></h1>
   <p class="gate-copy">Choose your destination beyond the ordinary.</p>
   <div class="gate-actions">
    <button class="gate-button gate-enter" type="button" onclick="enterAnimarchive()">ENTER</button>
    <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
   </div>
-  <div class="gate-foot">THE NEXUS // MULTIVERSE ACCESS TERMINAL</div>
+  <div class="gate-foot">MOTION4I // MULTIVERSE ACCESS TERMINAL</div>
  </div>
 </div>
-<header class="top"><a class="brand" href="#" onclick="showPage('home')">ANI<span>M</span>ARCHIVE</a><nav><button class="active" data-page="home">Home</button><button data-page="anime">Anime</button><button data-page="characters">Characters</button><button data-page="lore">Lore & Powers</button><button data-page="connections">Reality Connections</button><a class="btn" href="villains.html">Villains & Rivals</a><a class="btn" href="investigations.html">Character Investigations</a></nav></header>
+<header class="top"><a class="brand" href="#" onclick="showPage('home')">MOTION<span>4i</span></a><nav><button class="active" data-page="home">Home</button><button data-page="anime">Anime</button><button data-page="characters">Characters</button><button data-page="lore">Lore & Powers</button><button data-page="connections">Reality Connections</button><a class="btn" href="villains.html">Villains & Rivals</a><a class="btn" href="investigations.html">Character Investigations</a></nav></header>
 <main class="wrap">
-<section id="home" class="page"><div class="hero"><div class="eyebrow">ANIMARCHIVE NEXUS // ANIME INTELLIGENCE NETWORK</div><h1>Enter the worlds.<br><em>Understand the legends.</em></h1><p>A connected anime intelligence archive for character records, world histories, abilities, lore and evidence-led research. Explore thirty anime universes, then follow the connections between fictional worlds and the real human imagination.</p><div class="stats"><div><b>30</b><small>Anime universes</small></div><div><b>04</b><small>Starter profiles</small></div><div><b>∞</b><small>Room to expand</small></div></div></div><div class="notice">Research labels matter: official story facts, reasonable interpretation, fan theory and real-world comparison are kept distinct. This starter archive is a foundation, not a claim of complete coverage.</div><div class="section"><div class="heading"><div><div class="eyebrow">START YOUR JOURNEY</div><h2>Thirty worlds. Countless stories.</h2><p>Select a universe to explore its worldbuilding, themes and characters.</p></div></div><div class="grid" id="featuredAnime"></div></div><div class="section"><div class="heading"><div><div class="eyebrow">MEET THE CAST</div><h2>Character index</h2><p>Character records, portraits and research profiles across thirty anime universes.</p></div><button class="btn" onclick="showPage('characters')">All characters →</button></div><div class="grid" id="featuredChars"></div></div></section>
-<section id="portal" class="page hidden"><div class="portal-wrap"><div class="eyebrow">THE NEXUS // DESTINATION SELECT</div><h1 class="portal-title">CHOOSE YOUR <em>WORLD</em></h1><p class="portal-copy">Three gateways. Countless stories to explore.</p><div class="portal-grid">
-<button class="portal-card anime-dest" onclick="openNexusSection('anime')"><span class="portal-number">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><span class="portal-desc">Characters, sagas, lore, abilities and anime worlds.</span><span class="portal-link">ENTER UNIVERSE →</span></button>
-<button class="portal-card tv-dest" onclick="openNexusSection('television')"><span class="portal-number">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><span class="portal-desc">TV shows, seasons, episodes, characters and storylines.</span><span class="portal-link">ENTER WORLD →</span></button>
-<button class="portal-card movie-dest" onclick="openNexusSection('movies')"><span class="portal-number">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><span class="portal-desc">Films, cinematic universes, characters and stories.</span><span class="portal-link">ENTER GALAXY →</span></button>
+<section id="home" class="page"><div class="hero"><div class="eyebrow">ANIMARCHIVE MOTION4I // ANIME INTELLIGENCE NETWORK</div><h1>Enter the worlds.<br><em>Understand the legends.</em></h1><p>A connected anime intelligence archive for character records, world histories, abilities, lore and evidence-led research. Explore thirty anime universes, then follow the connections between fictional worlds and the real human imagination.</p><div class="stats"><div><b>30</b><small>Anime universes</small></div><div><b>04</b><small>Starter profiles</small></div><div><b>∞</b><small>Room to expand</small></div></div></div><div class="notice">Research labels matter: official story facts, reasonable interpretation, fan theory and real-world comparison are kept distinct. This starter archive is a foundation, not a claim of complete coverage.</div><div class="section"><div class="heading"><div><div class="eyebrow">START YOUR JOURNEY</div><h2>Thirty worlds. Countless stories.</h2><p>Select a universe to explore its worldbuilding, themes and characters.</p></div></div><div class="grid" id="featuredAnime"></div></div><div class="section"><div class="heading"><div><div class="eyebrow">MEET THE CAST</div><h2>Character index</h2><p>Character records, portraits and research profiles across thirty anime universes.</p></div><button class="btn" onclick="showPage('characters')">All characters →</button></div><div class="grid" id="featuredChars"></div></div></section>
+<section id="portal" class="page hidden"><div class="portal-wrap"><div class="eyebrow">THE MOTION4I // DESTINATION SELECT</div><h1 class="portal-title">CHOOSE YOUR <em>WORLD</em></h1><p class="portal-copy">Three gateways. Countless stories to explore.</p><div class="portal-grid">
+<button class="portal-card anime-dest" onclick="openMotion4iSection('anime')"><span class="portal-number">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><span class="portal-desc">Characters, sagas, lore, abilities and anime worlds.</span><span class="portal-link">ENTER UNIVERSE →</span></button>
+<button class="portal-card tv-dest" onclick="openMotion4iSection('television')"><span class="portal-number">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><span class="portal-desc">TV shows, seasons, episodes, characters and storylines.</span><span class="portal-link">ENTER WORLD →</span></button>
+<button class="portal-card movie-dest" onclick="openMotion4iSection('movies')"><span class="portal-number">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><span class="portal-desc">Films, cinematic universes, characters and stories.</span><span class="portal-link">ENTER GALAXY →</span></button>
 </div></div></section>
 <section id="television" class="page hidden"><div class="anime-directory">
-<div class="eyebrow">THE NEXUS // PAGE 03</div><h1 class="directory-title">TELEVISION <em>WORLD</em></h1>
+<div class="eyebrow">THE MOTION4I // PAGE 03</div><h1 class="directory-title">TELEVISION <em>WORLD</em></h1>
 <p class="anime-welcome">Welcome to my Television World. This is every TV shows i have watched and liked.</p>
 <div class="directory-rule"></div>
 <div class="directory-subtitle">THE COLLECTION <span>51 SHOWS // A–Z</span></div>
@@ -251,7 +251,7 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
 <button class="btn primary" style="margin-top:28px" onclick="showPage('portal');document.body.classList.add('archive-portal')">← Back to destinations</button>
 </div></section>
 <section id="movies" class="page hidden"><div class="anime-directory">
-<div class="eyebrow">THE NEXUS // PAGE 03</div><h1 class="directory-title">MOVIE <em>GALAXY</em></h1>
+<div class="eyebrow">THE MOTION4I // PAGE 03</div><h1 class="directory-title">MOVIE <em>GALAXY</em></h1>
 <p class="anime-welcome">Welcome to my Movie Galaxy. This is a collection of movies I believe I have watched, along with continuations and sequels that I have yet to watch.</p>
 <div class="directory-rule"></div>
 <div class="directory-subtitle">THE COLLECTION <span>224 MOVIES // A–Z</span></div>
@@ -259,7 +259,7 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
 <button class="btn primary" style="margin-top:28px" onclick="showPage('portal');document.body.classList.add('archive-portal')">← Back to destinations</button>
 </div></section>
 <section id="anime" class="page hidden"><div class="anime-directory">
-<div class="eyebrow">THE NEXUS // PAGE 03</div><h1 class="directory-title">ANIME <em>UNIVERSE</em></h1>
+<div class="eyebrow">THE MOTION4I // PAGE 03</div><h1 class="directory-title">ANIME <em>UNIVERSE</em></h1>
 <p class="anime-welcome">Welcome to the Anime Universe. Here is 30 animes that are important or worth watching in my eyes.</p>
 <div class="directory-rule"></div>
 <div class="directory-subtitle">THE COLLECTION <span>30 TITLES // A–Z</span></div>
@@ -505,7 +505,7 @@ function enterAnimarchive(){
  showPage("portal");
  try{sessionStorage.setItem("animarchiveEntered","1")}catch(e){}
 }
-function openNexusSection(destination){
+function openMotion4iSection(destination){
  document.body.classList.remove("archive-portal");
  if(destination==="anime"){showPage("anime");return;}
  showPage(destination);
