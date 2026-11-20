@@ -154,6 +154,72 @@ body.archive-portal>main{max-width:1320px;padding-top:24px}
 .anime-title-text{font-weight:750;line-height:1.3;flex:1}
 .anime-arrow{font:9px monospace;letter-spacing:.08em;color:var(--cyan);white-space:nowrap}
 @media(max-width:650px){.anime-directory{padding:36px 0 55px}.anime-title-list{grid-template-columns:1fr}.anime-title-link{min-height:58px}.directory-subtitle{font-size:10px}}
+
+/* THE NEXUS // FUTURISTIC INTERFACE UPGRADE */
+:root{
+ --bg:#030812;--panel:#091728;--panel2:#0d2035;--line:#1c536b;
+ --ink:#e9fbff;--muted:#91afc4;--cyan:#42f4ff;--pink:#ff42c8;--gold:#f4d477;
+ --nexus-glass:rgba(8,22,39,.78);
+ --nexus-cyan-glow:0 0 10px #42f4ff55,0 0 30px #42f4ff18;
+ --nexus-pink-glow:0 0 10px #ff42c855,0 0 28px #ff42c81a;
+}
+body{background-color:var(--bg)!important;background-image:radial-gradient(ellipse at 50% -20%,#14506b55,transparent 48%),radial-gradient(ellipse at 100% 38%,#54134d26,transparent 38%),linear-gradient(180deg,#030812,#071222 55%,#030812)!important}
+body:after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.12;background:repeating-linear-gradient(0deg,transparent 0 3px,#78efff0a 4px);mix-blend-mode:screen}
+body>*{position:relative;z-index:1}
+.top{position:sticky!important;background:rgba(3,10,22,.82)!important;border-bottom:1px solid #2a7185!important;box-shadow:0 12px 36px #0009,0 1px 0 #42f4ff22!important;backdrop-filter:blur(22px) saturate(150%)}
+.brand{font-size:19px!important;letter-spacing:.22em!important}
+.top nav button,.top nav a,.btn{position:relative;isolation:isolate;background:linear-gradient(135deg,#10243a,#081525)!important;border:1px solid #24536a!important;border-radius:3px!important;box-shadow:inset 0 1px #ffffff12,0 5px 16px #0003!important;text-transform:uppercase;letter-spacing:.07em}
+.top nav button:before,.top nav a:before,.btn:before{content:"";position:absolute;inset:3px;border:1px solid #42f4ff12;pointer-events:none}
+.top nav button:hover,.top nav a:hover,.btn:hover{border-color:var(--cyan)!important;color:var(--cyan)!important;box-shadow:var(--nexus-cyan-glow)!important}
+.top nav button.active,.primary,.btn.primary{background:linear-gradient(105deg,#42f4ff,#b4fbff 55%,#ff42c8)!important;color:#04101b!important;border-color:#8dfaff!important;box-shadow:0 0 22px #42f4ff55,0 0 38px #ff42c822!important}
+.hero{padding-top:clamp(54px,9vw,110px)!important;padding-bottom:65px!important}
+.hero:after{content:"NEXUS / ARCHIVE NODE 001";display:inline-block;margin-top:28px;padding:8px 12px;border-left:2px solid var(--cyan);border-right:2px solid var(--pink);background:#071727aa;color:#8edce8;font:10px monospace;letter-spacing:.2em}
+.hero h1{font-size:clamp(44px,8.5vw,92px)!important;letter-spacing:-.065em!important;max-width:1000px}
+.hero h1 em{background:linear-gradient(90deg,#ff42c8,#ff8ddc 48%,#42f4ff);-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none!important}
+.eyebrow{font-size:11px!important;letter-spacing:.24em!important}
+.stats>div{min-width:125px;padding:13px 16px;border:1px solid #1d5068;background:linear-gradient(145deg,#0d2338cc,#071321cc);box-shadow:inset 0 1px #ffffff0c,0 8px 24px #0004;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.stats b{font-size:26px!important;text-shadow:var(--nexus-cyan-glow)}
+.section{border-top:1px solid #1b5065;padding-top:36px!important}
+.heading h2,.directory-title{letter-spacing:-.055em!important}
+.card,.info,.detail,.chat,.notice,.fact,.step{background:linear-gradient(145deg,rgba(13,33,54,.88),rgba(5,14,27,.94))!important;border:1px solid #1d526a!important;border-radius:4px!important;box-shadow:0 16px 40px #0006,inset 0 1px #ffffff0b!important}
+.card:before{height:2px!important;background:linear-gradient(90deg,var(--cyan),transparent 50%,var(--pink))!important}
+.card:hover{border-color:var(--cyan)!important;box-shadow:0 16px 40px #0008,var(--nexus-cyan-glow)!important}
+.spritebox,.chibi-box{background:radial-gradient(ellipse at 50% 25%,#17455d,#091526 72%)!important;border:1px solid #24637a!important}
+.anime-directory{max-width:1100px!important;padding-top:clamp(35px,6vw,72px)!important}
+.directory-title{font-size:clamp(42px,8vw,86px)!important;text-transform:uppercase}
+.directory-title em{background:linear-gradient(90deg,var(--pink),#ff9be3 55%,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent!important;text-shadow:none!important}
+.anime-welcome{max-width:850px!important;color:#b9d4e4!important;font-size:clamp(16px,2vw,19px)!important}
+.directory-rule{height:1px!important;background:linear-gradient(90deg,var(--cyan),#ffffff20 55%,var(--pink))!important;box-shadow:0 0 12px #42f4ff55}
+.directory-subtitle{font-size:11px!important;letter-spacing:.2em!important}
+.anime-title-list{gap:10px!important}
+.anime-title-link{position:relative;min-height:66px!important;padding:13px 16px!important;overflow:hidden;background:linear-gradient(110deg,#0c2035ed,#071321ed)!important;border:1px solid #1d4d66!important;border-radius:3px!important;box-shadow:inset 0 1px #ffffff0b,0 7px 20px #0003!important}
+.anime-title-link:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(var(--cyan),var(--pink));opacity:.75}
+.anime-title-link:hover{border-color:var(--cyan)!important;transform:translateY(-2px)!important;box-shadow:var(--nexus-cyan-glow)!important;background:linear-gradient(110deg,#102b43,#09182a)!important}
+.anime-index{color:var(--pink)!important;font-size:11px!important}
+.anime-title-text{color:#e6f8ff!important;letter-spacing:.01em}
+.anime-arrow{color:var(--cyan)!important;font-size:9px!important}
+.portal-wrap{max-width:1100px!important}
+.portal-card{position:relative!important;overflow:hidden!important;background:linear-gradient(145deg,#10243aee,#071321f5)!important;border:1px solid #28617a!important;border-radius:4px!important;box-shadow:0 18px 42px #0007,inset 0 1px #ffffff10!important}
+.portal-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));}
+.portal-card:hover{border-color:var(--cyan)!important;box-shadow:var(--nexus-cyan-glow)!important;transform:translateY(-5px)!important}
+.portal-card strong{letter-spacing:-.045em!important}
+footer{border-top:1px solid #1d526a!important;background:#040b16aa}
+@keyframes nexusPulse{0%,100%{box-shadow:0 0 0 #42f4ff00}50%{box-shadow:0 0 22px #42f4ff16}}
+.entry-gate{background:radial-gradient(ellipse at 50% 42%,#123c5a 0%,#071323 42%,#02050d 100%)!important}
+.gate-enter{background:linear-gradient(100deg,#42f4ff,#c6fcff 58%,#ff42c8)!important;box-shadow:0 0 30px #42f4ff66,0 0 55px #ff42c822!important}
+@media(max-width:700px){
+ .hero{padding-top:38px!important;padding-bottom:38px!important}
+ .hero:after{font-size:8px;letter-spacing:.12em}
+ .anime-directory{padding-left:2px;padding-right:2px}
+ .anime-title-link{min-height:60px!important}
+ .anime-arrow{font-size:8px!important}
+ .stats>div{min-width:calc(50% - 8px);flex:1}
+ .top{border-bottom-color:#28617a!important}
+}
+@media(prefers-reduced-motion:no-preference){
+ .anime-title-link,.portal-card{animation:nexusPulse 7s ease-in-out infinite}
+ .anime-title-link:nth-child(2n),.portal-card:nth-child(2n){animation-delay:1.5s}
+}
 </style></head><body>
 <div id="entryGate" class="entry-gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
  <div class="gate-grid"></div><div class="gate-content">
