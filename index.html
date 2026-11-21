@@ -493,8 +493,8 @@ function renderAnimeDirectory(){
  const target=document.getElementById("animeGrid");if(!target)return;
  const meta=motion4iDirectoryMeta.anime||{};
  target.innerHTML=sortMotion4iItems(animeDirectory,"anime","animeSort").map((a,i)=>{
-  const year=(meta[a.slug]||[])[0]||"Year not verified";
-  return '<a class="anime-title-link directory-entry" href="universes/'+a.slug+'.html"><span class="anime-index">'+String(i+1).padStart(2,"0")+'</span><div class="directory-entry-content"><div class="anime-title-text">'+a.title+'</div><div class="directory-meta"><span class="directory-year">'+year+'</span></div></div><span class="anime-arrow">OPEN FILE ↗</span></a>';
+  const d=meta[a.slug]||["Year not verified","Genre not verified","Summary pending."];
+  return '<a class="anime-title-link directory-entry" href="universes/'+a.slug+'.html"><span class="anime-index">'+String(i+1).padStart(2,"0")+'</span><div class="directory-entry-content"><div class="anime-title-text">'+a.title+'</div><div class="directory-meta"><span class="directory-year">'+d[0]+'</span><span class="directory-genre">'+d[1]+'</span></div><p class="directory-summary">'+d[2]+'</p></div><span class="anime-arrow">OPEN FILE ↗</span></a>';
  }).join("");
 }
 
