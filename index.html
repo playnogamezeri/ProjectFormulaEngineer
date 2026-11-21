@@ -626,7 +626,7 @@ window.openCurrentDirectory = function(){return window.showPage(window.currentMo
 window.exitAnimarchive = function(){window.location.replace("about:blank");};
 /* Direct entry routes: ?view=destinations, ?view=anime, ?view=television, ?view=movies. */
 (function(){
- const requestedView=new URLSearchParams(window.location.search).get("view");
+ const requestedView=new URLSearchParams(window.location.search).get("view") || (window.location.hash==="#anime" ? "anime" : null);
  if(requestedView){
   window.enterAnimarchive();
   if(["anime","television","movies"].includes(requestedView))window.showPage(requestedView);
