@@ -553,18 +553,46 @@ renderAnimeDirectory();renderLinkedDirectory("televisionGrid",televisionDirector
 document.getElementById("castSearch").addEventListener("input",renderMainCast);document.getElementById("castSeries").addEventListener("change",renderMainCast);
 document.getElementById("search").addEventListener("input",filterChars);document.getElementById("seriesFilter").addEventListener("change",filterChars);render();const deepLink=location.hash.slice(1);if(deepLink&&document.getElementById(deepLink)?.classList.contains("page"))showPage(deepLink);
 </script><script>
-function enterAnimarchive(){
+/* MOTION4I PAGE ROUTER — explicit global navigation for destination buttons */
+window.showPage = function(id){
+ const allowed=["portal","anime","television","movies","characters","lore","connections","profile"];
+ if(!allowed.includes(id))return false;
+ const page=document.getElementById(id);
+ if(!page || !page.classList.contains("page"))return false;
+ document.querySelectorAll("main .page").forEach(function(section){
+  const active=section===page;
+  section.classList.toggle("hidden",!active);
+  section.setAttribute("aria-hidden",active?"false":"true");
+ });
+ if(["anime","television","movies"].includes(id))window.currentMotion4iSection=id;
+ document.body.classList.toggle("archive-portal",id==="portal");
+ window.scrollTo(0,0);
+ return true;
+};
+window.enterAnimarchive = function(){
  document.body.classList.add("archive-entered");
  const gate=document.getElementById("entryGate");
  if(gate)gate.hidden=true;
- showPage("portal");
-}
-function openMotion4iSection(destination){
- if(!["anime","television","movies"].includes(destination))return;
- showPage(destination);
-}
-function exitAnimarchive(){
- window.location.replace("about:blank");
-}
+ window.showPage("portal");
+};
+window.openMotion4iSection = function(destination){
+ const routes={anime:"anime",television:"television",movies:"movies"};
+ const page=routes[destination];
+ if(!page)return false;
+ return window.showPage(page);
+};
+window.backToDestinations = function(){return window.showPage("portal");};
+window.openCurrentDirectory = function(){return window.showPage(window.currentMotion4iSection||"anime");};
+window.exitAnimarchive = function(){window.location.replace("about:blank");};
+/* Bind destination cards independently of inline onclick attributes. */
+document.addEventListener("DOMContentLoaded",function(){
+ document.querySelectorAll(".portal-card").forEach(function(card,index){
+  const destination=["anime","television","movies"][index];
+  card.addEventListener("click",function(event){
+   event.preventDefault();
+   window.openMotion4iSection(destination);
+  });
+ });
+});
 </script>
 </body></html>
