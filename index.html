@@ -261,7 +261,7 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
 <p class="anime-welcome">Welcome to my Television World. This is every TV shows i have watched and liked.</p>
 <div class="directory-rule"></div>
 <div class="directory-subtitle">THE COLLECTION <span>53 SHOWS // A–Z</span></div>
-<div class="directory-controls"><label for="televisionSort">SORT BY</label><select id="televisionSort" class="directory-sort" onchange="renderLinkedDirectory('televisionGrid',televisionDirectory,'television')"><option value="name">Name · A–Z</option><option value="year-asc">Year · Oldest first</option><option value="year-desc">Year · Newest first</option></select></div>
+<div class="directory-controls"><label for="televisionSort">SORT BY</label><select id="televisionSort" class="directory-sort" onchange="renderLinkedDirectory('televisionGrid',televisionDirectory,'television')"><option value="name">Name · A–Z</option><option value="name-desc">Name · Z–A</option><option value="year-asc">Year · Oldest first</option><option value="year-desc">Year · Newest first</option></select></div>
 <div class="anime-title-list" id="televisionGrid"></div>
 <button class="btn primary" style="margin-top:28px" onclick="showPage('portal');document.body.classList.add('archive-portal')">← Back to destinations</button>
 </div></section>
@@ -513,7 +513,7 @@ function sortMotion4iItems(items,folder,sortId){
  const mode=document.getElementById(sortId)?.value||"name";
  const meta=motion4iDirectoryMeta[folder]||{};
  return items.slice().sort((a,b)=>{
-  if(mode==="name")return a.title.localeCompare(b.title,undefined,{numeric:true,sensitivity:"base"});
+  if(mode==="name"||mode==="name-desc"){const cmp=a.title.localeCompare(b.title,undefined,{numeric:true,sensitivity:"base"});return mode==="name-desc"?-cmp:cmp;}
   const ya=parseInt((meta[a.slug]||[])[0],10)||0;
   const yb=parseInt((meta[b.slug]||[])[0],10)||0;
   if(ya!==yb)return mode==="year-asc"?ya-yb:yb-ya;
