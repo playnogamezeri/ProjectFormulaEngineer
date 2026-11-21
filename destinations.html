@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050914">
+<title>MOTION4I — Page 2: Destinations</title>
+<style>
+:root{color-scheme:dark;--bg:#050914;--ink:#eafaff;--muted:#9bb7c8;--cyan:#32f3ff;--pink:#ff35c8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:28px;background:radial-gradient(ellipse at 50% -18%,#153b58 0%,transparent 48%),radial-gradient(ellipse at 100% 35%,#29103d 0%,transparent 42%),#050914;color:var(--ink);font:15px/1.6 system-ui,sans-serif}
+main{max-width:1180px;margin:0 auto;min-height:calc(100vh - 56px);display:flex;flex-direction:column;justify-content:center}
+.kicker{font:11px monospace;letter-spacing:.2em;color:var(--cyan)}h1{font-size:clamp(42px,7vw,76px);line-height:.98;letter-spacing:-.05em;margin:18px 0}h1 em{font-style:normal;color:var(--pink)}.copy{color:var(--muted);font-size:17px;margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+a.card{min-height:310px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:26px;text-decoration:none;color:var(--ink);border:1px solid #24657b;background:linear-gradient(155deg,#10263b,#080f1d 72%);transition:.2s}
+a.card:hover,a.card:focus-visible{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 0 24px #32f3ff25;outline:2px solid var(--cyan);outline-offset:3px}
+.num{font:11px monospace;letter-spacing:.16em;color:var(--cyan);margin-bottom:auto}strong{font-size:clamp(27px,3vw,42px);line-height:1}small{font-size:14px;color:var(--muted);margin:16px 0 24px}.action{font:12px monospace;letter-spacing:.12em;color:var(--pink)}
+.tv{border-color:#75509a!important;background:linear-gradient(155deg,#28193d,#0b1020 72%)!important}.movie{border-color:#936b36!important;background:linear-gradient(155deg,#382817,#0b1020 72%)!important}
+.back{display:inline-block;margin-top:28px;color:var(--cyan);font:12px monospace;text-decoration:none}
+@media(max-width:700px){body{padding:18px}.grid{grid-template-columns:1fr}.card{min-height:190px!important}main{justify-content:flex-start;padding:35px 0}}
+</style>
+</head>
+<body><main>
+<div class="kicker">THE MOTION4I // PAGE 02 · DESTINATIONS</div>
+<h1>CHOOSE YOUR <em>WORLD</em></h1>
+<p class="copy">Three gateways. Countless stories to explore.</p>
+<div class="grid">
+<a class="card" href="index.html?view=anime"><span class="num">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><small>Characters, sagas, lore, abilities and anime worlds.</small><span class="action">ENTER UNIVERSE →</span></a>
+<a class="card tv" href="index.html?view=television"><span class="num">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><small>TV shows, seasons, episodes, characters and storylines.</small><span class="action">ENTER WORLD →</span></a>
+<a class="card movie" href="index.html?view=movies"><span class="num">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><small>Films, cinematic universes, characters and stories.</small><span class="action">ENTER GALAXY →</span></a>
+</div>
+<a class="back" href="index.html">← RETURN TO PAGE 01</a>
+</main></body></html>
