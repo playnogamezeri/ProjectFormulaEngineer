@@ -93,7 +93,7 @@ a{color:var(--cyan)}
 @media(min-width:950px){#protagonistGrid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 
 /* ENTRY TERMINAL — FIRST PAGE */
-body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.archive-entered)>footer{visibility:hidden}
+body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.archive-entered)>footer{visibility:hidden}.entry-gate[hidden]{display:none!important}
 .entry-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#102b49 0%,#071323 42%,#030711 100%);color:#eafaff}
 .gate-grid{position:absolute;inset:-30%;background-image:linear-gradient(#32f3ff19 1px,transparent 1px),linear-gradient(90deg,#32f3ff19 1px,transparent 1px);background-size:46px 46px;transform:perspective(650px) rotateX(58deg) scale(1.5);transform-origin:center 70%;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 78%,transparent);animation:gateDrift 18s linear infinite}
 .entry-gate:before,.entry-gate:after{content:"";position:absolute;width:48vw;height:48vw;border:1px solid #32f3ff25;border-radius:50%;box-shadow:0 0 80px #32f3ff10,inset 0 0 80px #ff35c810}
@@ -527,9 +527,21 @@ function cardChar(c){return '<article class="card"><div class="spritebox"><img c
 function cardAnime(a){return '<article class="card anime-card"><div class="spritebox"><img class="sprite" src="'+spriteData(a.sprite)+'" alt="Pixel-art mascot"></div><div class="cardbody"><span class="tag">'+a.year+' · '+a.studio+'</span><h3>'+a.name+'</h3><div class="muted">'+a.genre+'</div><p class="muted">'+a.desc+'</p><button class="btn primary" onclick="showAnime(\''+a.id+'\')">Explore universe →</button></div></article>'}
 function render(){renderAnimeDirectory();renderProtagonists();document.getElementById("castSeries").innerHTML='<option value="">All 30 universes</option>'+anime.map(a=>'<option value="'+a.id+'">'+a.name+'</option>').join("");renderMainCast();const sortedAnime=anime.slice().sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true,sensitivity:"base"}));document.getElementById("featuredAnime").innerHTML=sortedAnime.map(cardAnime).join("");document.getElementById("animeGrid").innerHTML=sortedAnime.map(cardAnime).join("");document.getElementById("featuredChars").innerHTML=chars.map(cardChar).join("");document.getElementById("characterGrid").innerHTML=chars.map(cardChar).join("");document.getElementById("loreGrid").innerHTML=lore.map(x=>'<article class="card"><div class="cardbody"><span class="tag">'+x.series+'</span><h3>'+x.title+'</h3><p class="muted">'+x.desc+'</p><h4>Power systems</h4><p>'+x.systems.map(s=>'<span class="tag">'+s+'</span>').join(' ')+'</p><h4>Core themes</h4><p class="muted">'+x.topics.join(' · ')+'</p></div></article>').join("");document.getElementById("connectionGrid").innerHTML=connections.map(x=>'<article class="info"><span class="pill">COMPARATIVE NOTE</span><h3>'+x.title+'</h3><p><b>Fiction:</b> '+x.fiction+'</p><p><b>Real-world context:</b> '+x.reality+'</p><p><b>Boundary:</b> '+x.boundary+'</p>'+(x.sources?'<p><b>Further reading:</b> '+x.sources.map(s=>'<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>').join(' · ')+'</p>':'')+'</article>').join("");document.getElementById("seriesFilter").innerHTML='<option value="">All universes</option>'+anime.map(a=>'<option>'+a.name+'</option>').join("")}
 let currentMotion4iSection="anime";
-function showPage(id){document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));const page=document.getElementById(id);if(!page)return;page.classList.remove("hidden");if(["anime","television","movies"].includes(id))currentMotion4iSection=id;window.scrollTo(0,0)}
-function backToDestinations(){document.body.classList.add("archive-portal");showPage("portal")}
-function openCurrentDirectory(){document.body.classList.remove("archive-portal");showPage(currentMotion4iSection)}
+function showPage(id){
+ const page=document.getElementById(id);
+ if(!page||!page.classList.contains("page"))return false;
+ document.querySelectorAll("main .page").forEach(section=>{
+  const active=section===page;
+  section.classList.toggle("hidden",!active);
+  section.setAttribute("aria-hidden",active?"false":"true");
+ });
+ if(["anime","television","movies"].includes(id))currentMotion4iSection=id;
+ document.body.classList.toggle("archive-portal",id==="portal");
+ window.scrollTo({top:0,behavior:"instant"});
+ return true;
+}
+function backToDestinations(){showPage("portal")}
+function openCurrentDirectory(){showPage(currentMotion4iSection)}
 function characterChibiData(name,fallbackId){const portraits={"Naruto Uzumaki":"assets/characters/naruto.svg","Sasuke Uchiha":"assets/characters/sasuke.svg","Sakura Haruno":"assets/characters/sakura.svg","Kakashi Hatake":"assets/characters/kakashi.svg","Son Goku":"assets/characters/goku.svg","Vegeta":"assets/characters/vegeta.svg","Gohan":"assets/characters/gohan.svg","Piccolo":"assets/characters/piccolo.svg","Ichigo Kurosaki":"assets/characters/ichigo.svg","Rukia Kuchiki":"assets/characters/rukia.svg","Orihime Inoue":"assets/characters/orihime.svg","Uryu Ishida":"assets/characters/uryu.svg"};if(portraits[name])return portraits[name];const c=mainCast.find(x=>x[2]===name);return c?"data:image/svg+xml;charset=utf-8,"+encodeURIComponent(castSprite(c)):spriteData(fallbackId)}
 function openProfile(id){const c=chars.find(x=>x.id===id);if(!c)return;showPage("profile");document.getElementById("profileContent").innerHTML='<button class="btn" onclick="showPage(\'characters\')">← Back to characters</button><div class="detail" style="margin-top:14px"><div class="spritebox"><img class="sprite" src="'+characterChibiData(c.name,c.id)+'" alt="Chibi portrait of '+c.name+'"></div><div><span class="tag">'+c.series+'</span><div class="pill">'+c.epithet+'</div><h2>'+c.name+'</h2><p class="muted">'+c.role+'</p><p>'+c.intro+'</p><div class="tabs"><button class="active" onclick="profileTab(\'overview\',this)">Overview</button><button onclick="profileTab(\'abilities\',this)">Abilities</button><button onclick="profileTab(\'analysis\',this)">Analysis</button><button onclick="profileTab(\'romance\',this)">Romance & bonds</button><button onclick="profileTab(\'dossier\',this)">Full investigation</button><button onclick="profileTab(\'chat\',this)">Chat</button></div><div id="profileTab" class="prose"><h3>Origin & identity</h3><p>'+c.origin+'</p><h3>Personality</h3><p>'+c.personality+'</p><h3>Affiliations</h3><p>'+c.affiliations.join(' · ')+'</p></div></div></div>';window.currentCharacter=id}
 window.profileTab=function(tab,btn){document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");const c=chars.find(x=>x.id===window.currentCharacter),el=document.getElementById("profileTab");if(tab==="overview")el.innerHTML='<h3>Origin & identity</h3><p>'+c.origin+'</p><h3>Personality</h3><p>'+c.personality+'</p><h3>Affiliations</h3><p>'+c.affiliations.join(' · ')+'</p>';if(tab==="abilities")el.innerHTML='<h3>Known abilities & techniques</h3><p>'+c.powers.map(x=>'<span class="tag">'+x+'</span>').join(' ')+'</p><h3>Limits and conditions</h3><p>'+c.limits+'</p>';if(tab==="analysis")el.innerHTML='<h3>Character analysis</h3><p>'+c.analysis+'</p><p><b>Research note:</b> This is an interpretive reading, not an official author statement.</p>';if(tab==="romance")el.innerHTML='<h3>Romantic relationship</h3><p>'+c.romance+'</p><h3>Family and important bonds</h3><p>'+c.relationships+'</p><p><b>Canon standard:</b> A confirmed spouse is distinguished from a crush, unrequited affection or fan pairing.</p>';if(tab==="dossier")el.innerHTML=(c.dossier||'<h3>Expanded investigation pending</h3><p>A full dossier has not yet been completed for this character.</p>').replace(/\\[nr]/g,'');if(tab==="chat")el.innerHTML='<h3>Character conversation · prototype</h3><p class="muted">A local scripted persona preview. No AI service is called and no message is sent to a server.</p><div class="chat"><div class="chatlog" id="chatlog"><div class="bubble"><b>'+c.name+':</b> '+c.chat+'</div></div><div class="chatrow"><input id="chatInput" placeholder="Say something to '+c.name+'…" onkeydown="if(event.key===\'Enter\')sendChat()"><button onclick="sendChat()">Send</button></div></div>'};
@@ -542,14 +554,13 @@ document.getElementById("castSearch").addEventListener("input",renderMainCast);d
 document.getElementById("search").addEventListener("input",filterChars);document.getElementById("seriesFilter").addEventListener("change",filterChars);render();const deepLink=location.hash.slice(1);if(deepLink&&document.getElementById(deepLink)?.classList.contains("page"))showPage(deepLink);
 </script><script>
 function enterAnimarchive(){
- document.body.classList.add("archive-entered","archive-portal");
+ document.body.classList.add("archive-entered");
+ const gate=document.getElementById("entryGate");
+ if(gate)gate.hidden=true;
  showPage("portal");
- try{sessionStorage.setItem("animarchiveEntered","1")}catch(e){}
 }
 function openMotion4iSection(destination){
  if(!["anime","television","movies"].includes(destination))return;
- document.body.classList.remove("archive-portal");
- currentMotion4iSection=destination;
  showPage(destination);
 }
 function exitAnimarchive(){
