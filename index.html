@@ -624,6 +624,8 @@ window.openMotion4iSection = function(destination){
 window.backToDestinations = function(){return window.showPage("portal");};
 window.openCurrentDirectory = function(){return window.showPage(window.currentMotion4iSection||"anime");};
 window.exitAnimarchive = function(){window.location.replace("about:blank");};
+/* Deep-link directly to Page 2 (the existing three-destination portal). */
+if(new URLSearchParams(window.location.search).get("view")==="destinations"){window.enterAnimarchive();}
 /* Bind destination cards independently of inline onclick attributes. */
 document.addEventListener("DOMContentLoaded",function(){
  document.querySelectorAll(".portal-card").forEach(function(card,index){
