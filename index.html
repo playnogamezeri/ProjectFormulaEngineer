@@ -466,7 +466,7 @@ function renderLinkedDirectory(targetId,items,folder){
  const meta=motion4iDirectoryMeta[folder]||{};
  target.innerHTML=items.slice().sort((a,b)=>a.title.localeCompare(b.title,undefined,{numeric:true,sensitivity:"base"})).map((item,i)=>{
   const d=meta[item.slug]||["Year not verified","Genre not verified","Summary pending."];
-  return '<article class="anime-title-link directory-entry"><span class="anime-index">'+String(i+1).padStart(3,"0")+'</span><div class="directory-entry-content"><div class="anime-title-text">'+item.title+'</div><div class="directory-meta"><span class="directory-year">'+d[0]+'</span><span class="directory-genre">'+d[1]+'</span></div><p class="directory-summary">'+d[2]+'</p></div></article>';
+  return '<a class="anime-title-link directory-entry" href="'+folder+'/'+item.slug+'.html"><span class="anime-index">'+String(i+1).padStart(3,"0")+'</span><div class="directory-entry-content"><div class="anime-title-text">'+item.title+'</div><div class="directory-meta"><span class="directory-year">'+d[0]+'</span><span class="directory-genre">'+d[1]+'</span></div><p class="directory-summary">'+d[2]+'</p></div><span class="anime-arrow">OPEN FILE ↗</span></a>';
  }).join("");
 }
 function renderAnimeDirectory(){
