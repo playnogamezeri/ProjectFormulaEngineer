@@ -243,7 +243,7 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
   <h1 id="gateTitle"><em>Welcome To Nexus</em></h1>
   <p class="gate-copy">Choose your destination beyond the ordinary.</p>
   <div class="gate-actions">
-   <button class="gate-button gate-enter" type="button" onclick="enterAnimarchive()">ENTER</button>
+   <button class="gate-button gate-enter" type="button" id="gateEnterButton" onclick="enterAnimarchive()" aria-label="Enter MOTION4I and open Page 2 Destinations">ENTER</button>
    <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
   </div>
   <div class="gate-foot">MOTION4I // MULTIVERSE ACCESS TERMINAL</div>
@@ -252,9 +252,9 @@ footer{border-top:1px solid #1d526a!important;background:#040b16aa}
 <header class="top"><a class="brand" href="#" onclick="showPage('portal');document.body.classList.add('archive-portal');return false">MOTION<span>4i</span></a><nav class="section-nav" aria-label="Section navigation"><button type="button" onclick="backToDestinations()">← DESTINATIONS</button><button type="button" onclick="openCurrentDirectory()">DIRECTORY</button></nav></header>
 <main class="wrap">
 <section id="portal" class="page"><div class="portal-wrap"><div class="eyebrow">THE MOTION4I // PAGE 03 · DESTINATION SELECT</div><h1 class="portal-title">CHOOSE YOUR <em>WORLD</em></h1><p class="portal-copy">Three gateways. Countless stories to explore.</p><div class="portal-grid">
-<button class="portal-card anime-dest" onclick="openMotion4iSection('anime')"><span class="portal-number">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><span class="portal-desc">Characters, sagas, lore, abilities and anime worlds.</span><span class="portal-link">ENTER UNIVERSE →</span></button>
-<button class="portal-card tv-dest" onclick="openMotion4iSection('television')"><span class="portal-number">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><span class="portal-desc">TV shows, seasons, episodes, characters and storylines.</span><span class="portal-link">ENTER WORLD →</span></button>
-<button class="portal-card movie-dest" onclick="openMotion4iSection('movies')"><span class="portal-number">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><span class="portal-desc">Films, cinematic universes, characters and stories.</span><span class="portal-link">ENTER GALAXY →</span></button>
+<button type="button" class="portal-card anime-dest" data-destination="anime" onclick="openMotion4iSection('anime')"><span class="portal-number">01 // ANIMATION</span><strong>ANIME<br>UNIVERSE</strong><span class="portal-desc">Characters, sagas, lore, abilities and anime worlds.</span><span class="portal-link">ENTER UNIVERSE →</span></button>
+<button type="button" class="portal-card tv-dest" data-destination="television" onclick="openMotion4iSection('television')"><span class="portal-number">02 // SERIES</span><strong>TELEVISION<br>WORLD</strong><span class="portal-desc">TV shows, seasons, episodes, characters and storylines.</span><span class="portal-link">ENTER WORLD →</span></button>
+<button type="button" class="portal-card movie-dest" data-destination="movies" onclick="openMotion4iSection('movies')"><span class="portal-number">03 // CINEMA</span><strong>MOVIE<br>GALAXY</strong><span class="portal-desc">Films, cinematic universes, characters and stories.</span><span class="portal-link">ENTER GALAXY →</span></button>
 </div></div></section>
 <section id="television" class="page hidden"><div class="anime-directory">
 <div class="eyebrow">THE MOTION4I // PAGE 05</div><h1 class="directory-title">TELEVISION <em>WORLD</em></h1>
@@ -612,8 +612,8 @@ window.showPage = function(id){
 window.enterAnimarchive = function(){
  document.body.classList.add("archive-entered");
  const gate=document.getElementById("entryGate");
- if(gate)gate.hidden=true;
- window.showPage("portal");
+ if(gate){gate.hidden=true;gate.setAttribute("aria-hidden","true");}
+ return window.showPage("portal");
 };
 window.openMotion4iSection = function(destination){
  const routes={anime:"anime",television:"television",movies:"movies"};
@@ -624,16 +624,29 @@ window.openMotion4iSection = function(destination){
 window.backToDestinations = function(){return window.showPage("portal");};
 window.openCurrentDirectory = function(){return window.showPage(window.currentMotion4iSection||"anime");};
 window.exitAnimarchive = function(){window.location.replace("about:blank");};
-/* Deep-link directly to Page 2 (the existing three-destination portal). */
-if(new URLSearchParams(window.location.search).get("view")==="destinations"){window.enterAnimarchive();}
-/* Bind destination cards independently of inline onclick attributes. */
+/* Direct entry routes: ?view=destinations, ?view=anime, ?view=television, ?view=movies. */
+(function(){
+ const requestedView=new URLSearchParams(window.location.search).get("view");
+ if(requestedView){
+  window.enterAnimarchive();
+  if(["anime","television","movies"].includes(requestedView))window.showPage(requestedView);
+ }
+})();
+/* Reliable pointer and keyboard routing for the entrance and all three destination cards. */
 document.addEventListener("DOMContentLoaded",function(){
- document.querySelectorAll(".portal-card").forEach(function(card,index){
-  const destination=["anime","television","movies"][index];
-  card.addEventListener("click",function(event){
-   event.preventDefault();
-   window.openMotion4iSection(destination);
-  });
+ const gate=document.getElementById("entryGate");
+ document.addEventListener("keydown",function(event){
+  if(event.key==="Enter" && gate && !gate.hidden && !document.body.classList.contains("archive-entered")){
+   const target=event.target;
+   if(target===document.body || target===document.documentElement || target===gate || (target.classList && (target.classList.contains("gate-grid") || target.classList.contains("gate-content") || target.classList.contains("gate-copy") || target.classList.contains("gate-kicker") || target.classList.contains("gate-mark"))) || target.id==="gateTitle"){
+    event.preventDefault();window.enterAnimarchive();
+   }
+  }
+ });
+ document.querySelectorAll(".portal-card[data-destination]").forEach(function(card){
+  const go=function(){window.openMotion4iSection(card.getAttribute("data-destination"));};
+  card.addEventListener("click",function(event){event.preventDefault();go();});
+  card.addEventListener("keydown",function(event){if(event.key==="Enter"||event.key===" "){event.preventDefault();go();}});
  });
 });
 </script>
