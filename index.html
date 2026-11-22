@@ -95,10 +95,10 @@ a{color:var(--cyan)}
 /* ENTRY TERMINAL — FIRST PAGE */
 body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.archive-entered)>footer{visibility:hidden}.entry-gate[hidden]{display:none!important}
 .entry-gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#102b49 0%,#071323 42%,#030711 100%);color:#eafaff}
-.gate-grid{position:absolute;inset:-30%;background-image:linear-gradient(#32f3ff19 1px,transparent 1px),linear-gradient(90deg,#32f3ff19 1px,transparent 1px);background-size:46px 46px;transform:perspective(650px) rotateX(58deg) scale(1.5);transform-origin:center 70%;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 78%,transparent);animation:gateDrift 18s linear infinite}
-.entry-gate:before,.entry-gate:after{content:"";position:absolute;width:48vw;height:48vw;border:1px solid #32f3ff25;border-radius:50%;box-shadow:0 0 80px #32f3ff10,inset 0 0 80px #ff35c810}
+.gate-grid{position:absolute;pointer-events:none;inset:-30%;background-image:linear-gradient(#32f3ff19 1px,transparent 1px),linear-gradient(90deg,#32f3ff19 1px,transparent 1px);background-size:46px 46px;transform:perspective(650px) rotateX(58deg) scale(1.5);transform-origin:center 70%;mask-image:linear-gradient(to bottom,transparent,#000 25%,#000 78%,transparent);animation:gateDrift 18s linear infinite}
+.entry-gate:before,.entry-gate:after{pointer-events:none;content:"";position:absolute;width:48vw;height:48vw;border:1px solid #32f3ff25;border-radius:50%;box-shadow:0 0 80px #32f3ff10,inset 0 0 80px #ff35c810}
 .entry-gate:after{width:62vw;height:62vw;border-color:#ff35c822}
-.gate-content{position:relative;text-align:center;width:min(760px,92vw);padding:38px 20px}
+.gate-content{position:relative;z-index:2;text-align:center;width:min(760px,92vw);padding:38px 20px}
 .gate-mark{font:900 clamp(20px,4vw,34px) monospace;letter-spacing:.16em;color:#32f3ff;text-shadow:0 0 22px #32f3ff66}
 .gate-mark span{color:#ff35c8}
 .gate-kicker,.gate-foot{font:11px monospace;letter-spacing:.2em;color:#9bb7c8}
@@ -270,7 +270,7 @@ button:hover,a:hover,.card:hover,.portal-card:hover{border-color:#43f4ff!importa
   <h1 id="gateTitle"><em>Welcome To Nexus</em></h1>
   <p class="gate-copy">Choose your destination beyond the ordinary.</p>
   <div class="gate-actions">
-   <a class="gate-button gate-enter" id="gateEnterButton" href="./destinations.html" aria-label="Open Page 2 Destinations">ENTER</a>
+   <a class="gate-button gate-enter" id="gateEnterButton" href="https://playnogamezeri.github.io/ProjectFormulaEngineer/destinations.html" target="_self" rel="noopener" aria-label="Open Page 2 Destinations">ENTER</a>
    <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
   </div>
   <div class="gate-foot">MOTION4I // MULTIVERSE ACCESS TERMINAL</div>
