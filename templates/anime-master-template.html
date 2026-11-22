@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111d">
+<meta name="description" content="{{SERIES_TITLE}} — MOTION4I: The Nexus anime encyclopedia.">
+<title>{{SERIES_TITLE}} — MOTION4I Anime Encyclopedia</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#07111d;--panel:#0d1b2b;--panel2:#102338;--line:#24465d;
+  --ink:#e8f5fa;--muted:#9eb7c5;--cyan:#62edf2;--teal:#32c9c1;
+  --blue:#6d9dff;--gold:#d7c58b;--danger:#e99a9a;
+  --max:1200px;--nav-height:62px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-height) + 18px)}
+body{margin:0;background:radial-gradient(ellipse at 82% -12%,#163b54 0,transparent 38%),var(--bg);color:var(--ink);font:15px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--cyan);text-underline-offset:3px}
+a:hover{color:#fff}
+button,input,select{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.topbar{min-height:var(--nav-height);position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px max(4vw,calc((100vw - var(--max))/2));background:#06101ded;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.brand{font:900 13px/1.2 ui-monospace,monospace;letter-spacing:.15em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand strong{color:var(--cyan)}
+.backlink{font:11px ui-monospace,monospace;text-decoration:none;color:var(--muted);white-space:nowrap}
+.wrap{width:min(var(--max),92vw);margin-inline:auto}
+.hero{padding:58px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#07111d 0%,#07111de8 64%,#07111d65 100%),radial-gradient(ellipse at 88% 40%,#1c6071 0%,#12344b 50%,#07111d 100%)}
+.eyebrow,.kicker,.tag{font:10px ui-monospace,monospace;letter-spacing:.19em;text-transform:uppercase;color:var(--cyan)}
+h1{font-size:clamp(42px,8vw,84px);line-height:.98;letter-spacing:-.055em;margin:15px 0}
+h1 span{color:var(--cyan)}
+.subtitle{max-width:900px;color:#d0e1e9;font-size:clamp(16px,2vw,19px)}
+.meta,.actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.pill{border:1px solid #37647b;border-radius:2px;padding:4px 9px;font:10px ui-monospace,monospace;color:#d7edf2}
+.btn{display:inline-block;border:1px solid var(--cyan);border-radius:3px;padding:9px 13px;background:var(--cyan);color:#06151b;text-decoration:none;font:800 11px ui-monospace,monospace;letter-spacing:.05em}
+.btn:hover{background:#fff;color:#06151b}
+.btn.secondary{background:transparent;color:var(--ink);border-color:#4c7185}
+.notice{margin:20px 0 0;padding:12px 15px;border-left:3px solid var(--gold);background:#1b2631;color:#d9e2e8;font-size:12px}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;padding:34px 0 80px}
+.sidebar{position:sticky;top:calc(var(--nav-height) + 14px);align-self:start;max-height:calc(100vh - var(--nav-height) - 28px);overflow:auto;border:1px solid var(--line);background:#0a1927;padding:14px}
+.sidebar strong{display:block;margin:0 0 8px;color:var(--gold);font:11px ui-monospace,monospace;letter-spacing:.1em}
+.sidebar a{display:block;padding:6px 8px;border-left:2px solid transparent;color:var(--muted);font-size:12px;text-decoration:none}
+.sidebar a:hover,.sidebar a[aria-current="location"]{border-left-color:var(--cyan);background:#10283a;color:var(--cyan)}
+.content section{margin:0 0 46px;scroll-margin-top:calc(var(--nav-height) + 20px)}
+.content h2{font-size:clamp(24px,4vw,31px);line-height:1.15;margin:6px 0 14px}
+.content h3{font-size:17px;color:var(--cyan);margin:20px 0 6px}
+.content p,.content li{color:#c3d4dd}
+.content ul,.content ol{padding-left:22px}
+.lead{font-size:17px;color:#dcebf0!important}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.card,.panel{min-width:0;border:1px solid var(--line);border-radius:5px;padding:15px;background:linear-gradient(145deg,#11263a,#0a1827)}
+.card h3{margin:0 0 5px}
+.card p{margin:0;font-size:13px}
+.card .tag{display:block;margin-bottom:7px;color:var(--gold);font-size:9px}
+.card a{font-weight:700}
+.timeline{border-left:2px solid #35657a;margin:20px 0;padding-left:21px}
+.event{position:relative;margin:0 0 20px}
+.event:before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px #123244}
+.event b{color:var(--gold)}
+.table-wrap{overflow-x:auto;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
+th{background:#11283b;color:var(--gold);font-weight:700}
+.poster-layout{display:grid;grid-template-columns:minmax(170px,280px) minmax(0,1fr);gap:18px;align-items:center}
+.poster-layout img,.profile-image{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;object-fit:cover}
+.poster-placeholder{display:grid;place-items:center;min-height:280px;padding:20px;border:1px dashed #47718a;background:#0b1c2a;color:var(--muted);text-align:center}
+.search-tools{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.search-tools input,.search-tools select{min-width:0;flex:1 1 220px;padding:10px 12px;border:1px solid #42677e;border-radius:3px;background:#091724;color:var(--ink)}
+.directory-card[hidden]{display:none!important}
+.empty-state{display:none;padding:16px;border:1px dashed var(--line);color:var(--muted);text-align:center}
+.empty-state.visible{display:block}
+.badge{display:inline-block;margin:3px 5px 3px 0;padding:2px 7px;border:1px solid #365e73;border-radius:2px;color:#bfeef0;font:10px ui-monospace,monospace}
+.note{font-size:12px;color:var(--muted)!important}
+.warning{border-left:3px solid var(--danger);background:#2a1b25;padding:12px 15px;color:#f0d4d8;font-size:12px}
+details{margin:12px 0;border:1px solid var(--line);border-radius:4px;background:#0b1a28}
+summary{cursor:pointer;padding:10px 13px;color:var(--cyan);font-weight:700}
+details>div{padding:0 13px 12px}
+.footer{border-top:1px solid var(--line);padding:22px 0 35px;color:var(--muted);font-size:12px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:relative;top:auto;max-height:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.sidebar strong{grid-column:1/-1}}
+@media(max-width:620px){.grid,.grid3{grid-template-columns:1fr}.hero{padding:42px 0 28px}.layout{padding-top:20px}.sidebar{grid-template-columns:1fr 1fr}.poster-layout{grid-template-columns:1fr}.poster-layout figure{max-width:300px;margin:0 auto;width:100%}.topbar{padding-inline:4vw}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../index.html">MOTION<strong>4I</strong> / THE NEXUS</a>
+  <a class="backlink" href="../index.html?view=anime">← ANIME INDEX</a>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">THE NEXUS · ANIME WORLD · MASTER ENCYCLOPEDIA</div>
+    <h1><span>{{SERIES_TITLE}}</span></h1>
+    <p class="subtitle">{{SERIES_LOG_LINE_OR_OVERVIEW}}</p>
+    <div class="meta">
+      <span class="pill">{{CREATOR}}</span>
+      <span class="pill">{{MANGA_OR_SOURCE_DATES}}</span>
+      <span class="pill">{{ANIME_RELEASE_DATES}}</span>
+      <span class="pill">{{GENRE_TAGS}}</span>
+      <span class="pill">{{CANON_OR_ADAPTATION_STATUS}}</span>
+    </div>
+    <div class="actions">
+      <a class="btn" href="#overview">EXPLORE ENCYCLOPEDIA</a>
+      <a class="btn secondary" href="#characters">CHARACTER DATABASE</a>
+      <a class="btn secondary" href="#factions">FACTION INDEX</a>
+    </div>
+    <div class="notice"><strong>SPOILER POLICY:</strong> {{SPOILER_NOTICE_AND_COVERAGE_RANGE}}</div>
+  </div>
+</section>
+
+<main class="wrap layout">
+  <nav class="sidebar" aria-label="Encyclopedia sections">
+    <strong>ENCYCLOPEDIA INDEX</strong>
+    <a href="#poster">00 · Official Poster</a>
+    <a href="#overview">01 · Overview</a>
+    <a href="#world">02 · World &amp; Setting</a>
+    <a href="#chronology">03 · Story &amp; Chronology</a>
+    <a href="#arcs">04 · Major Story Arcs</a>
+    <a href="#characters">05 · Character Database</a>
+    <a href="#combat">06 · Battle &amp; Combat System</a>
+    <a href="#factions">07 · Nations &amp; Factions</a>
+    <a href="#relationships">08 · Relationships</a>
+    <a href="#guide">09 · Anime/Manga Guide</a>
+    <a href="#themes">10 · Themes &amp; Analysis</a>
+    <a href="#ending">11 · Ending Explained</a>
+    <a href="#purposes">12 · Purposes</a>
+    <a href="#references">13 · References</a>
+  </nav>
+
+  <div class="content">
+    <!-- 00: Replace the placeholder with a verified official poster or key visual.
+         Record its source, creator/rights holder, and attribution. Do not hotlink unverified assets. -->
+    <section id="poster">
+      <div class="kicker">00 / OFFICIAL POSTER</div>
+      <h2>Official Poster</h2>
+      <div class="panel poster-layout">
+        <figure>
+          <div class="poster-placeholder">INSERT VERIFIED POSTER OR KEY VISUAL<br><small>Recommended: optimized local image in the repository</small></div>
+          <!-- Example after adding an asset:
+          <img src="../assets/{{SERIES_POSTER_FILENAME}}" alt="{{SERIES_TITLE}} official poster">
+          -->
+        </figure>
+        <div>
+          <h3>{{SERIES_TITLE}} — Key Visual</h3>
+          <p>{{POSTER_CAPTION_AND_CONTEXT}}</p>
+          <p class="note">Image credit: {{IMAGE_CREDIT_AND_SOURCE}}. Confirm usage rights and source before publishing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01: Establish the series identity and a concise, spoiler-aware premise. -->
+    <section id="overview">
+      <div class="kicker">01 / SERIES IDENTITY</div>
+      <h2>Overview</h2>
+      <p class="lead">{{SERIES_PREMISE}}</p>
+      <div class="grid">
+        <article class="card"><span class="tag">CREATOR</span><h3>{{CREATOR_NAME}}</h3><p>{{CREATOR_ROLE_AND_CONTEXT}}</p></article>
+        <article class="card"><span class="tag">ORIGINAL SOURCE</span><h3>{{SOURCE_TITLE_OR_PUBLICATION}}</h3><p>{{SOURCE_PUBLICATION_DETAILS}}</p></article>
+        <article class="card"><span class="tag">ANIME ADAPTATION</span><h3>{{ANIME_STUDIO_OR_FORMAT}}</h3><p>{{ANIME_RELEASE_AND_EPISODE_DETAILS}}</p></article>
+        <article class="card"><span class="tag">SERIES STATUS</span><h3>{{STATUS}}</h3><p>{{CURRENT_OR_COMPLETED_STATUS_AND_DATE}}</p></article>
+      </div>
+      <h3>Premise and central conflict</h3><p>{{CENTRAL_CONFLICT}}</p>
+      <h3>Genre and narrative identity</h3><p>{{GENRES_AND_STORY_STYLE}}</p>
+      <h3>Core story pillars</h3><ul><!-- Add 3–7 concise, series-specific pillars. --><li>{{STORY_PILLAR_1}}</li><li>{{STORY_PILLAR_2}}</li><li>{{STORY_PILLAR_3}}</li></ul>
+    </section>
+
+    <!-- 02: Explain geography, cosmology, social structure, and rules of the setting. -->
+    <section id="world">
+      <div class="kicker">02 / COSMOLOGY &amp; GEOGRAPHY</div>
+      <h2>World &amp; Setting</h2>
+      <p class="lead">{{WORLD_OVERVIEW}}</p>
+      <div class="grid"><!-- Duplicate or remove cards to fit the series. -->
+        <article class="card"><h3>{{LOCATION_OR_REALM_1}}</h3><p>{{DESCRIPTION_1}}</p></article>
+        <article class="card"><h3>{{LOCATION_OR_REALM_2}}</h3><p>{{DESCRIPTION_2}}</p></article>
+        <article class="card"><h3>{{LOCATION_OR_REALM_3}}</h3><p>{{DESCRIPTION_3}}</p></article>
+        <article class="card"><h3>{{LOCATION_OR_REALM_4}}</h3><p>{{DESCRIPTION_4}}</p></article>
+      </div>
+      <h3>World structure and governing rules</h3><p>{{COSMOLOGY_OR_WORLD_SYSTEM}}</p>
+      <h3>Society, politics and institutions</h3><p>{{SOCIAL_AND_POLITICAL_STRUCTURE}}</p>
+      <h3>Important locations</h3><ul><li>{{IMPORTANT_LOCATION_1}}</li><li>{{IMPORTANT_LOCATION_2}}</li><li>{{IMPORTANT_LOCATION_3}}</li></ul>
+    </section>
+
+    <!-- 03: Use chronological order; identify flashbacks and uncertain dates explicitly. -->
+    <section id="chronology">
+      <div class="kicker">03 / NARRATIVE HISTORY</div>
+      <h2>Story &amp; Chronology</h2>
+      <p class="lead">{{CHRONOLOGY_INTRODUCTION}}</p>
+      <div class="timeline">
+        <div class="event"><b>{{DATE_OR_PERIOD_1}}</b><p>{{CHRONOLOGY_EVENT_1}}</p></div>
+        <div class="event"><b>{{DATE_OR_PERIOD_2}}</b><p>{{CHRONOLOGY_EVENT_2}}</p></div>
+        <div class="event"><b>{{DATE_OR_PERIOD_3}}</b><p>{{CHRONOLOGY_EVENT_3}}</p></div>
+      </div>
+      <p class="note">Chronology standard: distinguish in-world chronology from release order. Mark approximate dates and disputed sequencing rather than presenting estimates as confirmed facts.</p>
+    </section>
+
+    <!-- 04: Keep arc order, coverage, and adaptation status clear. -->
+    <section id="arcs">
+      <div class="kicker">04 / NARRATIVE STRUCTURE</div>
+      <h2>Major Story Arcs</h2>
+      <p class="lead">{{ARC_STRUCTURE_OVERVIEW}}</p>
+      <div class="grid">
+        <article class="card"><span class="tag">ARC 01 · {{ARC_TYPE_1}}</span><h3>{{ARC_TITLE_1}}</h3><p>{{ARC_SUMMARY_1}}</p><p class="note">Coverage: {{CHAPTER_EPISODE_RANGE_1}} · Status: {{CANON_STATUS_1}}</p></article>
+        <article class="card"><span class="tag">ARC 02 · {{ARC_TYPE_2}}</span><h3>{{ARC_TITLE_2}}</h3><p>{{ARC_SUMMARY_2}}</p><p class="note">Coverage: {{CHAPTER_EPISODE_RANGE_2}} · Status: {{CANON_STATUS_2}}</p></article>
+        <article class="card"><span class="tag">ARC 03 · {{ARC_TYPE_3}}</span><h3>{{ARC_TITLE_3}}</h3><p>{{ARC_SUMMARY_3}}</p><p class="note">Coverage: {{CHAPTER_EPISODE_RANGE_3}} · Status: {{CANON_STATUS_3}}</p></article>
+        <article class="card"><span class="tag">ARC 04 · {{ARC_TYPE_4}}</span><h3>{{ARC_TITLE_4}}</h3><p>{{ARC_SUMMARY_4}}</p><p class="note">Coverage: {{CHAPTER_EPISODE_RANGE_4}} · Status: {{CANON_STATUS_4}}</p></article>
+      </div>
+      <details><summary>Additional arcs and side stories</summary><div><ul><li>{{ADDITIONAL_ARC_1}}</li><li>{{ADDITIONAL_ARC_2}}</li><li>{{ADDITIONAL_ARC_3}}</li></ul></div></details>
+    </section>
+
+    <!-- 05: Link each entry to its own dossier. Search filters the visible cards. -->
+    <section id="characters">
+      <div class="kicker">05 / CHARACTER DATABASE</div>
+      <h2>Character Database</h2>
+      <p class="lead">{{CHARACTER_DATABASE_INTRO}}</p>
+      <div class="search-tools">
+        <input id="character-search" type="search" placeholder="Search characters by name, role, or affiliation…" aria-label="Search character database">
+        <select id="character-group" aria-label="Filter characters by group">
+          <option value="">All groups</option>
+          <option value="protagonist">Protagonists</option>
+          <option value="ally">Allies</option>
+          <option value="antagonist">Antagonists</option>
+          <option value="organization">Organization members</option>
+          <option value="other">Other characters</option>
+        </select>
+      </div>
+      <div class="grid3" id="character-directory">
+        <!-- Duplicate this card for every character and link to that character's dossier. -->
+        <article class="card directory-card" data-character-card data-group="{{CHARACTER_GROUP_1}}" data-search="{{CHARACTER_NAME_1}} {{CHARACTER_ALIASES_1}} {{CHARACTER_ROLE_1}} {{CHARACTER_AFFILIATION_1}}">
+          <span class="tag">{{CHARACTER_GROUP_LABEL_1}}</span><h3><a href="{{CHARACTER_DOSSIER_PATH_1}}">{{CHARACTER_NAME_1}}</a></h3>
+          <p>{{CHARACTER_SHORT_DESCRIPTION_1}}</p><p class="note">{{CHARACTER_AFFILIATION_1}}</p>
+        </article>
+        <article class="card directory-card" data-character-card data-group="{{CHARACTER_GROUP_2}}" data-search="{{CHARACTER_NAME_2}} {{CHARACTER_ALIASES_2}} {{CHARACTER_ROLE_2}} {{CHARACTER_AFFILIATION_2}}">
+          <span class="tag">{{CHARACTER_GROUP_LABEL_2}}</span><h3><a href="{{CHARACTER_DOSSIER_PATH_2}}">{{CHARACTER_NAME_2}}</a></h3>
+          <p>{{CHARACTER_SHORT_DESCRIPTION_2}}</p><p class="note">{{CHARACTER_AFFILIATION_2}}</p>
+        </article>
+        <article class="card directory-card" data-character-card data-group="{{CHARACTER_GROUP_3}}" data-search="{{CHARACTER_NAME_3}} {{CHARACTER_ALIASES_3}} {{CHARACTER_ROLE_3}} {{CHARACTER_AFFILIATION_3}}">
+          <span class="tag">{{CHARACTER_GROUP_LABEL_3}}</span><h3><a href="{{CHARACTER_DOSSIER_PATH_3}}">{{CHARACTER_NAME_3}}</a></h3>
+          <p>{{CHARACTER_SHORT_DESCRIPTION_3}}</p><p class="note">{{CHARACTER_AFFILIATION_3}}</p>
+        </article>
+      </div>
+      <p id="character-empty" class="empty-state" role="status">No matching characters. Try another name or group.</p>
+      <p class="note">Directory standard: include a dossier link, distinguish aliases and titles, and record affiliations as they change over the story. Do not infer membership from a single temporary alliance.</p>
+    </section>
+
+    <!-- 06: Explain the system before ranking individuals. Include limits and demonstrated evidence. -->
+    <section id="combat">
+      <div class="kicker">06 / POWER &amp; TACTICS</div>
+      <h2>Battle &amp; Combat System</h2>
+      <p class="lead">{{COMBAT_SYSTEM_OVERVIEW}}</p>
+      <h3>Power sources and core mechanics</h3><p>{{POWER_SOURCES_AND_RULES}}</p>
+      <div class="grid">
+        <article class="card"><h3>{{COMBAT_CATEGORY_1}}</h3><p>{{COMBAT_CATEGORY_DESCRIPTION_1}}</p></article>
+        <article class="card"><h3>{{COMBAT_CATEGORY_2}}</h3><p>{{COMBAT_CATEGORY_DESCRIPTION_2}}</p></article>
+        <article class="card"><h3>{{COMBAT_CATEGORY_3}}</h3><p>{{COMBAT_CATEGORY_DESCRIPTION_3}}</p></article>
+        <article class="card"><h3>{{COMBAT_CATEGORY_4}}</h3><p>{{COMBAT_CATEGORY_DESCRIPTION_4}}</p></article>
+      </div>
+      <h3>Transformations, techniques and special abilities</h3><p>{{TRANSFORMATIONS_AND_TECHNIQUES}}</p>
+      <h3>Limits, costs and countermeasures</h3><p>{{POWER_LIMITATIONS_AND_COUNTERS}}</p>
+      <h3>Comparing combat capability</h3><p>{{POWER_SCALING_METHODOLOGY}}</p>
+      <p class="note">Do not present fan rankings as canon. Separate confirmed statements, demonstrated feats, contextual matchups and editorial estimates.</p>
+    </section>
+
+    <!-- 07: Each major organization/faction should receive a dedicated dossier. -->
+    <section id="factions">
+      <div class="kicker">07 / POLITICAL &amp; ORGANIZATIONAL DIRECTORY</div>
+      <h2>Nations &amp; Factions</h2>
+      <p class="lead">{{FACTION_DIRECTORY_INTRO}}</p>
+      <div class="grid">
+        <article class="card"><span class="tag">{{FACTION_TYPE_1}}</span><h3><a href="{{FACTION_DOSSIER_PATH_1}}">{{FACTION_NAME_1}}</a></h3><p>{{FACTION_DESCRIPTION_1}}</p></article>
+        <article class="card"><span class="tag">{{FACTION_TYPE_2}}</span><h3><a href="{{FACTION_DOSSIER_PATH_2}}">{{FACTION_NAME_2}}</a></h3><p>{{FACTION_DESCRIPTION_2}}</p></article>
+        <article class="card"><span class="tag">{{FACTION_TYPE_3}}</span><h3><a href="{{FACTION_DOSSIER_PATH_3}}">{{FACTION_NAME_3}}</a></h3><p>{{FACTION_DESCRIPTION_3}}</p></article>
+        <article class="card"><span class="tag">{{FACTION_TYPE_4}}</span><h3><a href="{{FACTION_DOSSIER_PATH_4}}">{{FACTION_NAME_4}}</a></h3><p>{{FACTION_DESCRIPTION_4}}</p></article>
+      </div>
+      <h3>Political structure and alliances</h3><p>{{FACTION_POLITICS_AND_ALLIANCES}}</p>
+      <p class="note">Faction dossiers should cover purpose, history, leadership, structure, membership, allies, rivals, and changes across story periods.</p>
+    </section>
+
+    <!-- 08: Describe bonds with evidence; do not confuse interpretation with confirmed canon. -->
+    <section id="relationships">
+      <div class="kicker">08 / CHARACTER CONNECTIONS</div>
+      <h2>Relationships</h2>
+      <p class="lead">{{RELATIONSHIPS_OVERVIEW}}</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Characters / Groups</th><th>Relationship</th><th>Key Evidence / Story Period</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>{{RELATIONSHIP_PAIR_1}}</td><td>{{RELATIONSHIP_TYPE_1}}</td><td>{{RELATIONSHIP_EVIDENCE_1}}</td><td>{{RELATIONSHIP_STATUS_1}}</td></tr>
+          <tr><td>{{RELATIONSHIP_PAIR_2}}</td><td>{{RELATIONSHIP_TYPE_2}}</td><td>{{RELATIONSHIP_EVIDENCE_2}}</td><td>{{RELATIONSHIP_STATUS_2}}</td></tr>
+          <tr><td>{{RELATIONSHIP_PAIR_3}}</td><td>{{RELATIONSHIP_TYPE_3}}</td><td>{{RELATIONSHIP_EVIDENCE_3}}</td><td>{{RELATIONSHIP_STATUS_3}}</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Major bonds, rivalries and conflicts</h3><p>{{RELATIONSHIP_ANALYSIS}}</p>
+      <p class="note">Label confirmed family, romantic, professional and alliance relationships separately from fan interpretation or unresolved implications.</p>
+    </section>
+
+    <!-- 09: Keep manga, anime, films, specials, filler, and watch order distinct. -->
+    <section id="guide">
+      <div class="kicker">09 / READING &amp; VIEWING REFERENCE</div>
+      <h2>Anime/Manga Guide</h2>
+      <h3>Original source material</h3><p>{{MANGA_ORIGINAL_SOURCE_GUIDE}}</p>
+      <h3>Television anime adaptation</h3><p>{{ANIME_ADAPTATION_GUIDE}}</p>
+      <h3>Watch / reading order</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Order</th><th>Title / Arc</th><th>Format</th><th>Coverage</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>01</td><td>{{WATCH_ORDER_TITLE_1}}</td><td>{{WATCH_ORDER_FORMAT_1}}</td><td>{{WATCH_ORDER_COVERAGE_1}}</td><td>{{WATCH_ORDER_NOTES_1}}</td></tr>
+          <tr><td>02</td><td>{{WATCH_ORDER_TITLE_2}}</td><td>{{WATCH_ORDER_FORMAT_2}}</td><td>{{WATCH_ORDER_COVERAGE_2}}</td><td>{{WATCH_ORDER_NOTES_2}}</td></tr>
+          <tr><td>03</td><td>{{WATCH_ORDER_TITLE_3}}</td><td>{{WATCH_ORDER_FORMAT_3}}</td><td>{{WATCH_ORDER_COVERAGE_3}}</td><td>{{WATCH_ORDER_NOTES_3}}</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Anime-original material and filler</h3><p>{{FILLER_AND_ANIME_ORIGINAL_GUIDE}}</p>
+      <h3>Films, OVAs and specials</h3><p>{{FILM_OVA_SPECIALS_GUIDE}}</p>
+      <p class="note">State whether a film or episode is manga-adapted, anime-original, mixed, promotional, or continuity-ambiguous. Do not label all non-manga content as irrelevant.</p>
+    </section>
+
+    <!-- 10: Analysis must be clearly identified as interpretation. -->
+    <section id="themes">
+      <div class="kicker">10 / CRITICAL INTERPRETATION</div>
+      <h2>Themes &amp; Analysis</h2>
+      <p class="lead">{{THEMES_OVERVIEW}}</p>
+      <h3>{{THEME_TITLE_1}}</h3><p>{{THEME_ANALYSIS_1}}</p>
+      <h3>{{THEME_TITLE_2}}</h3><p>{{THEME_ANALYSIS_2}}</p>
+      <h3>{{THEME_TITLE_3}}</h3><p>{{THEME_ANALYSIS_3}}</p>
+      <h3>Visual storytelling and symbolism</h3><p>{{VISUAL_SYMBOLISM_ANALYSIS}}</p>
+      <p class="note">Interpretations should be supported by examples and labeled as analysis, not presented as confirmed authorial intent unless a reliable creator source supports that claim.</p>
+    </section>
+
+    <!-- 11: Spoilers are expected here. Separate manga ending from anime adaptation changes. -->
+    <section id="ending">
+      <div class="kicker">11 / FULL STORY CONCLUSION</div>
+      <h2>Ending Explained</h2>
+      <div class="warning"><strong>MAJOR SPOILERS:</strong> This section discusses the ending, major revelations, character fates and post-ending material.</div>
+      <p class="lead">{{ENDING_SUMMARY}}</p>
+      <h3>Final conflict and resolution</h3><p>{{FINAL_CONFLICT_AND_RESOLUTION}}</p>
+      <h3>Character outcomes</h3><p>{{CHARACTER_OUTCOMES}}</p>
+      <h3>Epilogue and future implications</h3><p>{{EPILOGUE_AND_FUTURE}}</p>
+      <h3>What the ending resolves — and what remains open</h3><ul><li>{{ENDING_RESOLVED_POINT_1}}</li><li>{{ENDING_RESOLVED_POINT_2}}</li><li>{{ENDING_OPEN_QUESTION_1}}</li></ul>
+      <h3>Anime and source comparison</h3><p>{{ENDING_ADAPTATION_COMPARISON}}</p>
+    </section>
+
+    <!-- 12: Moral/purpose is editorial interpretation, not a claim of one official meaning. -->
+    <section id="purposes">
+      <div class="kicker">12 / MEANING &amp; MORAL</div>
+      <h2>Purposes</h2>
+      <h3>Moral of the Story</h3><p class="lead">{{CENTRAL_MORAL_INTERPRETATION}}</p>
+      <h3>1. {{LESSON_TITLE_1}}</h3><p>{{LESSON_DESCRIPTION_1}}</p>
+      <h3>2. {{LESSON_TITLE_2}}</h3><p>{{LESSON_DESCRIPTION_2}}</p>
+      <h3>3. {{LESSON_TITLE_3}}</h3><p>{{LESSON_DESCRIPTION_3}}</p>
+      <h3>Central lesson</h3><p><strong>{{CENTRAL_LESSON_SUMMARY}}</strong></p>
+      <p class="note">This section is editorial interpretation of recurring themes, not a claim that the creator stated one exclusive moral or purpose.</p>
+    </section>
+
+    <!-- 13: Cite primary sources first. Add chapter/episode-level sources for detailed claims. -->
+    <section id="references">
+      <div class="kicker">13 / SOURCE REGISTER</div>
+      <h2>References</h2>
+      <p class="lead">{{REFERENCE_SECTION_INTRO}}</p>
+      <ul>
+        <li><a href="{{OFFICIAL_SOURCE_URL_1}}" target="_blank" rel="noopener">{{OFFICIAL_SOURCE_NAME_1}}</a> — {{SOURCE_DESCRIPTION_1}} <span class="note">[Primary / official]</span></li>
+        <li><a href="{{OFFICIAL_SOURCE_URL_2}}" target="_blank" rel="noopener">{{OFFICIAL_SOURCE_NAME_2}}</a> — {{SOURCE_DESCRIPTION_2}} <span class="note">[Primary / official]</span></li>
+        <li><a href="{{RELIABLE_SOURCE_URL_3}}" target="_blank" rel="noopener">{{RELIABLE_SOURCE_NAME_3}}</a> — {{SOURCE_DESCRIPTION_3}} <span class="note">[Secondary / industry]</span></li>
+      </ul>
+      <h3>Research and editorial standards</h3>
+      <ul>
+        <li>Use the original manga, light novels, official guidebooks, publisher material and official anime sources where applicable.</li>
+        <li>Separate source-canon facts, anime-original material, adaptation changes, promotional content and editorial interpretation.</li>
+        <li>Attach chapter, episode, volume or official source references to specific claims whenever possible.</li>
+        <li>Use reliable image sources, verify attribution and avoid hotlinking assets that may disappear.</li>
+        <li>Mark uncertain, disputed or unverified information as a research gap instead of inventing an answer.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap footer">MOTION4I · THE NEXUS · {{SERIES_TITLE}} encyclopedia. Source facts, adaptation material and editorial interpretation are distinguished throughout.</footer>
+
+<script>
+(() => {
+  const search = document.getElementById("character-search");
+  const group = document.getElementById("character-group");
+  const cards = [...document.querySelectorAll("[data-character-card]")];
+  const empty = document.getElementById("character-empty");
+  if (search && group && cards.length) {
+    const filter = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      const selectedGroup = group.value;
+      let visible = 0;
+      cards.forEach(card => {
+        const text = (card.dataset.search || card.textContent).toLocaleLowerCase();
+        const groupMatch = !selectedGroup || card.dataset.group === selectedGroup;
+        const queryMatch = !query || text.includes(query);
+        const show = groupMatch && queryMatch;
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      if (empty) empty.classList.toggle("visible", visible === 0);
+    };
+    search.addEventListener("input", filter);
+    group.addEventListener("change", filter);
+  }
+})();
+</script>
+</body>
+</html>
