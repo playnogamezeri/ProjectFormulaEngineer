@@ -106,8 +106,8 @@ body:not(.archive-entered)>header,body:not(.archive-entered)>main,body:not(.arch
 .gate-content h1{font:900 clamp(42px,8vw,82px)/.98 system-ui,sans-serif;letter-spacing:-.055em;margin:24px 0 16px;text-shadow:0 0 30px #32f3ff24}
 .gate-content h1 em{font-style:normal;color:#ff35c8;text-shadow:0 0 28px #ff35c866}
 .gate-copy{color:#b7d0df;font-size:clamp(14px,2vw,18px);margin:0 auto;max-width:520px}
-.gate-actions{display:flex;justify-content:center;gap:18px;margin:42px auto 54px}
-.gate-button{display:grid;place-items:center;text-decoration:none;width:min(210px,38vw);min-height:58px;border:1px solid #32f3ff;background:#071b2c;color:#eafaff;font:900 16px monospace;letter-spacing:.2em;cursor:pointer;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:.2s}
+.gate-actions{position:relative;z-index:5;display:flex;justify-content:center;gap:18px;margin:42px auto 54px;pointer-events:auto}
+.gate-button{position:relative;z-index:6;display:grid;place-items:center;pointer-events:auto;touch-action:manipulation;-webkit-tap-highlight-color:#43f4ff55;text-decoration:none;width:min(210px,38vw);min-height:58px;border:1px solid #32f3ff;background:#071b2c;color:#eafaff;font:900 16px monospace;letter-spacing:.2em;cursor:pointer;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);transition:.2s}
 .gate-enter{background:linear-gradient(110deg,#32f3ff,#b9fbff);border-color:#32f3ff;color:#04111b;box-shadow:0 0 28px #32f3ff55}
 .gate-exit{border-color:#ff35c8;color:#ffb5ef;background:#190d25}
 .gate-button:hover{transform:translateY(-3px);filter:brightness(1.13);box-shadow:0 0 30px #32f3ff55}
@@ -270,7 +270,7 @@ button:hover,a:hover,.card:hover,.portal-card:hover{border-color:#43f4ff!importa
   <h1 id="gateTitle"><em>Welcome To Nexus</em></h1>
   <p class="gate-copy">Choose your destination beyond the ordinary.</p>
   <div class="gate-actions">
-   <a class="gate-button gate-enter" id="gateEnterButton" href="https://playnogamezeri.github.io/ProjectFormulaEngineer/destinations.html" target="_self" rel="noopener" aria-label="Open Page 2 Destinations">ENTER</a>
+   <a class="gate-button gate-enter" id="gateEnterButton" href="https://playnogamezeri.github.io/ProjectFormulaEngineer/destinations.html" aria-label="Open Page 2 Destinations" onclick="window.location.href=this.href;return false;">ENTER</a>
    <button class="gate-button gate-exit" type="button" onclick="exitAnimarchive()">EXIT</button>
   </div>
   <div class="gate-foot">MOTION4I // MULTIVERSE ACCESS TERMINAL</div>
