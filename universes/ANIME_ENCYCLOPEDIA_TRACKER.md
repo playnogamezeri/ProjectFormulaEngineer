@@ -14,7 +14,7 @@ Artwork generation is intentionally deferred until all text, dossier, poster, an
 | 4 | Berserk | berserk.html | Pending | Pending | Pending | Not started |
 | 5 | Black Clover | black-clover.html | Pending | Pending | Pending | Not started |
 | 6 | Bleach | bleach.html | Pending | Pending | Pending | Not started |
-| 7 | Boruto | boruto.html | 8 created; expansion pending | 6 created; expansion pending | Official source verified; repo copy pending | In progress |
+| 7 | Boruto | boruto.html | Pending | Pending | Pending | Not started |
 | 8 | Chainsaw Man | chainsaw-man.html | Pending | Pending | Pending | Not started |
 | 9 | Code Geass | code-geass.html | Pending | Pending | Pending | Not started |
 | 10 | Cowboy Bebop | cowboy-bebop.html | Pending | Pending | Pending | Not started |
@@ -70,7 +70,14 @@ Artwork generation is intentionally deferred until all text, dossier, poster, an
 | 60 | Your Lie in April | your-lie-in-april.html | Pending | Pending | Pending | Not started |
 | 61 | Yu Yu Hakusho | yu-yu-hakusho.html | Pending | Pending | Pending | Not started |
 
-## Current work log\n\n### Boruto — in progress\n- Rebuilt `universes/boruto.html` using all 13 approved encyclopedia sections.\n- Created 8 character dossiers under `universes/characters/boruto/`.\n- Created 6 organization dossiers under `universes/factions/`.\n- Verified official anime synopsis, staff/cast and arc guide at the Naruto Official Site; verified manga publisher details at VIZ.\n- Official key visual source identified; repository-hosted poster copy remains pending.\n- Remaining work: expand the full character and organization census, deepen chronology/episode and chapter indexing, verify all links, and complete poster hosting.\n\n## Completion criteria
+## Current work log\n\n### Reset — Boruto through Yu Yu Hakusho
+- Removed the 55 universe pages from Boruto through Yu Yu Hakusho, inclusive.
+- Removed the 8 Boruto character dossiers and 6 Boruto faction dossiers.
+- The first six series and their existing dossiers remain intact.
+- All 55 titles remain in the directory and are reset to Not started for a fresh rebuild.
+- Rebuild each title from the Akame ga Kill! master template; create new character and organization dossiers as content is researched.
+
+## Completion criteria
 A title is complete only after its universe page contains all 13 approved sections, every identified character and meaningful organization has a populated individual dossier, all cross-links and return links work, and its official/reputable poster has been verified or an explicit poster limitation is documented.
 
 Do not mark a series complete merely because its page or directory entries exist.
