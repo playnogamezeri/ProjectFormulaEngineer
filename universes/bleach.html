@@ -4,12 +4,39 @@
 <title>Bleach — MOTION4I Anime Encyclopedia</title>
 <style>
 :root{--bg:#080b13;--panel:#111927;--line:#2b4050;--ink:#edf4f4;--muted:#a4b4bc;--cyan:#72e5e2;--red:#e87968;--gold:#e6c78b}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#263b43 0,transparent 40%),var(--bg);color:var(--ink);font:15px/1.72 system-ui,sans-serif}a{color:var(--cyan)}.top{position:sticky;top:0;z-index:5;background:#080d14ed;border-bottom:1px solid var(--line);padding:12px 4vw;display:flex;justify-content:space-between}.brand{font:900 14px monospace;letter-spacing:.14em;text-decoration:none}.brand span{color:var(--red)}.back{font:11px monospace;text-decoration:none;color:var(--muted)}.wrap{width:min(1160px,92vw);margin:auto}.hero{padding:58px 0 36px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,#080b13 0%,#080b13e8 70%,#080b1340 100%),radial-gradient(ellipse at 85% 35%,#36505b 0%,#172832 55%,#080b13 100%)}.eyebrow,.kicker{font:10px monospace;letter-spacing:.2em;color:var(--cyan)}h1{font-size:clamp(42px,8vw,82px);line-height:1;margin:16px 0;letter-spacing:-.05em}h1 em{font-style:normal;color:var(--red)}.subtitle{max-width:900px;color:#d1dcdf;font-size:18px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.pill{border:1px solid #45606a;padding:4px 9px;font:10px monospace;color:#d6e3e4;margin:2px}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-block;padding:10px 14px;background:var(--cyan);color:#081316;text-decoration:none;font:800 11px monospace;border-radius:3px}.btn.alt{background:transparent;border:1px solid #66838b;color:var(--ink)}.warning{margin:20px 0 0;padding:12px 15px;border-left:3px solid var(--red);background:#291b20;color:#f0c6bf;font-size:12px}.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:30px;padding:34px 0 80px}.side{position:sticky;top:78px;align-self:start;border:1px solid var(--line);background:#0d1420;padding:15px;max-height:calc(100vh - 95px);overflow:auto}.side b{display:block;color:var(--gold);font:11px monospace;margin-bottom:8px}.side a{display:block;padding:6px;color:var(--muted);text-decoration:none;font-size:12px}.side a:hover{color:var(--cyan)}.content section{margin:0 0 42px;scroll-margin-top:90px}.content h2{font-size:28px;margin:5px 0 12px}.content h3{font-size:17px;color:var(--cyan);margin:18px 0 5px}.content p,.content li{color:#c2cfd3}.lead{font-size:17px;color:#dbe5e6!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card,.panel{border:1px solid var(--line);background:linear-gradient(145deg,#14202b,#0d1520);padding:15px;border-radius:5px}.card h3{margin:0 0 5px}.card p{font-size:13px;margin:0}.card .tag{font:10px monospace;color:var(--gold);letter-spacing:.12em}.timeline{border-left:2px solid #47646c;margin:18px 0;padding-left:20px}.event{margin:0 0 18px;position:relative}.event:before{content:"";position:absolute;left:-27px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--red)}.event b{color:var(--gold)}.note{font-size:12px;color:var(--muted)!important}.table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13px}.table th,.table td{border:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}.table th{color:var(--gold);background:#121e2a}.foot{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12px}@media(max-width:850px){.layout{grid-template-columns:1fr}.side{position:relative;max-height:none;display:grid;grid-template-columns:1fr 1fr}.side b{grid-column:1/-1}}@media(max-width:600px){.grid,.grid3{grid-template-columns:1fr}.hero{padding:46px 0 28px}.layout{padding-top:20px}.side{grid-template-columns:1fr 1fr}.table{font-size:11px}}
+
+/* Collapsible encyclopedia index */
+.index-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 22px;padding:12px;border:1px solid var(--line);background:#0d1825;border-radius:5px}
+.index-controls p{margin:0;color:var(--muted);font-size:12px}
+.index-control-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.index-control-buttons button{border:1px solid #477589;background:#10283a;color:var(--cyan);padding:8px 11px;border-radius:3px;font:700 10px monospace;letter-spacing:.04em;cursor:pointer}
+.index-control-buttons button:hover{background:#173b50;color:#fff}
+.content>section.index-section{margin:0 0 13px;scroll-margin-top:90px}
+.index-panel{border:1px solid var(--line);border-radius:5px;background:linear-gradient(145deg,#111f2d,#0c1520);overflow:hidden}
+.index-panel>summary{position:relative;display:block;list-style:none;cursor:pointer;padding:14px 48px 13px 16px;background:linear-gradient(90deg,#102b3c,#0d1b2a);user-select:none}
+.index-panel>summary::-webkit-details-marker{display:none}
+.index-panel>summary:after{content:"+";position:absolute;right:17px;top:50%;transform:translateY(-50%);color:var(--cyan);font:700 24px/1 monospace}
+.index-panel[open]>summary:after{content:"−"}
+.index-panel>summary:hover{background:linear-gradient(90deg,#15394b,#102338)}
+.index-panel>summary .kicker{display:block;margin-bottom:3px}
+.index-panel>summary h2{margin:0;font-size:clamp(21px,3vw,27px)}
+.index-panel-content{padding:17px 18px 20px;border-top:1px solid var(--line)}
+@media(max-width:600px){.index-controls{align-items:flex-start}.index-control-buttons{width:100%}.index-control-buttons button{flex:1}.index-panel>summary{padding:12px 42px 12px 13px}.index-panel-content{padding:13px}}
+
 </style></head><body>
 <header class="top"><a class="brand" href="../index.html">MOTION<span>4I</span> / THE NEXUS</a><a class="back" href="../index.html?view=anime">← ANIME INDEX</a></header>
 <section class="hero"><div class="wrap"><div class="eyebrow">THE NEXUS · ANIME WORLD · MASTER ENCYCLOPEDIA</div><h1><em>BLEACH</em></h1><p class="subtitle">A comprehensive reference to Tite Kubo's world of Soul Reapers, Hollows, Quincy, Fullbringers and the balance of souls. The encyclopedia follows Ichigo Kurosaki from his first encounter with Rukia Kuchiki through the final conflict that determines the fate of the worlds.</p><div class="meta"><span class="pill">TITE KUBO</span><span class="pill">MANGA · 2001–2016</span><span class="pill">ORIGINAL ANIME · 2004–2012</span><span class="pill">THOUSAND-YEAR BLOOD WAR · 2022–2026</span><span class="pill">SOUL REAPER / SHINIGAMI</span><span class="pill">SPIRITUAL COSMOLOGY</span><span class="pill">ACTION · SUPERNATURAL · FANTASY</span></div><div class="actions"><a class="btn" href="#overview">EXPLORE ENCYCLOPEDIA</a><a class="btn alt" href="#characters">CHARACTER DATABASE</a><a class="btn alt" href="#factions">FACTION INDEX</a></div><div class="warning"><b>FULL-SERIES SPOILER NOTICE:</b> This master index discusses major revelations, character origins, the Soul King, the Quincy war and the manga/anime conclusions.</div></div></section>
 <main class="wrap layout"><aside class="side"><b>NEW ENCYCLOPEDIA INDEX</b>
 <a href="#poster">00 · Official Poster</a><a href="#overview">01 · Overview</a><a href="#world">02 · World & Setting</a><a href="#chronology">03 · Story & Chronology</a><a href="#arcs">04 · Major Story Arcs</a><a href="#characters">05 · Character Database</a><a href="#combat">06 · Battle & Combat System</a><a href="#factions">07 · Nations & Factions</a><a href="#relationships">08 · Relationships</a><a href="#guide">09 · Anime/Manga Guide</a><a href="#themes">10 · Themes & Analysis</a><a href="#ending">11 · Ending Explained</a><a href="#purposes">12 · Purposes</a><a href="#references">13 · References</a></aside>
 <div class="content">
+
+<div class="index-controls" aria-label="Encyclopedia section controls">
+  <p>Bleach encyclopedia index · Open sections individually or control the entire index.</p>
+  <div class="index-control-buttons">
+    <button type="button" id="expand-all-sections">EXPAND ALL</button>
+    <button type="button" id="collapse-all-sections">COLLAPSE ALL</button>
+  </div>
+</div>
 <section id="poster"><div class="kicker">00 / OFFICIAL POSTER</div><h2>Official Poster</h2><p class="lead">The existing Bleach: Thousand-Year Blood War key visual is retained from the previous encyclopedia page.</p><section id="series-poster"><div class="kicker">SERIES KEY VISUAL</div><h2>Anime Poster</h2><div class="panel" style="display:grid;grid-template-columns:minmax(180px,300px) minmax(0,1fr);gap:18px;align-items:center"><a href="https://assets.anime.com/updates-media/ae800ba7_cipjrl2z4l8h1.png" target="_blank" rel="noopener"><img src="https://assets.anime.com/updates-media/ae800ba7_cipjrl2z4l8h1.png" alt="Bleach: Thousand-Year Blood War promotional key visual" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px"></a><div><h3>Bleach</h3><p>Bleach: Thousand-Year Blood War promotional key visual. Displayed from the identified source image; the artwork remains hosted by that source and has not been copied into the repository.</p><p><a href="https://assets.anime.com/updates-media/ae800ba7_cipjrl2z4l8h1.png" target="_blank" rel="noopener">Open original image</a></p></div></div></section></section>
 <section id="overview"><div class="kicker">01 / SERIES IDENTITY</div><h2>Overview</h2><p class="lead"><i>Bleach</i> follows Ichigo Kurosaki, a teenager who can see ghosts. After meeting the Soul Reaper Rukia Kuchiki and receiving her power during an emergency, Ichigo becomes a Substitute Soul Reaper. He is drawn into the work of guiding souls, protecting the living from Hollows and confronting conflicts that reach far beyond the Human World.</p>
 <div class="grid"><article class="card"><div class="tag">CREATOR</div><h3>Tite Kubo</h3><p>Writer and illustrator of the original manga. Kubo's visual design, character silhouettes, fashion, weapon identities and symbolic imagery are central to the series' identity.</p></article><article class="card"><div class="tag">ORIGINAL MANGA</div><h3>Weekly Shōnen Jump</h3><p>Serialized from 2001 to 2016 and collected in 74 volumes. The manga is the primary narrative source for the complete story.</p></article><article class="card"><div class="tag">ORIGINAL TELEVISION ANIME</div><h3>366 Episodes</h3><p>Produced by Studio Pierrot and broadcast from 2004 to 2012. The original run includes manga adaptations and anime-original material.</p></article><article class="card"><div class="tag">FINAL ANIME SAGA</div><h3>Thousand-Year Blood War</h3><p>The concluding manga arc received a four-part television adaptation. Its final part, <i>The Calamity</i>, concluded in October 2026.</p></article></div>
@@ -97,4 +124,66 @@
 <section id="references"><div class="kicker">13 / SOURCE REGISTER</div><h2>References</h2><p class="lead">The following sources establish the primary publication, official franchise information and the final anime adaptation status. Later research passes should add chapter-specific, episode-specific and production references to the relevant dossiers.</p>
 <ul><li><a href="https://www.viz.com/bleach" target="_blank" rel="noopener">VIZ Media — Bleach</a> — official English publisher and franchise page; manga and anime information. <span class="note">[Primary publisher]</span></li><li><a href="https://bleach-anime.com/en/" target="_blank" rel="noopener">BLEACH: Thousand-Year Blood War — Official Anime Website</a> — official anime introduction and production information. <span class="note">[Official anime]</span></li><li><a href="https://www.viz.com/blog/posts/where-to-watch-bleach-thousand-year-blood-war-part-4" target="_blank" rel="noopener">VIZ Media — Where to Watch Thousand-Year Blood War Part 4</a> — 2026 streaming schedule and final part details. <span class="note">[Publisher / distributor]</span></li><li><a href="https://www.viz.com/press-releases/v/1006765" target="_blank" rel="noopener">VIZ Media — The Calamity premiere announcement</a> — official release announcement for the final cour. <span class="note">[Publisher / distributor]</span></li><li><a href="https://www.crunchyroll.com/news/latest/2026/10/26/bleach-anime-concludes-after-22-years-with-special-ending-video" target="_blank" rel="noopener">Crunchyroll News — Bleach Anime Concludes After 22 Years</a> — report on the final episode's debut and anime conclusion. <span class="note">[Industry reporting]</span></li></ul>
 <h3>Research and editorial standards</h3><ul><li>Canon manga facts, anime-original material, adaptation changes and interpretation are labeled separately.</li><li>Character abilities are tied to demonstrated feats and source context; uncertain rankings are not treated as objective measurements.</li><li>Character and faction membership is recorded by relevant story period.</li><li>Portraits and group images are linked only after the correct artwork assets have been uploaded and checked.</li><li>Unknown or disputed details remain marked as research gaps rather than filled with invented information.</li></ul></section>
-</div></main><footer class="wrap foot">MOTION4I · THE NEXUS · Bleach master encyclopedia. Canon facts, adaptation material and editorial interpretation are distinguished throughout.</footer></body></html>
+</div></main><footer class="wrap foot">MOTION4I · THE NEXUS · Bleach master encyclopedia. Canon facts, adaptation material and editorial interpretation are distinguished throughout.</footer>
+<script>
+(() => {
+  const content = document.querySelector(".content");
+  if (!content) return;
+
+  const sections = [...content.querySelectorAll(":scope > section")];
+  const panels = [];
+
+  sections.forEach((section) => {
+    const kicker = section.querySelector(":scope > .kicker");
+    const heading = section.querySelector(":scope > h2");
+    if (!heading) return;
+
+    section.classList.add("index-section");
+    const details = document.createElement("details");
+    details.className = "index-panel";
+    const summary = document.createElement("summary");
+    const body = document.createElement("div");
+    body.className = "index-panel-content";
+
+    if (kicker) summary.appendChild(kicker);
+    summary.appendChild(heading);
+
+    while (section.firstChild) {
+      const node = section.firstChild;
+      if (node === details) break;
+      body.appendChild(node);
+    }
+
+    details.append(summary, body);
+    section.appendChild(details);
+    panels.push(details);
+  });
+
+  const expand = document.getElementById("expand-all-sections");
+  const collapse = document.getElementById("collapse-all-sections");
+
+  if (expand) expand.addEventListener("click", () => panels.forEach(panel => { panel.open = true; }));
+  if (collapse) collapse.addEventListener("click", () => panels.forEach(panel => { panel.open = false; }));
+
+  // Sidebar navigation opens its destination section before scrolling to it.
+  document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => {
+    link.addEventListener("click", () => {
+      const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+      const panel = target && (target.matches("section.index-section") ? target.querySelector(":scope > details.index-panel") : target.closest("details.index-panel"));
+      if (panel) panel.open = true;
+    });
+  });
+
+  // Direct links to nested anchors also reveal their containing collapsed section.
+  const revealHashTarget = () => {
+    if (!location.hash) return;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (_) { return; }
+    const panel = target && (target.matches("section.index-section") ? target.querySelector(":scope > details.index-panel") : target.closest("details.index-panel"));
+    if (panel) panel.open = true;
+  };
+  window.addEventListener("hashchange", revealHashTarget);
+  revealHashTarget();
+})();
+</script>
+</body></html>
