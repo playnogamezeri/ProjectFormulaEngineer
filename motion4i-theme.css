@@ -1,0 +1,21 @@
+/* MOTION4I // unified cyan–teal–blue archive theme */
+:root{color-scheme:dark;--bg:#030914;--panel:#091a2b;--panel2:#0d2438;--line:#17617a;--ink:#e9fbff;--muted:#91b8ca;--cyan:#43f4ff;--teal:#26d9c8;--blue:#398cff;--pink:#43f4ff;--gold:#72caff}
+html{background:#030914!important;color-scheme:dark;scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 12% -10%,#0b596b55,transparent 42%),radial-gradient(ellipse at 95% 15%,#123d7750,transparent 38%),linear-gradient(180deg,#030914,#061426 55%,#030914)!important;color:var(--ink)!important}
+body:before{pointer-events:none}
+a{color:var(--cyan)}
+h1 em,h2 em,h3 em,.hero h1 em,.directory-title em,.portal-title em,.destination-title em{color:var(--cyan)!important;text-shadow:0 0 22px #43f4ff55}
+.eyebrow,.kicker,.num,.action,.back,.brand,.portal-number,.portal-link,.anime-index{color:var(--cyan)!important}
+.top,header,.site-header{background:#040d1bee!important;border-color:#17617a!important}
+.brand span{color:var(--teal)!important}
+button,.btn,.gate-button,.portal-card,.card,.info,.fact,.step,.notice,.detail,.side,.chat,.chatlog,.anime-title-link{border-color:#17617a!important}
+button,.btn{background:linear-gradient(145deg,#0c2941,#071426)!important;color:var(--ink)!important}
+button:hover,.btn:hover,a.card:hover,.portal-card:hover{border-color:var(--cyan)!important;box-shadow:0 0 20px #43f4ff25!important}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan)!important;outline-offset:3px}
+input,select,textarea{background:#061426!important;color:var(--ink)!important;border:1px solid #17617a!important}
+.card,.info,.fact,.step,.detail,.side,.chat,.notice,.portal-card,.anime-title-link{background:linear-gradient(145deg,#0c2941,#071426 72%)!important;color:var(--ink)!important}
+p,small,.muted,.subtitle,.copy,.portal-copy,.destination-copy{color:var(--muted)}
+.tag,.pill{color:var(--teal)!important;border-color:#176f78!important;background:#082a36!important}
+.directory-rule{background:linear-gradient(90deg,var(--cyan),var(--teal),var(--blue),transparent)!important}
+::selection{background:#26d9c877;color:white}
+@media(max-width:760px){.grid,.portal-grid{grid-template-columns:1fr!important}.portal-card{min-height:200px}.wrap{max-width:100%}}
