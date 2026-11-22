@@ -49,7 +49,7 @@ The Television World applies a format-aware encyclopedia structure to television
 **Current model entry**
 - [CBS Summer Playhouse (1987–1989)](https://playnogamezeri.github.io/ProjectFormulaEngineer/television/cbs-summer-playhouse.html) — anthology-series overview, broadcast and production profile, season history, episode guide, pilot catalogue, performers, pilot outcomes, themes, legacy and sources.
 
-CBS Summer Playhouse is the template example for future television entries. The structure is designed to adapt to each programme's format: anthology, sitcom, drama, crime series, miniseries, variety programme or other television form. Episode and cast records should reflect the actual production format rather than forcing every show into the same model.
+CBS Summer Playhouse is the template example for future television entries. The structure is designed to adapt to each programme's format: anthology, sitcom, drama, crime series, miniseries, variety programme or other television form. Episode and cast records should reflect the actual production format rather than forcing every show into the same model. The model page now also includes **Section 14 — Purpose & Moral of the Story**, an interpretive essay examining the programme's broader purpose, the ideas its format brings forward, and a possible moral reading. This section must be clearly identified as editorial interpretation—not an official statement of the network or creators—and adapted to each show's actual themes and format.
 
 ## Character and episode research
 
@@ -69,6 +69,7 @@ Television entries can include:
 - Cast, guest performers and creative personnel
 - Performance reviews and character/role analysis
 - Reception, legacy and source verification
+- **Purpose & Moral of the Story:** an essay interpreting the programme's broader purpose, central ideas, and possible moral significance, grounded in its actual content and clearly distinguished from documented creator or network intent.
 
 ## Research standards
 
