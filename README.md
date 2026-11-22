@@ -1,8 +1,15 @@
-# ANIMARCHIVE
+# MOTION4I — The Nexus
 
-A growing pixel-art anime encyclopedia and comparative research library.
+A growing, source-conscious entertainment encyclopedia for anime and television. The project organizes series, characters, episodes, creative personnel, story worlds and critical analysis into dedicated, interconnected reference pages.
 
-## Anime universes
+**Live website:** https://playnogamezeri.github.io/ProjectFormulaEngineer/
+
+## Worlds
+
+### Anime World
+The Anime World is a multi-universe encyclopedia covering series across action, adventure, supernatural fantasy, martial arts, science fiction and sports.
+
+Current universe directory:
 - Naruto
 - Dragon Ball Z
 - Bleach
@@ -34,31 +41,71 @@ A growing pixel-art anime encyclopedia and comparative research library.
 - Berserk
 - One-Punch Man
 
-## Current foundation
-- 30 anime universes in the searchable directory, spanning action, supernatural fantasy, martial arts and sports anime.
-- Each universe has a starter overview of its premise, power or gameplay systems, and central themes.
-- Newly added universes use original abstract pixel mascots as temporary visual placeholders; they are not portraits of canon characters.
-- Responsive home dashboard and universe directory.
-- Searchable character index.
-- Starter profiles for Naruto Uzumaki, Son Goku, Ichigo Kurosaki and Monkey D. Luffy.
-- Original procedural pixel-art avatar sprites embedded in the page.
-- Character tabs for origin, personality, affiliations, abilities, limitations and interpretive analysis.
-- Lore and power-system overview for each universe.
-- Comparative notes connecting fictional concepts with real-world religious, mythological, philosophical and historical ideas.
-- Villains & Relationships directory covering one featured antagonist or rival across each of the 30 universes.
-- Character Investigations framework defining evidence-led dossiers for protagonists, supporting characters and antagonists, including origin stories, life chronology, psychological analysis, forensic findings, limitations, relationships, ethical accountability and completeness assessments.
-- Explicit research labels for canon facts, adaptation differences, interpretation and unresolved claims; detailed character coverage is being expanded in stages rather than presented as complete.
-- Relationship labels distinguish canon partners, one-sided or manipulative dynamics, and cases with no confirmed partner.
-- Local scripted character-chat prototype.
+Individual universe pages connect to character dossiers and other reference material. Coverage is being expanded progressively; a listed universe or profile should not be assumed complete merely because its page exists.
+
+### Television World
+The Television World applies a format-aware encyclopedia structure to television programmes.
+
+**Current model entry**
+- [CBS Summer Playhouse (1987–1989)](https://playnogamezeri.github.io/ProjectFormulaEngineer/television/cbs-summer-playhouse.html) — anthology-series overview, broadcast and production profile, season history, episode guide, pilot catalogue, performers, pilot outcomes, themes, legacy and sources.
+
+CBS Summer Playhouse is the template example for future television entries. The structure is designed to adapt to each programme's format: anthology, sitcom, drama, crime series, miniseries, variety programme or other television form. Episode and cast records should reflect the actual production format rather than forcing every show into the same model.
+
+## Character and episode research
+
+Character dossiers can include:
+- Identity, background and life chronology
+- Personality and psychological characterization
+- Affiliations, relationships and narrative role
+- Abilities, techniques, limitations and demonstrated feats
+- Canon status, adaptation differences and continuity notes
+- Individual character portrait artwork where available
+- References and clearly identified research gaps
+
+Television entries can include:
+- Series identity, format and broadcast history
+- Seasons and episode-by-episode catalogue
+- Pilot concepts and development outcomes
+- Cast, guest performers and creative personnel
+- Performance reviews and character/role analysis
+- Reception, legacy and source verification
 
 ## Research standards
-Entries should be labeled as **Canon**, **Secondary source**, **Interpretation**, **Fan theory**, or **Real-world comparison**. A resemblance between fictional and real-world concepts does not by itself prove direct influence or equivalence. Religious traditions must be represented accurately and in their own context.
 
-## Sprite and chat roadmap
-The initial sprites are original pixel-art placeholders, not official character artwork. Expand the sprite library character by character with consistent palettes, silhouettes, poses and expression sets. Character chat is currently a local scripted prototype; live generative conversation requires a separately configured model connection. No API key is embedded in this static site.
+Information should be distinguished as **Canon / primary record**, **Secondary source**, **Interpretation**, **Fan theory**, or **Real-world comparison**, as appropriate.
+
+- Cite sources for factual claims and identify what each source supports.
+- Do not present an interpretation as an established fact.
+- Preserve meaningful disagreements between databases and historical records; explain conflicts rather than silently choosing a total.
+- Distinguish a pilot broadcast from a series order or full-season commission.
+- Distinguish a guest appearance from a regular cast role.
+- Keep adaptation-specific details separate when anime, manga, films or television versions differ.
+- Mark unknown or unverified details as research gaps instead of inventing information.
+
+## Design and implementation
+
+- Static, responsive HTML/CSS pages hosted with GitHub Pages.
+- Shared styling and reusable page structures where practical.
+- Interconnected directories, section navigation and individual reference pages.
+- Portrait assets stored in `assets/characters/Portraits/` and displayed on individual character dossiers; the anime character index is kept text-focused.
+- No build step or backend is required for the current static site.
+
+## Repository structure
+
+- `index.html` — main MOTION4I website entry point.
+- `universes/` — Anime World universe encyclopedias and related pages.
+- `universes/characters/` — individual anime character dossiers.
+- `television/` — Television World programme encyclopedias.
+- `assets/characters/Portraits/` — individual character portrait assets.
+
+## Development approach
+
+Work is delivered in verifiable increments. A page, image or section is considered complete only after its repository file exists, its links and asset paths are checked, and the live deployment is allowed to update. Directory counts and coverage claims should reflect the current repository rather than planned work.
 
 ## Local use
-Open `index.html` in a modern browser. The starter site uses no build step, backend or paid service. Future releases should move content into versioned JSON files and add source references, arc indexes and a richer sprite asset pipeline.
 
-## Preservation
+Open `index.html` in a modern browser. The current site is primarily static and can be browsed without a backend or paid service.
+
+## Archive
+
 The previous Formula of Everything engineering site is preserved in Git branch `archive/formula-engineer-2026-11-15`.
