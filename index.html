@@ -660,15 +660,8 @@ window.exitAnimarchive = function(){window.location.replace("about:blank");};
 })();
 /* Reliable pointer and keyboard routing for the entrance and all three destination cards. */
 document.addEventListener("DOMContentLoaded",function(){
- const gate=document.getElementById("entryGate");
- document.addEventListener("keydown",function(event){
-  if(event.key==="Enter" && gate && !gate.hidden && !document.body.classList.contains("archive-entered")){
-   const target=event.target;
-   if(target===document.body || target===document.documentElement || target===gate || (target.classList && (target.classList.contains("gate-grid") || target.classList.contains("gate-content") || target.classList.contains("gate-copy") || target.classList.contains("gate-kicker") || target.classList.contains("gate-mark"))) || target.id==="gateTitle"){
-    event.preventDefault();window.enterAnimarchive();
-   }
-  }
- });
+ // Page 01 uses the native HTML anchor on #gateEnterButton to open Page 02.
+ // Do not intercept Enter and route it through the in-page JavaScript portal.
  document.querySelectorAll(".portal-card[data-destination]").forEach(function(card){
   const go=function(){window.openMotion4iSection(card.getAttribute("data-destination"));};
   card.addEventListener("click",function(event){event.preventDefault();go();});
