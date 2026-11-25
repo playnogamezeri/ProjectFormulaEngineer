@@ -1,83 +1,67 @@
-# Anime Encyclopedia — Production Tracker
+# MOTION4I — Anime Universe Encyclopedia Tracker (61 Titles)
 
-Scope: all 61 titles in the Anime Universe directory in `index.html`.
+Statuses: `Not started` · `In progress` · `Content drafted` · `Dossiers drafted` · `Links checked` · `Poster verified` · `Complete`
 
-Status key: Not started · In progress · Content drafted · Dossiers drafted · Links checked · Poster verified · Complete.
-
-Artwork generation is intentionally deferred until all text, dossier, poster, and link work is complete.
-
-| # | Anime | Universe page | Characters | Organizations | Poster | Overall |
-|---:|---|---|---|---|---|---|
-| 1 | Akame ga Kill! | akame-ga-kill.html | Pending | Pending | Pending | Not started |
-| 2 | Attack on Titan | attack-on-titan.html | Pending | Pending | Pending | Not started |
-| 3 | Beelzebub | beelzebub.html | Pending | Pending | Pending | Not started |
-| 4 | Berserk | berserk.html | Pending | Pending | Pending | Not started |
-| 5 | Black Clover | black-clover.html | Pending | Pending | Pending | Not started |
-| 6 | Bleach | bleach.html | Pending | Pending | Pending | Not started |
-| 7 | Boruto | boruto.html | Pending | Pending | Pending | Not started |
-| 8 | Chainsaw Man | chainsaw-man.html | Pending | Pending | Pending | Not started |
-| 9 | Code Geass | code-geass.html | Pending | Pending | Pending | Not started |
-| 10 | Cowboy Bebop | cowboy-bebop.html | Pending | Pending | Pending | Not started |
-| 11 | D.Gray-man | d-gray-man.html | Pending | Pending | Pending | Not started |
-| 12 | Death Note | death-note.html | Pending | Pending | Pending | Not started |
-| 13 | Demon Slayer | demon-slayer.html | Pending | Pending | Pending | Not started |
-| 14 | Dragon Ball Z | dragon-ball-z.html | Pending | Pending | Pending | Not started |
-| 15 | Durarara!! | durarara.html | Pending | Pending | Pending | Not started |
-| 16 | Eyeshield 21 | eyeshield-21.html | Pending | Pending | Pending | Not started |
-| 17 | Fairy Tail | fairy-tail.html | Pending | Pending | Pending | Not started |
-| 18 | Fate/stay night | fate-stay-night.html | Pending | Pending | Pending | Not started |
-| 19 | Fate/Zero | fate-zero.html | Pending | Pending | Pending | Not started |
-| 20 | Food Wars! | food-wars.html | Pending | Pending | Pending | Not started |
-| 21 | Fullmetal Alchemist: Brotherhood | fullmetal-alchemist-brotherhood.html | Pending | Pending | Pending | Not started |
-| 22 | Gintama | gintama.html | Pending | Pending | Pending | Not started |
-| 23 | Gurren Lagann | gurren-lagann.html | Pending | Pending | Pending | Not started |
-| 24 | Haikyu!! | haikyu.html | Pending | Pending | Pending | Not started |
-| 25 | Hajime no Ippo | hajime-no-ippo.html | Pending | Pending | Pending | Not started |
-| 26 | History's Strongest Disciple Kenichi | historys-strongest-disciple-kenichi.html | Pending | Pending | Pending | Not started |
-| 27 | Katekyo Hitman Reborn! | hitman-reborn.html | Pending | Pending | Pending | Not started |
-| 28 | Hunter × Hunter | hunter-x-hunter.html | Pending | Pending | Pending | Not started |
-| 29 | Inuyasha | inuyasha.html | Pending | Pending | Pending | Not started |
-| 30 | Jujutsu Kaisen | jujutsu-kaisen.html | Pending | Pending | Pending | Not started |
-| 31 | K | k-project.html | Pending | Pending | Pending | Not started |
-| 32 | Kingdom | kingdom.html | Pending | Pending | Pending | Not started |
-| 33 | Kuroko's Basketball | kurokos-basketball.html | Pending | Pending | Pending | Not started |
-| 34 | Magi | magi.html | Pending | Pending | Pending | Not started |
-| 35 | Mob Psycho 100 | mob-psycho-100.html | Pending | Pending | Pending | Not started |
-| 36 | My Hero Academia | my-hero-academia.html | Pending | Pending | Pending | Not started |
-| 37 | Nano Machine | nano-machine.html | Pending | Pending | Pending | Not started |
-| 38 | Naruto | naruto.html | Pending | Pending | Pending | Not started |
-| 39 | Natsume's Book of Friends | natsumes-book-of-friends.html | Pending | Pending | Pending | Not started |
-| 40 | Noblesse | noblesse.html | Pending | Pending | Pending | Not started |
-| 41 | One Piece | one-piece.html | Pending | Pending | Pending | Not started |
-| 42 | One-Punch Man | one-punch-man.html | Pending | Pending | Pending | Not started |
-| 43 | Re:Zero | rezero.html | Pending | Pending | Pending | Not started |
-| 44 | Rurouni Kenshin | rurouni-kenshin.html | Pending | Pending | Pending | Not started |
-| 45 | Samurai Champloo | samurai-champloo.html | Pending | Pending | Pending | Not started |
-| 46 | Shaman King | shaman-king.html | Pending | Pending | Pending | Not started |
-| 47 | Slam Dunk | slam-dunk.html | Pending | Pending | Pending | Not started |
-| 48 | Solo Leveling | solo-leveling.html | Pending | Pending | Pending | Not started |
-| 49 | Soul Eater | soul-eater.html | Pending | Pending | Pending | Not started |
-| 50 | The Daily Life of the Immortal King | the-daily-life-of-the-immortal-king.html | Pending | Pending | Pending | Not started |
-| 51 | The God of High School | the-god-of-high-school.html | Pending | Pending | Pending | Not started |
-| 52 | The King's Avatar | the-kings-avatar.html | Pending | Pending | Pending | Not started |
-| 53 | The Prince of Tennis | the-prince-of-tennis.html | Pending | Pending | Pending | Not started |
-| 54 | The Seven Deadly Sins | the-seven-deadly-sins.html | Pending | Pending | Pending | Not started |
-| 55 | Tokyo Ghoul | tokyo-ghoul.html | Pending | Pending | Pending | Not started |
-| 56 | Toriko | toriko.html | Pending | Pending | Pending | Not started |
-| 57 | Trigun | trigun.html | Pending | Pending | Pending | Not started |
-| 58 | Vampire Knight | vampire-knight.html | Pending | Pending | Pending | Not started |
-| 59 | Vinland Saga | vinland-saga.html | Pending | Pending | Pending | Not started |
-| 60 | Your Lie in April | your-lie-in-april.html | Pending | Pending | Pending | Not started |
-| 61 | Yu Yu Hakusho | yu-yu-hakusho.html | Pending | Pending | Pending | Not started |
-
-## Current work log\n\n### Reset — Boruto through Yu Yu Hakusho
-- Removed the 55 universe pages from Boruto through Yu Yu Hakusho, inclusive.
-- Removed the 8 Boruto character dossiers and 6 Boruto faction dossiers.
-- The first six series and their existing dossiers remain intact.
-- All 55 titles remain in the directory and are reset to Not started for a fresh rebuild.
-- Rebuild each title from the Akame ga Kill! master template; create new character and organization dossiers as content is researched.
-
-## Completion criteria
-A title is complete only after its universe page contains all 13 approved sections, every identified character and meaningful organization has a populated individual dossier, all cross-links and return links work, and its official/reputable poster has been verified or an explicit poster limitation is documented.
-
-Do not mark a series complete merely because its page or directory entries exist.
+| # | Title | Canonical File | Status | Character Dossiers | Faction Dossiers | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 01 | Akame ga Kill! | `universes/akame-ga-kill.html` | Links checked | 10 | 5 | 14 sections + dossiers built; poster placeholder documented |
+| 02 | Attack on Titan | `universes/attack-on-titan.html` | Links checked | 10 | 4 | 14 sections + dossiers built; poster placeholder documented |
+| 03 | Beelzebub | `universes/beelzebub.html` | Links checked | 9 | 4 | 14 sections + dossiers built; poster placeholder documented |
+| 04 | Berserk | `universes/berserk.html` | Links checked | 9 | 4 | 14 sections + dossiers built; poster placeholder documented |
+| 05 | Black Clover | `universes/black-clover.html` | Links checked | 9 | 4 | 14 sections + dossiers built; poster placeholder documented |
+| 06 | Bleach | `universes/bleach.html` | Links checked | 9 | 4 | 14 sections + dossiers built; poster placeholder documented |
+| 07 | Boruto: Naruto Next Generations | `universes/boruto.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 08 | Chainsaw Man | `universes/chainsaw-man.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 09 | Code Geass | `universes/code-geass.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 10 | Cowboy Bebop | `universes/cowboy-bebop.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 11 | D.Gray-man | `universes/d-gray-man.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 12 | Death Note | `universes/death-note.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 13 | Demon Slayer: Kimetsu no Yaiba | `universes/demon-slayer.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 14 | Dragon Ball Z | `universes/dragon-ball-z.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 15 | Durarara!! | `universes/durarara.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 16 | Eyeshield 21 | `universes/eyeshield-21.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 17 | Fairy Tail | `universes/fairy-tail.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 18 | Fate/stay night | `universes/fate-stay-night.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 19 | Fate/Zero | `universes/fate-zero.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 20 | Food Wars! | `universes/food-wars.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 21 | Fullmetal Alchemist: Brotherhood | `universes/fullmetal-alchemist-brotherhood.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 22 | Gintama | `universes/gintama.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 23 | Gurren Lagann | `universes/gurren-lagann.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 24 | Haikyu!! | `universes/haikyu.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 25 | Hajime no Ippo | `universes/hajime-no-ippo.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 26 | History's Strongest Disciple Kenichi | `universes/historys-strongest-disciple-kenichi.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 27 | Hitman Reborn! | `universes/hitman-reborn.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 28 | Hunter × Hunter | `universes/hunter-x-hunter.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 29 | Inuyasha | `universes/inuyasha.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 30 | Jujutsu Kaisen | `universes/jujutsu-kaisen.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 31 | K | `universes/k-project.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 32 | Kingdom | `universes/kingdom.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 33 | Kuroko's Basketball | `universes/kurokos-basketball.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 34 | Magi: The Labyrinth of Magic | `universes/magi.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 35 | Mob Psycho 100 | `universes/mob-psycho-100.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 36 | My Hero Academia | `universes/my-hero-academia.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 37 | Nano Machine | `universes/nano-machine.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 38 | Naruto | `universes/naruto.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 39 | Natsume's Book of Friends | `universes/natsumes-book-of-friends.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 40 | Noblesse | `universes/noblesse.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 41 | One Piece | `universes/one-piece.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 42 | One-Punch Man | `universes/one-punch-man.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 43 | Re:ZERO -Starting Life in Another World- | `universes/rezero.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 44 | Rurouni Kenshin | `universes/rurouni-kenshin.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 45 | Samurai Champloo | `universes/samurai-champloo.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 46 | Shaman King | `universes/shaman-king.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 47 | Slam Dunk | `universes/slam-dunk.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 48 | Solo Leveling | `universes/solo-leveling.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 49 | Soul Eater | `universes/soul-eater.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 50 | The Daily Life of the Immortal King | `universes/the-daily-life-of-the-immortal-king.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 51 | The God of High School | `universes/the-god-of-high-school.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 52 | The King's Avatar | `universes/the-kings-avatar.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 53 | The Prince of Tennis | `universes/the-prince-of-tennis.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 54 | The Seven Deadly Sins | `universes/the-seven-deadly-sins.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 55 | Tokyo Ghoul | `universes/tokyo-ghoul.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 56 | Toriko | `universes/toriko.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 57 | Trigun | `universes/trigun.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 58 | Vampire Knight | `universes/vampire-knight.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 59 | Vinland Saga | `universes/vinland-saga.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 60 | Your Lie in April | `universes/your-lie-in-april.html` | Not started | 0 | 0 | Queued for upcoming batch |
+| 61 | Yu Yu Hakusho | `universes/yu-yu-hakusho.html` | Not started | 0 | 0 | Queued for upcoming batch |
