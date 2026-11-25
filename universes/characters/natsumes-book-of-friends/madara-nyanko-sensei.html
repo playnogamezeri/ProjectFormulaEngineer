@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b13">
+<title>Madara (Nyanko-sensei) — Natsume&#x27;s Book of Friends // MOTION4I Anime Universe</title><style>
+:root{--bg:#080b13;--panel:#111927;--panel2:#172233;--line:#2b4050;--ink:#edf4f4;--muted:#a4b4bc;--cyan:#43f4ff;--teal:#26d9c8;--blue:#398cff;--red:#e87968;--gold:#e6c78b;--max:1200px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:radial-gradient(ellipse at 78% -10%,#123d52 0,transparent 42%),radial-gradient(ellipse at 12% 15%,#162b4d 0,transparent 38%),var(--bg);color:var(--ink);font:15px/1.7 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--cyan)}button,input,select{font:inherit}
+.top{position:sticky;top:0;z-index:20;background:#080d14ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px max(4vw,18px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{font:900 16px monospace;letter-spacing:.15em;color:var(--cyan);text-decoration:none}.brand span{color:var(--red)}.nav-actions{display:flex;gap:10px;flex-wrap:wrap}.top a.back{color:var(--muted);font:11px monospace;text-decoration:none;border:1px solid var(--line);padding:6px 10px;border-radius:4px}.top a.back:hover{color:var(--cyan);border-color:var(--cyan)}.wrap{width:min(var(--max),92vw);margin:auto}
+.hero{padding:72px 0 42px;min-height:380px;display:flex;align-items:end;background:linear-gradient(90deg,#080b13 0%,#080b13e8 62%,#080b1340 100%),radial-gradient(ellipse at 78% 35%,#1a4a5e 0%,#122b3d 32%,#0b1522 68%,#080b13 100%);border-bottom:1px solid var(--line)}.hero-inner{max-width:920px}.eyebrow{font:11px monospace;letter-spacing:.22em;color:var(--cyan);text-transform:uppercase}.hero h1{font-size:clamp(40px,7vw,80px);line-height:.98;letter-spacing:-.05em;margin:16px 0}.hero h1 em{font-style:normal;color:var(--red)}.subtitle{font-size:18px;color:#d1dcdf;max-width:820px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.pill{border:1px solid #2b5a6e;background:#0c1e2e;color:#d6e3e4;padding:5px 9px;border-radius:3px;font:10px monospace;letter-spacing:.08em}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-block;padding:10px 14px;background:linear-gradient(105deg,var(--teal),var(--cyan));color:#061217;text-decoration:none;font:800 11px monospace;letter-spacing:.08em;border:0;border-radius:3px;cursor:pointer}.btn.alt{background:transparent;border:1px solid #4d7282;color:var(--ink)}.btn:hover{filter:brightness(1.1)}.warning{margin:22px 0 0;padding:12px 15px;border-left:3px solid var(--red);background:#291b20;color:#f0c6bf;font-size:12px}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:32px;padding:34px 0 80px}.side{position:sticky;top:82px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;border:1px solid var(--line);background:#0d1420;padding:15px;border-radius:5px}.side b{display:block;color:var(--gold);font:11px monospace;margin-bottom:8px;letter-spacing:.1em}.side a{display:block;padding:6px 4px;color:var(--muted);font-size:11px;text-decoration:none;border-bottom:1px solid #ffffff08}.side a:hover,.side a.active{color:var(--cyan)}.side-tools{display:flex;gap:6px;margin-top:12px}.side-tools button{flex:1;padding:6px;font:10px monospace;background:#14212c;color:var(--cyan);border:1px solid var(--line);border-radius:3px;cursor:pointer}
+.poster-placeholder{margin:14px auto;padding:28px 18px;border:1px dashed #45606a;background:#111927;text-align:center;border-radius:5px}.poster-placeholder b{display:block;color:var(--cyan);font:11px monospace;letter-spacing:.12em;margin-bottom:6px}.poster-placeholder span{font-size:20px;font-weight:750;color:var(--ink)}.caption{text-align:center;color:var(--muted);font-size:11px;margin-top:8px}
+.content section{margin:0 0 18px;border:1px solid var(--line);background:#0c1420;border-radius:5px;overflow:hidden;scroll-margin-top:90px}.content details>summary{cursor:pointer;list-style:none;padding:18px 20px;background:linear-gradient(100deg,#14212c,#0c1420);display:flex;align-items:center;gap:14px}.content details>summary::-webkit-details-marker{display:none}.num{font:12px monospace;color:var(--red);min-width:24px}.sumtitle{font-size:19px;font-weight:750;flex:1}.toggle{color:var(--cyan);font:11px monospace}.inside{padding:8px 22px 24px}.content h3{font-size:17px;color:var(--cyan);margin:20px 0 6px}.content h4{font-size:14px;color:var(--gold);margin:14px 0 4px}.content p{color:#c2cfd3;margin:8px 0}.lead{font-size:17px;color:#dbe5e6!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.card,.panel{border:1px solid var(--line);background:linear-gradient(145deg,#14202b,#0d1520);padding:14px;border-radius:5px}.card h3{margin:0 0 6px}.card p{font-size:13px;margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.chips span{border:1px solid #38515e;padding:3px 8px;font:11px monospace;color:#d4e1e3;border-radius:3px}
+.table-wrap{overflow-x:auto;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#172636;color:var(--cyan);font:11px monospace;letter-spacing:.05em}td{color:#c8d6dc}tr:nth-child(even) td{background:#101a28}
+.search-bar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 10px}.search-bar input,.search-bar select{background:#091322;border:1px solid var(--line);color:var(--ink);padding:10px 12px;border-radius:4px}.search-bar input{flex:1;min-width:200px}.search-count{font:11px monospace;color:var(--gold);margin-bottom:10px}
+.timeline{border-left:2px solid #47646c;margin:16px 0;padding-left:20px}.event{margin:0 0 16px;position:relative}.event:before{content:"";position:absolute;left:-27px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--red)}.event b{color:var(--gold)}ul,ol{color:#c2cfd3;padding-left:22px}li{margin:5px 0}.foot{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12px}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.side{position:relative;top:auto;max-height:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px}.side b,.side-tools{grid-column:1/-1}}@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:42px 0 28px}.inside{padding:6px 15px 20px}.sumtitle{font-size:16px}.subtitle{font-size:15px}.content details>summary{padding:15px}}
+</style></head>
+<body>
+<header class="top"><a class="brand" href="../../../index.html">MOTION<span>4I</span> / THE NEXUS</a><nav class="nav-actions"><a class="back" href="../../natsumes-book-of-friends.html">← NATSUME&#x27;S BOOK OF FRIENDS</a><a class="back" href="../../../index.html?view=anime">ANIME UNIVERSE</a></nav></header>
+<section class="hero"><div class="wrap hero-inner">
+<div class="eyebrow">THE MOTION4I · ANIME UNIVERSE · CHARACTER DOSSIER · NATSUME&#x27;S BOOK OF FRIENDS</div>
+<h1><em>Madara (Nyanko-sensei)</em></h1>
+<p class="subtitle">Daiyōkai guarding Natsume for the Book who grows genuinely fond of him.</p>
+<div class="meta"><span class="pill">NATSUME&#x27;S BOOK OF FRIENDS</span><span class="pill">DOG&#x27;S CIRCLE / NATSUME&#x27;S BODYGUARD</span><span class="pill">2008–2025 (Anime) · 2003–Present (Manga)</span></div>
+<div class="hero-actions"><a class="btn" href="../../natsumes-book-of-friends.html#characters">← BACK TO CHARACTER DATABASE</a></div>
+</div></section>
+<main class="wrap layout">
+<aside class="side"><b>CHARACTER DOSSIER</b>
+<a href="#identity">01 · Identity &amp; Affiliations</a><a href="#bio">02 · Biography &amp; Background</a><a href="#abilities">03 · Abilities &amp; Limitations</a><a href="#chronology">04 · Chronology &amp; Status</a><a href="#relations">05 · Ensemble Bonds</a><a href="#sources">06 · References</a>
+</aside>
+<div class="content">
+<section id="identity"><details open><summary><span class="num">01</span><span class="sumtitle">Identity &amp; Affiliations</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+<div class="table-wrap"><table><tbody>
+<tr><th>Name</th><td>Madara (Nyanko-sensei)</td></tr>
+<tr><th>Series</th><td><a href="../../natsumes-book-of-friends.html">Natsume&#x27;s Book of Friends</a></td></tr>
+<tr><th>Affiliation / Role</th><td>Dog&#x27;s Circle / Natsume&#x27;s Bodyguard</td></tr>
+<tr><th>Abilities / Weapons</th><td>Colossal white wolf-inugami form, demonic aura</td></tr>
+<tr><th>Final Status</th><td>Ongoing: Remains at Natsume&#x27;s side.</td></tr>
+</tbody></table></div>
+</div></details></section>
+<section id="bio"><details open><summary><span class="num">02</span><span class="sumtitle">Biography, Personality &amp; Motivations</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+<p class="lead">Daiyōkai guarding Natsume for the Book who grows genuinely fond of him.</p>
+<p><b>World &amp; Story Context:</b> Set in a rural Kyushu town modeled on Hitoyoshi and Kuma District in Kumamoto Prefecture, where forests, shrines, and rivers teem with yōkai unseen by most humans, policed secretly by exorcists (haraiya).</p>
+</div></details></section>
+<section id="abilities"><details open><summary><span class="num">03</span><span class="sumtitle">Abilities, Equipment &amp; Limitations</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+<p><b>Documented Arsenal:</b> Colossal white wolf-inugami form, demonic aura</p>
+<p><b>System Rules:</b> Zero shōnen energy combat: conflicts revolve around spiritual sight, returning bound names from the Book of Friends, exorcist shikigami/seals, and Madara&#x27;s true inugami form.</p>
+</div></details></section>
+<section id="chronology"><details><summary><span class="num">04</span><span class="sumtitle">Chronology, Decisions &amp; Final Status</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+<div class="warning"><b>SPOILER STATUS:</b> Ongoing: Remains at Natsume&#x27;s side.</div>
+<p style="margin-top:10px"><b>Continuity Context:</b> Faithful adaptation that occasionally reorders chapters (e.g., S6 Ep. 3 occurs chronologically after Ep. 11), changes Natsume&#x27;s eye color from green to golden-brown, softens his early irritability, and expands Jun Sasada&#x27;s recurring appearances.</p>
+</div></details></section>
+<section id="relations"><details open><summary><span class="num">05</span><span class="sumtitle">Ensemble Relationships</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside"><ul><li><a href="takashi-natsume.html"><b>Takashi Natsume</b></a> (Fujiwara Household / Dog&#x27;s Circle) — Empathetic teen bridging human and yōkai worlds.</li>
+<li><a href="reiko-natsume.html"><b>Reiko Natsume</b></a> (Takashi&#x27;s Late Grandmother) — Ostracized girl who bound yōkai names out of loneliness.</li>
+<li><a href="sh-ichi-natori.html"><b>Shūichi Natori</b></a> (Natori&#x27;s Exorcist Circle) — Actor-exorcist and mentor who secretly vows to destroy the Book for Natsume&#x27;s safety.</li>
+<li><a href="seiji-matoba.html"><b>Seiji Matoba</b></a> (Matoba Clan Head) — Pragmatic exorcist treating yōkai as expendable tools.</li>
+<li><a href="kaname-tanuma.html"><b>Kaname Tanuma</b></a> (Yowake High School) — Temple priest&#x27;s son and Natsume&#x27;s closest human confidant.</li>
+<li><a href="t-ru-taki.html"><b>Tōru Taki</b></a> (Yowake High School) — Onmyōji descendant who adores Nyanko-sensei.</li>
+<li><a href="t-ko-shigeru-fujiwara.html"><b>Tōko &amp; Shigeru Fujiwara</b></a> (Foster Parents) — Loving couple who give Natsume a true home.</li>
+<li><a href="hiiragi.html"><b>Hiiragi</b></a> (Natori&#x27;s Shiki) — Freed from a curse by Natsume and fiercely loyal to Natori.</li>
+<li><a href="hinoe-misuzu.html"><b>Hinoe &amp; Misuzu</b></a> (Dog&#x27;s Circle) — Reiko&#x27;s old friend Hinoe and noble horse yōkai Misuzu.</li></ul></div></details></section>
+<section id="sources"><details><summary><span class="num">06</span><span class="sumtitle">References</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside"><div class="table-wrap"><table><thead><tr><th>Source</th><th>Used for</th><th>Reference</th></tr></thead><tbody><tr><td>Natsume Official Anime Site (JP)</td><td>Verified series &amp; character reference</td><td><a href="https://www.natsume-anime.jp/" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>VIZ Media — Natsume&#x27;s Book of Friends</td><td>Verified series &amp; character reference</td><td><a href="https://www.viz.com/natsume-s-book-of-friends" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>Wikipedia — Natsume&#x27;s Book of Friends</td><td>Verified series &amp; character reference</td><td><a href="https://en.wikipedia.org/wiki/Natsume%27s_Book_of_Friends" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>MyAnimeList — Natsume Yūjin-chō</td><td>Verified series &amp; character reference</td><td><a href="https://myanimelist.net/anime/4081/Natsume_Yuujinchou" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>Anime News Network — Natsume</td><td>Verified series &amp; character reference</td><td><a href="https://www.animenewsnetwork.com/encyclopedia/anime.php?id=9419" target="_blank" rel="noopener">Open source ↗</a></td></tr></tbody></table></div></div></details></section>
+</div></main>
+<footer class="wrap foot">MOTION4I / THE NEXUS · ANIME UNIVERSE · MADARA (NYANKO-SENSEI) (NATSUME&#x27;S BOOK OF FRIENDS)</footer>
+<script>
+(function(){
+  function openTargetSection(hash){
+    if(!hash) return;
+    var el = document.querySelector(hash);
+    if(!el) return;
+    var det = el.querySelector('details');
+    if(det) det.open = true;
+    document.querySelectorAll('.side a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === hash);
+    });
+  }
+  document.querySelectorAll('.side a').forEach(function(link){
+    link.addEventListener('click', function(){
+      var h = link.getAttribute('href');
+      openTargetSection(h);
+    });
+  });
+  window.addEventListener('hashchange', function(){ openTargetSection(window.location.hash); });
+  if(window.location.hash){ openTargetSection(window.location.hash); }
+
+  var expandAll = document.getElementById('expandAllBtn');
+  var collapseAll = document.getElementById('collapseAllBtn');
+  if(expandAll){ expandAll.addEventListener('click', function(){ document.querySelectorAll('.content details').forEach(function(d){ d.open = true; }); }); }
+  if(collapseAll){ collapseAll.addEventListener('click', function(){ document.querySelectorAll('.content details').forEach(function(d){ d.open = false; }); }); }
+
+  var charSearch = document.getElementById('character-search');
+  var charFilter = document.getElementById('character-filter');
+  var charCount = document.getElementById('character-count');
+  var charCards = Array.prototype.slice.call(document.querySelectorAll('.char-db-card'));
+  function filterChars(){
+    if(!charCount) return;
+    var q = (charSearch ? charSearch.value : '').trim().toLowerCase();
+    var role = (charFilter ? charFilter.value : '').trim().toLowerCase();
+    var visible = 0;
+    charCards.forEach(function(card){
+      var txt = (card.getAttribute('data-search') || '').toLowerCase();
+      var aff = (card.getAttribute('data-affiliation') || '').toLowerCase();
+      var match = (!q || txt.indexOf(q) !== -1) && (!role || aff.indexOf(role) !== -1);
+      card.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    charCount.textContent = 'SHOWING ' + visible + ' OF ' + charCards.length + ' CANON CHARACTERS';
+  }
+  if(charSearch) charSearch.addEventListener('input', filterChars);
+  if(charFilter) charFilter.addEventListener('change', filterChars);
+  filterChars();
+})();
+</script></body></html>

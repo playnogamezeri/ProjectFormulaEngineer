@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<meta name="description" content="MOTION4I Anime Universe encyclopedia for Noblesse (2015–2020 (Anime) · 2007–2019 (Manhwa)): overview, worldbuilding, chronology, story arcs, searchable character database, combat system, factions, relationships, anime/manga guide, themes, ending explained, purposes, and references.">
+<title>Noblesse — MOTION4I Anime Universe</title>
+<style>
+:root{--bg:#080b13;--panel:#111927;--panel2:#172233;--line:#2b4050;--ink:#edf4f4;--muted:#a4b4bc;--cyan:#43f4ff;--teal:#26d9c8;--blue:#398cff;--red:#e87968;--gold:#e6c78b;--max:1200px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:radial-gradient(ellipse at 78% -10%,#123d52 0,transparent 42%),radial-gradient(ellipse at 12% 15%,#162b4d 0,transparent 38%),var(--bg);color:var(--ink);font:15px/1.7 system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--cyan)}button,input,select{font:inherit}
+.top{position:sticky;top:0;z-index:20;background:#080d14ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px max(4vw,18px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{font:900 16px monospace;letter-spacing:.15em;color:var(--cyan);text-decoration:none}.brand span{color:var(--red)}.nav-actions{display:flex;gap:10px;flex-wrap:wrap}.top a.back{color:var(--muted);font:11px monospace;text-decoration:none;border:1px solid var(--line);padding:6px 10px;border-radius:4px}.top a.back:hover{color:var(--cyan);border-color:var(--cyan)}.wrap{width:min(var(--max),92vw);margin:auto}
+.hero{padding:72px 0 42px;min-height:380px;display:flex;align-items:end;background:linear-gradient(90deg,#080b13 0%,#080b13e8 62%,#080b1340 100%),radial-gradient(ellipse at 78% 35%,#1a4a5e 0%,#122b3d 32%,#0b1522 68%,#080b13 100%);border-bottom:1px solid var(--line)}.hero-inner{max-width:920px}.eyebrow{font:11px monospace;letter-spacing:.22em;color:var(--cyan);text-transform:uppercase}.hero h1{font-size:clamp(40px,7vw,80px);line-height:.98;letter-spacing:-.05em;margin:16px 0}.hero h1 em{font-style:normal;color:var(--red)}.subtitle{font-size:18px;color:#d1dcdf;max-width:820px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.pill{border:1px solid #2b5a6e;background:#0c1e2e;color:#d6e3e4;padding:5px 9px;border-radius:3px;font:10px monospace;letter-spacing:.08em}.hero-actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-block;padding:10px 14px;background:linear-gradient(105deg,var(--teal),var(--cyan));color:#061217;text-decoration:none;font:800 11px monospace;letter-spacing:.08em;border:0;border-radius:3px;cursor:pointer}.btn.alt{background:transparent;border:1px solid #4d7282;color:var(--ink)}.btn:hover{filter:brightness(1.1)}.warning{margin:22px 0 0;padding:12px 15px;border-left:3px solid var(--red);background:#291b20;color:#f0c6bf;font-size:12px}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:32px;padding:34px 0 80px}.side{position:sticky;top:82px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;border:1px solid var(--line);background:#0d1420;padding:15px;border-radius:5px}.side b{display:block;color:var(--gold);font:11px monospace;margin-bottom:8px;letter-spacing:.1em}.side a{display:block;padding:6px 4px;color:var(--muted);font-size:11px;text-decoration:none;border-bottom:1px solid #ffffff08}.side a:hover,.side a.active{color:var(--cyan)}.side-tools{display:flex;gap:6px;margin-top:12px}.side-tools button{flex:1;padding:6px;font:10px monospace;background:#14212c;color:var(--cyan);border:1px solid var(--line);border-radius:3px;cursor:pointer}
+.poster-placeholder{margin:14px auto;padding:28px 18px;border:1px dashed #45606a;background:#111927;text-align:center;border-radius:5px}.poster-placeholder b{display:block;color:var(--cyan);font:11px monospace;letter-spacing:.12em;margin-bottom:6px}.poster-placeholder span{font-size:20px;font-weight:750;color:var(--ink)}.caption{text-align:center;color:var(--muted);font-size:11px;margin-top:8px}
+.content section{margin:0 0 18px;border:1px solid var(--line);background:#0c1420;border-radius:5px;overflow:hidden;scroll-margin-top:90px}.content details>summary{cursor:pointer;list-style:none;padding:18px 20px;background:linear-gradient(100deg,#14212c,#0c1420);display:flex;align-items:center;gap:14px}.content details>summary::-webkit-details-marker{display:none}.num{font:12px monospace;color:var(--red);min-width:24px}.sumtitle{font-size:19px;font-weight:750;flex:1}.toggle{color:var(--cyan);font:11px monospace}.inside{padding:8px 22px 24px}.content h3{font-size:17px;color:var(--cyan);margin:20px 0 6px}.content h4{font-size:14px;color:var(--gold);margin:14px 0 4px}.content p{color:#c2cfd3;margin:8px 0}.lead{font-size:17px;color:#dbe5e6!important}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.card,.panel{border:1px solid var(--line);background:linear-gradient(145deg,#14202b,#0d1520);padding:14px;border-radius:5px}.card h3{margin:0 0 6px}.card p{font-size:13px;margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.chips span{border:1px solid #38515e;padding:3px 8px;font:11px monospace;color:#d4e1e3;border-radius:3px}
+.table-wrap{overflow-x:auto;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}th,td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}th{background:#172636;color:var(--cyan);font:11px monospace;letter-spacing:.05em}td{color:#c8d6dc}tr:nth-child(even) td{background:#101a28}
+.search-bar{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 10px}.search-bar input,.search-bar select{background:#091322;border:1px solid var(--line);color:var(--ink);padding:10px 12px;border-radius:4px}.search-bar input{flex:1;min-width:200px}.search-count{font:11px monospace;color:var(--gold);margin-bottom:10px}
+.timeline{border-left:2px solid #47646c;margin:16px 0;padding-left:20px}.event{margin:0 0 16px;position:relative}.event:before{content:"";position:absolute;left:-27px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--red)}.event b{color:var(--gold)}ul,ol{color:#c2cfd3;padding-left:22px}li{margin:5px 0}.foot{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:12px}
+@media(max-width:860px){.layout{grid-template-columns:1fr}.side{position:relative;top:auto;max-height:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px}.side b,.side-tools{grid-column:1/-1}}@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:42px 0 28px}.inside{padding:6px 15px 20px}.sumtitle{font-size:16px}.subtitle{font-size:15px}.content details>summary{padding:15px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">MOTION<span>4I</span> / THE NEXUS</a>
+  <nav class="nav-actions">
+    <a class="back" href="../index.html?view=anime">← ANIME UNIVERSE</a>
+    <a class="back" href="../index.html">DIRECTORY</a>
+  </nav>
+</header>
+
+<section class="hero"><div class="wrap hero-inner">
+  <div class="eyebrow">THE MOTION4I · PAGE 04 · ANIME UNIVERSE · MASTER ENCYCLOPEDIA</div>
+  <h1><em>Nob</em><br>lesse</h1>
+  <p class="subtitle">Awakening after an 820-year slumber, pure-blooded protector Cadis Etrama Di Raizel reunites with loyal servant Frankenstein at Ye Ran High School—defending humanity and Lukedonia against the Union&#x27;s modified humans, Werewolves, and Dr. Crombel.</p>
+  <div class="meta"><span class="pill">노블레스 / NOBLESSE -ノブレス-</span>
+<span class="pill">Production I.G (TV &amp; Awakening) · Studio Animal (2015 OVA)</span>
+<span class="pill">2015–2020 (Anime) · 2007–2019 (Manhwa)</span>
+<span class="pill">DARK FANTASY</span>
+<span class="pill">ACTION</span>
+<span class="pill">SUPERNATURAL</span>
+<span class="pill">13 TV Episodes + Awakening ONA + Beginning of Destruction OVA</span>
+<span class="pill">MANHWA COMPLETED (544 CH.) · ANIME ENDED AT S1 (2020)</span></div>
+  <div class="hero-actions">
+    <a class="btn" href="#characters">OPEN CHARACTER DATABASE ↓</a>
+    <a class="btn alt" href="#ending">ENDING EXPLAINED ↓</a>
+  </div>
+  <div class="warning"><b>FULL SPOILER WARNING &amp; CONTINUITY POLICY:</b> This encyclopedia documents plot developments, character fates, and endings across both anime and source-material continuities. Manga canon, anime canon, filler, and editorial interpretation are explicitly separated.</div>
+</div></section>
+
+<main class="wrap layout">
+<aside class="side">
+  <b>ENCYCLOPEDIA INDEX</b>
+  <a href="#series-poster">00 · Official Poster</a>
+  <a href="#overview">01 · Overview</a>
+  <a href="#world">02 · World &amp; Setting</a>
+  <a href="#story">03 · Story &amp; Chronology</a>
+  <a href="#arcs">04 · Major Story Arcs</a>
+  <a href="#characters">05 · Character Database</a>
+  <a href="#powers">06 · Battle &amp; Combat System</a>
+  <a href="#factions">07 · Nations &amp; Factions</a>
+  <a href="#relationships">08 · Relationships</a>
+  <a href="#episodes">09 · Anime/Manga Guide</a>
+  <a href="#themes">10 · Themes &amp; Analysis</a>
+  <a href="#ending">11 · Ending Explained</a>
+  <a href="#purposes">12 · Purposes</a>
+  <a href="#sources">13 · References</a>
+  <div class="side-tools">
+    <button type="button" id="expandAllBtn">EXPAND ALL</button>
+    <button type="button" id="collapseAllBtn">COLLAPSE ALL</button>
+  </div>
+</aside>
+
+<div class="content">
+<section id="series-poster"><details open><summary><span class="num">00</span><span class="sumtitle">Official Poster</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="poster-placeholder"><b>OFFICIAL KEY VISUAL SLOT · ARTWORK PHASE PENDING</b><span>Noblesse (노블레스 / NOBLESSE -ノブレス-)</span><div class="caption">Production I.G (TV &amp; Awakening) · Studio Animal (2015 OVA) · 2015–2020 (Anime) · 2007–2019 (Manhwa) · 13 TV Episodes + Awakening ONA + Beginning of Destruction OVA</div></div>
+  <p>Artwork policy: Official key art will be verified and linked from publisher/studio sources during the artwork verification pass.</p>
+</div></details></section>
+
+<section id="overview"><details open><summary><span class="num">01</span><span class="sumtitle">Overview</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p class="lead">Awakening after an 820-year slumber, pure-blooded protector Cadis Etrama Di Raizel reunites with loyal servant Frankenstein at Ye Ran High School—defending humanity and Lukedonia against the Union&#x27;s modified humans, Werewolves, and Dr. Crombel.</p>
+  <div class="table-wrap"><table><tbody><tr><th>Official Title</th><td>Noblesse</td></tr>
+<tr><th>Korean / Japanese</th><td>노블레스 / NOBLESSE -ノブレス-</td></tr>
+<tr><th>Alternative Titles</th><td>Noblesse: Awakening</td></tr>
+<tr><th>Source Material</th><td>Korean Manhwa by Son Je-ho &amp; Lee Kwangsu (Naver/WEBTOON, 2007–2019)</td></tr>
+<tr><th>Creators</th><td>Son Je-ho (story) &amp; Lee Kwangsu (art)</td></tr>
+<tr><th>Animation Studios</th><td>Production I.G (2020 TV &amp; 2016 Awakening) · Studio Animal (2015 OVA)</td></tr>
+<tr><th>Directors</th><td>Shunsuke Tada (Chief) &amp; Yasutaka Yamamoto (TV) · Kenichi Matsuzawa (Awakening)</td></tr>
+<tr><th>Broadcast Run</th><td>Oct 7 – Dec 30, 2020 (TV) · Feb 2016 (Awakening) · Dec 2015 (OVA)</td></tr>
+<tr><th>Seasons &amp; Episodes</th><td>13 TV episodes + 1 Awakening ONA + 1 Beginning of Destruction OVA</td></tr>
+<tr><th>Manhwa Span</th><td>25 volumes · 544 chapters (543 + Epilogue)</td></tr>
+<tr><th>Adaptation Status</th><td>Manhwa complete; anime adapts through Ch. 205 (skipping Crombel)</td></tr></tbody></table></div>
+  <h3>Synopsis &amp; Production Context</h3>
+  <p>After sleeping 820 years following a devastating clash with his Werewolf friend Muzaka, the Noblesse Cadis Etrama Di Raizel awakens in the modern world and enrolls at Ye Ran High School under Frankenstein. Protecting human friends from the Union&#x27;s DA-5 unit, Rai returns to Lukedonia to clear Frankenstein&#x27;s name and expose traitorous Clan Leaders.</p>
+</div></details></section>
+
+<section id="world"><details><summary><span class="num">02</span><span class="sumtitle">World &amp; Setting</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p>Secretly bridges Ye Ran High School (Seoul in manhwa, Japan in 2020 anime), the hidden Noble island of Lukedonia, and the Union&#x27;s global human-modification laboratories.</p>
+  <div class="grid"><article class="card"><h3>Ye Ran High School</h3><p>Sanctuary founded by Frankenstein where Rai befriends human students.</p></article><article class="card"><h3>Lukedonia</h3><p>Hidden island nation of immortal Nobles ruled by the Lord and Clan Leaders.</p></article><article class="card"><h3>Union Labs &amp; Headquarters</h3><p>Global shadow syndicate conducting body-modification experiments.</p></article></div>
+</div></details></section>
+
+<section id="story"><details><summary><span class="num">03</span><span class="sumtitle">Story &amp; Chronology</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <h3>Chronological Progression</h3>
+  <p>Awakening ONA condenses Ch. 1–78; the 13-episode TV series adapts Ch. 79–205 (DA-5 and Lukedonia). Unadapted manhwa chapters (Ch. 206–544) escalate to Union Elders, traitor Nobles, Maduke&#x27;s Werewolf invasion, and Dr. Crombel&#x27;s nuclear crisis.</p>
+  <div class="warning"><b>ANIME VS. SOURCE CONTINUITY DIFFERENCES:</b> Awakening cuts Dr. Crombel and M-21&#x27;s werewolf-heart transformation, while the 2020 TV anime relocates the setting from South Korea to Japan, renames student characters (Shinwoo → Yusuke), and omits all Dr. Crombel subplots.</div>
+</div></details></section>
+
+<section id="arcs"><details open><summary><span class="num">04</span><span class="sumtitle">Major Story Arcs</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="timeline"><div class="event"><b>Awakening &amp; Union Intrigue (Awakening ONA · Ch. 1–78)</b><p>Rai awakens after 820 years, enrolls at Ye Ran, and clashes with M-21 and M-24.</p></div>
+<div class="event"><b>Visitors &amp; DA-5 (TV Ep. 1–7 · Ch. 79–144)</b><p>Regis and Seira investigate; Tao, Takeo, and M-21 defect to Frankenstein.</p></div>
+<div class="event"><b>Lukedonia &amp; The Lord (TV Ep. 8–13 · Ch. 145–205)</b><p>Rai reconciles with Lord Raskreia, exposes traitor Clan Leaders, and claims Ragnarok.</p></div>
+<div class="event"><b>Elders, Werewolves &amp; Final War (Unadapted · Ch. 206–544)</b><p>Rai, Muzaka, and Raskreia stop Union Elders, Maduke, and Crombel&#x27;s nuclear plot.</p></div></div>
+  <div class="table-wrap"><table><thead><tr><th>Arc Name</th><th>Anime Placement</th><th>Manga Placement</th><th>Key Developments</th></tr></thead><tbody><tr><td><b>Awakening &amp; Union Intrigue</b></td><td>Awakening ONA</td><td>Ch. 1–78</td><td>Rai awakens after 820 years, enrolls at Ye Ran, and clashes with M-21 and M-24.</td></tr>
+<tr><td><b>Visitors &amp; DA-5</b></td><td>TV Ep. 1–7</td><td>Ch. 79–144</td><td>Regis and Seira investigate; Tao, Takeo, and M-21 defect to Frankenstein.</td></tr>
+<tr><td><b>Lukedonia &amp; The Lord</b></td><td>TV Ep. 8–13</td><td>Ch. 145–205</td><td>Rai reconciles with Lord Raskreia, exposes traitor Clan Leaders, and claims Ragnarok.</td></tr>
+<tr><td><b>Elders, Werewolves &amp; Final War</b></td><td>Unadapted</td><td>Ch. 206–544</td><td>Rai, Muzaka, and Raskreia stop Union Elders, Maduke, and Crombel&#x27;s nuclear plot.</td></tr></tbody></table></div>
+</div></details></section>
+
+<section id="characters"><details open><summary><span class="num">05</span><span class="sumtitle">Character Database</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p class="lead">Searchable canon character directory for Noblesse. Click any entry to open its dedicated character dossier.</p>
+  <div class="search-bar">
+    <input type="search" id="character-search" placeholder="Search characters, affiliations, abilities..." aria-label="Search characters">
+    <select id="character-filter" aria-label="Filter by affiliation"><option value="">All affiliations</option><option value="former werewolf lord">Former Werewolf Lord</option>
+<option value="landegre clan / rk-5 #3">Landegre Clan / RK-5 #3</option>
+<option value="lord of lukedonia">Lord of Lukedonia</option>
+<option value="loyard clan leader / rk-5">Loyard Clan Leader / RK-5</option>
+<option value="rk-5 #1 &amp; #2 (ex-da-5)">RK-5 #1 &amp; #2 (Ex-DA-5)</option>
+<option value="rk-5 #4 (ex-union)">RK-5 #4 (Ex-Union)</option>
+<option value="the noblesse / lukedonia">The Noblesse / Lukedonia</option>
+<option value="union 13th &amp; 2nd elders">Union 13th &amp; 2nd Elders</option>
+<option value="ye ran high school">Ye Ran High School</option>
+<option value="ye ran principal / rk-5 #0">Ye Ran Principal / RK-5 #0</option></select>
+  </div>
+  <div class="search-count" id="character-count"></div>
+  <div class="grid"><article class="card char-db-card" data-search="Cadis Etrama Di Raizel (Rai) The Noblesse / Lukedonia Hemokinesis, Blood Field, Blood Demon, Blood Phoenix Selfless protector whose powers drain his own life force." data-affiliation="the noblesse / lukedonia">
+<h3>Cadis Etrama Di Raizel (Rai)</h3>
+<p><b>Affiliation / Role:</b> The Noblesse / Lukedonia</p>
+<p style="margin-top:5px"><b>Abilities:</b> Hemokinesis, Blood Field, Blood Demon, Blood Phoenix</p>
+<p style="margin-top:5px">Selfless protector whose powers drain his own life force.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Manhwa Epilogue: Reappears alive in his Ye Ran classroom.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/cadis-etrama-di-raizel-rai.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Frankenstein Ye Ran Principal / RK-5 #0 Dark Spear, modified human supremacy Rai&#x27;s fiercely loyal servant for 820+ years." data-affiliation="ye ran principal / rk-5 #0">
+<h3>Frankenstein</h3>
+<p><b>Affiliation / Role:</b> Ye Ran Principal / RK-5 #0</p>
+<p style="margin-top:5px"><b>Abilities:</b> Dark Spear, modified human supremacy</p>
+<p style="margin-top:5px">Rai&#x27;s fiercely loyal servant for 820+ years.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Continues serving Rai and investigating his survival.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/frankenstein.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="M-21 RK-5 #4 (Ex-Union) Implanted Werewolf heart transformation Sole surviving early M-Series test subject turned student protector." data-affiliation="rk-5 #4 (ex-union)">
+<h3>M-21</h3>
+<p><b>Affiliation / Role:</b> RK-5 #4 (Ex-Union)</p>
+<p style="margin-top:5px"><b>Abilities:</b> Implanted Werewolf heart transformation</p>
+<p style="margin-top:5px">Sole surviving early M-Series test subject turned student protector.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Active RK-5 guardian.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/m-21.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Tao &amp; Takeo RK-5 #1 &amp; #2 (Ex-DA-5) Hacking &amp; modified sniping Defectors from DA-5; Tao later chairs Ye Ran High School." data-affiliation="rk-5 #1 &amp; #2 (ex-da-5)">
+<h3>Tao &amp; Takeo</h3>
+<p><b>Affiliation / Role:</b> RK-5 #1 &amp; #2 (Ex-DA-5)</p>
+<p style="margin-top:5px"><b>Abilities:</b> Hacking &amp; modified sniping</p>
+<p style="margin-top:5px">Defectors from DA-5; Tao later chairs Ye Ran High School.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Active RK-5 leaders.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/tao-takeo.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Regis K. Landegre Landegre Clan / RK-5 #3 Noble aura, Soul Weapon Regasus Proud young Noble who learns humility among humans." data-affiliation="landegre clan / rk-5 #3">
+<h3>Regis K. Landegre</h3>
+<p><b>Affiliation / Role:</b> Landegre Clan / RK-5 #3</p>
+<p style="margin-top:5px"><b>Abilities:</b> Noble aura, Soul Weapon Regasus</p>
+<p style="margin-top:5px">Proud young Noble who learns humility among humans.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Active Clan Leader &amp; RK-5 member.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/regis-k-landegre.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Seira J. Loyard Loyard Clan Leader / RK-5 Soul Weapon Death Scythe Stoic young Clan Leader devoted to Rai." data-affiliation="loyard clan leader / rk-5">
+<h3>Seira J. Loyard</h3>
+<p><b>Affiliation / Role:</b> Loyard Clan Leader / RK-5</p>
+<p style="margin-top:5px"><b>Abilities:</b> Soul Weapon Death Scythe</p>
+<p style="margin-top:5px">Stoic young Clan Leader devoted to Rai.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Active Clan Leader.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/seira-j-loyard.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Raskreia Lord of Lukedonia True Ragnarok Soul Weapon Daughter of the Previous Lord who reconciles with Rai." data-affiliation="lord of lukedonia">
+<h3>Raskreia</h3>
+<p><b>Affiliation / Role:</b> Lord of Lukedonia</p>
+<p style="margin-top:5px"><b>Abilities:</b> True Ragnarok Soul Weapon</p>
+<p style="margin-top:5px">Daughter of the Previous Lord who reconciles with Rai.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Survives the missile crisis in Lukedonia.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/raskreia.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Muzaka Former Werewolf Lord Peak Werewolf strength &amp; regeneration Rai&#x27;s closest friend driven to grief over his daughter Ashleen." data-affiliation="former werewolf lord">
+<h3>Muzaka</h3>
+<p><b>Affiliation / Role:</b> Former Werewolf Lord</p>
+<p style="margin-top:5px"><b>Abilities:</b> Peak Werewolf strength &amp; regeneration</p>
+<p style="margin-top:5px">Rai&#x27;s closest friend driven to grief over his daughter Ashleen.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Survives the final missile interception.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/muzaka.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Shinwoo &amp; Ik-Han Ye Ran High School Ordinary human students Rai&#x27;s first human friends anchoring his affection for humanity." data-affiliation="ye ran high school">
+<h3>Shinwoo &amp; Ik-Han</h3>
+<p><b>Affiliation / Role:</b> Ye Ran High School</p>
+<p style="margin-top:5px"><b>Abilities:</b> Ordinary human students</p>
+<p style="margin-top:5px">Rai&#x27;s first human friends anchoring his affection for humanity.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Memories restored upon Rai&#x27;s return in Ch. 544.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/shinwoo-ik-han.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+<article class="card char-db-card" data-search="Dr. Crombel &amp; Maduke Union 13th &amp; 2nd Elders Crombel: Dark science; Maduke: Blood Stone Masterminds behind human experiments and the Werewolf war." data-affiliation="union 13th &amp; 2nd elders">
+<h3>Dr. Crombel &amp; Maduke</h3>
+<p><b>Affiliation / Role:</b> Union 13th &amp; 2nd Elders</p>
+<p style="margin-top:5px"><b>Abilities:</b> Crombel: Dark science; Maduke: Blood Stone</p>
+<p style="margin-top:5px">Masterminds behind human experiments and the Werewolf war.</p>
+<p style="margin-top:5px"><b>Final Status:</b> Defeated in the manhwa finale.</p>
+<p style="margin-top:10px"><a class="btn" href="characters/noblesse/dr-crombel-maduke.html">OPEN CHARACTER DOSSIER →</a></p>
+</article>
+</div>
+</div></details></section>
+
+<section id="powers"><details><summary><span class="num">06</span><span class="sumtitle">Battle &amp; Combat System</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p class="lead">Noblesse Hemokinesis and Blood Fields, hereditary Clan Leader Soul Weapons, Union cybernetic/genetic modification, and Werewolf Blood Stones.</p>
+  <div class="grid"><article class="card"><h3>Blood Field &amp; Soul Weapons</h3><p>Rai&#x27;s Blood Field erases targets at the cost of his life force; Clan Leaders wield ancestral Soul Weapons.</p></article><article class="card"><h3>Union Modification &amp; Werewolves</h3><p>M-Series, D-drugs, and Dark Spear clash with Werewolf transformations.</p></article></div>
+</div></details></section>
+
+<section id="factions"><details open><summary><span class="num">07</span><span class="sumtitle">Nations &amp; Factions</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="grid"><article class="card">
+<h3>Lukedonia</h3>
+<p><b>Leadership:</b> Raskreia &amp; Clan Leaders · <b>Status:</b> Active</p>
+<p style="margin-top:5px">Isolationist homeland of the Nobles.</p>
+<p style="margin-top:10px"><a class="btn" href="factions/noblesse/lukedonia.html">OPEN FACTION DOSSIER →</a></p>
+</article>
+<article class="card">
+<h3>Ye Ran High School &amp; RK-5</h3>
+<p><b>Leadership:</b> Frankenstein &amp; Tao · <b>Status:</b> Active</p>
+<p style="margin-top:5px">Rai&#x27;s protective household and human sanctuary.</p>
+<p style="margin-top:10px"><a class="btn" href="factions/noblesse/ye-ran-high-school-rk-5.html">OPEN FACTION DOSSIER →</a></p>
+</article>
+<article class="card">
+<h3>The Union</h3>
+<p><b>Leadership:</b> 13 Elders · <b>Status:</b> Shattered</p>
+<p style="margin-top:5px">Global cabal of traitor Nobles and scientists.</p>
+<p style="margin-top:10px"><a class="btn" href="factions/noblesse/the-union.html">OPEN FACTION DOSSIER →</a></p>
+</article>
+<article class="card">
+<h3>The Werewolves</h3>
+<p><b>Leadership:</b> Maduke / Muzaka · <b>Status:</b> Reformed</p>
+<p style="margin-top:5px">Warrior race torn between conquest and honor.</p>
+<p style="margin-top:10px"><a class="btn" href="factions/noblesse/the-werewolves.html">OPEN FACTION DOSSIER →</a></p>
+</article>
+</div>
+</div></details></section>
+
+<section id="relationships"><details><summary><span class="num">08</span><span class="sumtitle">Relationships</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p>Verified canonical bonds, rivalries, mentorships, and romantic pairings (unconfirmed fan pairings are excluded):</p>
+  <ul><li><b>Rai &amp; Frankenstein (Master &amp; Servant):</b> 820-year bond of absolute loyalty.</li>
+<li><b>Rai &amp; Muzaka (Tragic Friendship):</b> Reconciled after Maduke&#x27;s betrayal is exposed.</li>
+<li><b>Rai &amp; Ye Ran Students (Protector Bond):</b> Ordinary friendship giving Rai&#x27;s life meaning.</li></ul>
+</div></details></section>
+
+<section id="episodes"><details><summary><span class="num">09</span><span class="sumtitle">Anime/Manga Guide</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <p>13 TV episodes + Awakening ONA (Production I.G, 2016–2020) + 2015 OVA adapt through Manhwa Ch. 205; Son Je-ho and Lee Kwangsu&#x27;s manhwa concludes at Ch. 544.</p>
+</div></details></section>
+
+<section id="themes"><details><summary><span class="num">10</span><span class="sumtitle">Themes &amp; Analysis</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="grid"><article class="card"><h3>Noblesse Oblige</h3><p>True nobility uses strength to shelter the powerless rather than exploit them.</p></article>
+<article class="card"><h3>Found Humanity</h3><p>Immortals learn warmth from ordinary mortal friendships.</p></article></div>
+</div></details></section>
+
+<section id="ending"><details><summary><span class="num">11</span><span class="sumtitle">Ending Explained</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="warning"><b>SPOILER DISCLOSURE:</b> Detailed resolution of Noblesse across anime and source material.</div>
+  <p style="margin-top:12px">After Rai, Muzaka, and Raskreia intercept Dr. Crombel&#x27;s final nuclear missiles in Ch. 542–543, everyone initially loses their memories—until Ch. 544 sees Rai reappear in his Ye Ran classroom seat, restoring his friends&#x27; memories while Muzaka and Raskreia live on.</p>
+  <div class="table-wrap"><table><thead><tr><th>Outcome / Subject</th><th>Anime Continuity</th><th>Manga Continuity</th></tr></thead><tbody><tr><td><b>TV Anime (Ep. 13)</b></td><td>Concludes the Lukedonia arc (Ch. 205).</td><td>Leaves Elders, Werewolves, and Crombel unadapted.</td></tr>
+<tr><td><b>Manhwa Finale (Ch. 544)</b></td><td>Missiles stopped; Rai returns to Ye Ran classroom.</td><td>Muzaka and Raskreia also survive.</td></tr></tbody></table></div>
+</div></details></section>
+
+<section id="purposes"><details open><summary><span class="num">12</span><span class="sumtitle">Purposes</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <h3>Moral of the Story: True Nobility Protects the Weak Without Asking for Praise</h3>
+  <p class="lead">Noblesse contrasts exploitative ambition against quiet sacrifice—showing that power is measured by who you shield.</p>
+  <p>From ramen bowls at Ye Ran to intercepting nuclear warheads, Rai proves that protecting ordinary lives is worth any cost.</p>
+  <p><b>Editorial Note:</b> This essay presents an interpretive reading of the narrative's moral and thematic architecture rather than an official author statement.</p>
+</div></details></section>
+
+<section id="sources"><details><summary><span class="num">13</span><span class="sumtitle">References</span><span class="toggle">EXPAND / COLLAPSE</span></summary><div class="inside">
+  <div class="table-wrap"><table><thead><tr><th>Source</th><th>Used for</th><th>Reference</th></tr></thead><tbody><tr><td>Noblesse Official Anime Site</td><td>Verified primary/encyclopedia reference</td><td><a href="https://noblesse-anime.com/" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>WEBTOON (EN) — Noblesse</td><td>Verified primary/encyclopedia reference</td><td><a href="https://www.webtoons.com/en/action/noblesse/list?title_no=87" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>Wikipedia — Noblesse</td><td>Verified primary/encyclopedia reference</td><td><a href="https://en.wikipedia.org/wiki/Noblesse_(manhwa)" target="_blank" rel="noopener">Open source ↗</a></td></tr>
+<tr><td>Anime News Network — Noblesse TV</td><td>Verified primary/encyclopedia reference</td><td><a href="https://www.animenewsnetwork.com/encyclopedia/anime.php?id=23083" target="_blank" rel="noopener">Open source ↗</a></td></tr></tbody></table></div>
+</div></details></section>
+</div>
+</main>
+
+<footer class="wrap foot">MOTION4I / THE NEXUS · ANIME UNIVERSE · NOBLESSE · 2015–2020 (Anime) · 2007–2019 (Manhwa)</footer>
+<script>
+(function(){
+  function openTargetSection(hash){
+    if(!hash) return;
+    var el = document.querySelector(hash);
+    if(!el) return;
+    var det = el.querySelector('details');
+    if(det) det.open = true;
+    document.querySelectorAll('.side a').forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === hash);
+    });
+  }
+  document.querySelectorAll('.side a').forEach(function(link){
+    link.addEventListener('click', function(){
+      var h = link.getAttribute('href');
+      openTargetSection(h);
+    });
+  });
+  window.addEventListener('hashchange', function(){ openTargetSection(window.location.hash); });
+  if(window.location.hash){ openTargetSection(window.location.hash); }
+
+  var expandAll = document.getElementById('expandAllBtn');
+  var collapseAll = document.getElementById('collapseAllBtn');
+  if(expandAll){ expandAll.addEventListener('click', function(){ document.querySelectorAll('.content details').forEach(function(d){ d.open = true; }); }); }
+  if(collapseAll){ collapseAll.addEventListener('click', function(){ document.querySelectorAll('.content details').forEach(function(d){ d.open = false; }); }); }
+
+  var charSearch = document.getElementById('character-search');
+  var charFilter = document.getElementById('character-filter');
+  var charCount = document.getElementById('character-count');
+  var charCards = Array.prototype.slice.call(document.querySelectorAll('.char-db-card'));
+  function filterChars(){
+    if(!charCount) return;
+    var q = (charSearch ? charSearch.value : '').trim().toLowerCase();
+    var role = (charFilter ? charFilter.value : '').trim().toLowerCase();
+    var visible = 0;
+    charCards.forEach(function(card){
+      var txt = (card.getAttribute('data-search') || '').toLowerCase();
+      var aff = (card.getAttribute('data-affiliation') || '').toLowerCase();
+      var match = (!q || txt.indexOf(q) !== -1) && (!role || aff.indexOf(role) !== -1);
+      card.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    charCount.textContent = 'SHOWING ' + visible + ' OF ' + charCards.length + ' CANON CHARACTERS';
+  }
+  if(charSearch) charSearch.addEventListener('input', filterChars);
+  if(charFilter) charFilter.addEventListener('change', filterChars);
+  filterChars();
+})();
+</script>
+</body></html>
